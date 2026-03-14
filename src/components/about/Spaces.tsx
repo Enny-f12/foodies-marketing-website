@@ -20,7 +20,18 @@ const locations = [
     name: "Maitama, Abuja",
     address: "Plot 12, Gana Street, Maitama, Abuja",
     hours: "Monday – Sunday: 11:00 AM – 9:00 PM",
-    note: "Exclusive private dining & VIP lounge",
+    note: "Private dining available",
+    images: [
+      "https://i.pinimg.com/736x/53/14/52/531452de613131d384f31ddb76d43139.jpg",
+      "https://i.pinimg.com/736x/53/14/52/531452de613131d384f31ddb76d43139.jpg"
+    ],
+  },
+   {
+    id: "lekki-2",
+    name: "Lekki, Lagos",
+    address: "23 Admiralty Way  opposite wole ariyo street Lekki phase 1",
+    hours: "Monday – Sunday: 11:00 AM – 9:00 PM",
+    note: "Private dining available",
     images: [
       "https://i.pinimg.com/736x/53/14/52/531452de613131d384f31ddb76d43139.jpg",
       "https://i.pinimg.com/736x/53/14/52/531452de613131d384f31ddb76d43139.jpg"
@@ -54,7 +65,7 @@ export function OurSpacesSection() {
             letterSpacing: "-0.02em",
           }}
         >
-          Two Locations. <br />
+          Three Locations. <br />
           <span className="text-primary italic">One Standard of Excellence.</span>
         </h2>
 
@@ -138,7 +149,7 @@ export function OurSpacesSection() {
                     className="px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest border border-border hover:bg-bg-soft transition-all"
                     style={{ color: "var(--color-heading)" }}
                   >
-                    Order Takeaway
+                    View Private dining Options
                   </Link>
                 </div>
               </div>

@@ -89,7 +89,7 @@ export function HeroSection() {
         style={{ minHeight: "calc(100svh - 72px)" }}
       >
 
-        {/* ── BACKGROUND IMAGE (dominant) ─────────────────────────── */}
+        {/* ── BACKGROUND IMAGE (dominant) ── */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <div className="bg-kenburns relative w-full h-full">
             <Image
@@ -214,14 +214,14 @@ export function HeroSection() {
                   maxWidth: "min(100%, 400px)",
                 }}
               >
-                Nigeria&apos;s most vibrant flavors meet world-class digital
-                convenience. Real-time reservations, live inventory, and
-                loyalty rewards — all in one app.
+
+                Welcome to Foodies Hot & Spicy – where the vibrant flavors of Nigeria meet world-class digital convenience.
+                We&apos;re not just redefining food; we&apos;re redefining how you experience it
               </p>
 
               {/* Feature pills */}
               <div
-                className="fade-up flex flex-wrap gap-2 mb-10"
+                className="fade-up flex flex-wrap gap-2 mb-4"
                 style={{ animationDelay: "300ms", opacity: loaded ? undefined : 0 }}
               >
                 {[
@@ -246,7 +246,6 @@ export function HeroSection() {
                 ))}
               </div>
             </div>
-
             {/* BOTTOM: CTAs + stats */}
             <div>
               {/* Divider */}
@@ -259,7 +258,7 @@ export function HeroSection() {
                   background: "rgba(255,255,255,0.08)",
                 }}
               />
-
+                   
               {/* CTA row */}
 
 
@@ -333,6 +332,8 @@ export function HeroSection() {
                   <span style={{ color: "var(--color-on-ink-muted)" }}>New users only.</span>
                 </p>
               </div>
+
+             
 
               {/* Stats row */}
               <div

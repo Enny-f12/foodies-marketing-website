@@ -1,7 +1,6 @@
 import { AboutHero }        from "@/components/about/Hero";
 import { OurStorySection }  from "@/components/about/OurStory";
 import { PhilosophySection } from "@/components/about/Phillosophy";
-
 import { OurSpacesSection } from "@/components/about/Spaces";
 
 export const metadata = {

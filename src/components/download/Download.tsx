@@ -9,49 +9,48 @@ import {
   Gift,
   MessageCircle,
   ShoppingBag,
-  Smartphone,
 } from "lucide-react";
 
 /* ─── DATA ─────────────────────────────────────────────────── */
 const features = [
   {
-    icon:  ShoppingBag,
+    icon: ShoppingBag,
     title: "Seamless Ordering",
-    desc:  "Browse 255+ items, customize your dishes, and checkout in seconds.",
+    desc: "Browse our full menu, customize your dishes, and checkout in seconds.",
   },
   {
-    icon:  Zap,
+    icon: Zap,
     title: "Real-Time Inventory",
-    desc:  "See live stock availability before you order. No more disappointment.",
+    desc: "See live stock availability before you order. No more disappointment.",
   },
   {
-    icon:  CalendarCheck,
+    icon: CalendarCheck,
     title: "Easy Reservations",
-    desc:  "Book tables in real-time, make special requests, and get instant confirmations.",
+    desc: "Book tables in real-time, make special requests, and get instant confirmations.",
   },
   {
-    icon:  Truck,
+    icon: Truck,
     title: "Live Tracking",
-    desc:  "Track your driver live on the map with accurate ETA updates.",
+    desc: "Track your driver live on the map with accurate ETA updates.",
   },
   {
-    icon:  Gift,
+    icon: Gift,
     title: "Loyalty & Rewards",
-    desc:  "Earn points on every order, unlock VIP tiers, and get exclusive offers.",
+    desc: "Earn points on every order, unlock VIP tiers, and get exclusive offers.",
   },
   {
-    icon:  MessageCircle,
+    icon: MessageCircle,
     title: "Concierge Chat",
-    desc:  "Chat with our team for assistance, recommendations, or dietary needs.",
+    desc: "Chat with our team for assistance, recommendations, or dietary needs.",
   },
 ];
 
 const screens = [
-  { id: 1, label: "Home",     desc: "Real-time discovery"      },
-  { id: 2, label: "Menu",     desc: "255+ authentic dishes"     },
-  { id: 3, label: "Order",    desc: "Seamless digital checkout" },
-  { id: 4, label: "Tracking", desc: "Live delivery updates"     },
-  { id: 5, label: "Profile",  desc: "Exclusive loyalty tiers"   },
+  { id: 1, label: "Home", desc: "Real-time discovery" },
+  { id: 2, label: "Menu", desc: "255+ authentic dishes" },
+  { id: 3, label: "Order", desc: "Seamless digital checkout" },
+  { id: 4, label: "Tracking", desc: "Live delivery updates" },
+  { id: 5, label: "Profile", desc: "Exclusive loyalty tiers" },
 ];
 
 /* ─── SHARED APP BUTTONS ────────────────────────────────────── */
@@ -64,7 +63,7 @@ function AppButtons({ variant = "ink" }: { variant?: "ink" | "light" }) {
         className="inline-flex items-center gap-3 px-6 py-3.5 font-semibold rounded-xl transition-all hover:opacity-90 active:scale-95"
         style={{
           background: isInk ? "var(--color-on-ink)" : "var(--color-heading)",
-          color:      isInk ? "var(--color-surface-ink)" : "var(--color-bg)",
+          color: isInk ? "var(--color-surface-ink)" : "var(--color-bg)",
         }}
       >
         <Apple size={20} strokeWidth={2} />
@@ -101,7 +100,10 @@ export default function AppDownloadPage() {
       style={{ background: "var(--color-bg)", color: "var(--color-text)" }}
     >
 
-     
+
+      {/* ══════════════════════════════════════════════════════
+    HERO
+    ════════════════════════════════════════════════════ */}
       <section
         className="relative overflow-hidden"
         style={{ background: "var(--color-surface-ink)", paddingTop: "72px" }}
@@ -111,118 +113,68 @@ export default function AppDownloadPage() {
           className="absolute -top-24 left-1/2 -translate-x-1/2 w-150 h-75 rounded-full pointer-events-none"
           style={{ background: "var(--color-primary)", opacity: 0.07, filter: "blur(100px)" }}
         />
-        <div
-          className="absolute bottom-0 right-0 w-72 h-72 rounded-full pointer-events-none"
-          style={{ background: "var(--color-secondary)", opacity: 0.05, filter: "blur(80px)" }}
-        />
 
         <div
           className="relative z-10 max-w-7xl mx-auto text-center"
           style={{ padding: "clamp(4rem,8vw,7rem) clamp(1.25rem,5vw,3rem) clamp(3rem,6vw,5rem)" }}
         >
-          {/* Eyebrow */}
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-10 shrink-0" style={{ background: "var(--color-secondary)" }} />
-            <span
-              className="text-[10px] font-semibold uppercase tracking-[0.28em]"
-              style={{ color: "var(--color-secondary)" }}
-            >
-              The Foodies App
-            </span>
-            <div className="h-px w-10 shrink-0" style={{ background: "var(--color-secondary)" }} />
-          </div>
-
           {/* Headline */}
           <h1
             className="font-display font-bold uppercase leading-none mb-6 mx-auto"
             style={{
-              fontSize:      "clamp(2.8rem,6vw,6rem)",
+              fontSize: "clamp(2.8rem,6vw,6rem)",
               letterSpacing: "-0.03em",
-              color:         "var(--color-on-ink)",
-              maxWidth:      "min(90vw,820px)",
+              color: "var(--color-on-ink)",
+              maxWidth: "min(90vw,820px)",
             }}
           >
-            Your passport to{" "}
-            <span style={{ color: "var(--color-primary)" }}>premium</span>
-            <br />Nigerian dining.
+            Download the{" "}
+            <span style={{ color: "var(--color-primary)" }}>Foodies</span> App
           </h1>
 
-          {/* Sub */}
+          {/* Subtext */}
           <p
-            className="mx-auto mb-10 leading-relaxed"
+            className="mx-auto mb-12 leading-relaxed"
             style={{
               fontSize: "clamp(0.95rem,1.8vw,1.05rem)",
-              color:    "var(--color-on-ink-muted)",
-              maxWidth: "min(90vw,500px)",
+              color: "var(--color-on-ink-muted)",
+              maxWidth: "min(90vw,480px)",
             }}
           >
-            Real-time inventory, seamless reservations, and exclusive loyalty
-            rewards — all in one app. Never order what&#39;s out of stock again.
+            Your passport to premium Nigerian dining, now in your pocket.
           </p>
 
-          {/* Buttons */}
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
-            <AppButtons variant="ink" />
-          </div>
-
-          {/* QR promo strip */}
+          {/* Large App Mockup Image */}
           <div
-            className="inline-flex items-center gap-4 px-5 py-3 rounded-xl mx-auto"
+            className="relative mx-auto rounded-2xl overflow-hidden"
             style={{
-              background: "rgba(255,255,255,0.05)",
-              border:     "0.5px solid var(--color-surface-ink-border)",
+              maxWidth: "900px",
+              aspectRatio: "16/9",
+              border: "0.5px solid var(--color-surface-ink-border)",
             }}
           >
+            <Image
+              src="/images/app-mockup.png"
+              alt="Foodies app screens"
+              fill
+              className="object-cover object-top"
+              sizes="900px"
+              priority
+            />
+            {/* Placeholder until image is ready */}
             <div
-              className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
-              style={{
-                border: "1.5px dashed var(--color-surface-ink-border)",
-                color:  "var(--color-on-ink-faint)",
-              }}
+              className="absolute inset-0 flex items-center justify-center"
+              style={{ background: "rgba(255,255,255,0.03)" }}
             >
-              <Smartphone size={18} strokeWidth={1.5} />
+              <p
+                className="text-xs uppercase tracking-widest"
+                style={{ color: "var(--color-on-ink-faint)" }}
+              >
+                [ App Mockup Image ]
+              </p>
             </div>
-            <p className="text-[12px]" style={{ color: "var(--color-on-ink-muted)" }}>
-              Scan to download ·{" "}
-              <strong style={{ color: "var(--color-secondary)" }}>₦2,000 off</strong>{" "}
-              your first order
-            </p>
           </div>
 
-          {/* Stats strip */}
-          <div
-            className="grid grid-cols-3 max-w-sm mx-auto mt-14"
-            style={{ borderTop: "0.5px solid var(--color-surface-ink-border)", paddingTop: "1.5rem" }}
-          >
-            {[
-              { value: "255+", label: "Dishes" },
-              { value: "5★",   label: "Rating" },
-              { value: "20K+", label: "Users"  },
-            ].map((s, i, arr) => (
-              <div
-                key={s.label}
-                className="flex flex-col items-center gap-1"
-                style={{
-                  borderRight: i < arr.length - 1
-                    ? "0.5px solid var(--color-surface-ink-border)"
-                    : "none",
-                }}
-              >
-                <span
-                  className="font-display font-bold"
-                  style={{ fontSize: "clamp(1.4rem,2.5vw,2rem)", color: "var(--color-secondary)" }}
-                >
-                  {s.value}
-                </span>
-                <span
-                  className="text-[9px] uppercase tracking-[0.2em] font-semibold"
-                  style={{ color: "var(--color-on-ink-faint)" }}
-                >
-                  {s.label}
-                </span>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -244,65 +196,61 @@ export default function AppDownloadPage() {
 
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
             <h2
-              className="font-display font-bold uppercase leading-none"
+              className="font-display font-bold leading-none"
               style={{
-                fontSize:      "clamp(2rem,4vw,3rem)",
+                fontSize: "clamp(2rem,4vw,3rem)",
                 letterSpacing: "-0.03em",
-                color:         "var(--color-heading)",
+                color: "var(--color-heading)",
               }}
             >
               Everything you need for a{" "}
               <span style={{ color: "var(--color-primary)" }}>world-class</span>
               <br />culinary journey.
             </h2>
-            <p
-              className="text-sm shrink-0"
-              style={{ color: "var(--color-text-secondary)", maxWidth: "200px" }}
-            >
-              Six powerful features, one seamless experience.
-            </p>
-          </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {features.map(({ icon: Icon, title, desc }, i) => (
-              <div
-                key={title}
-                className="flex flex-col gap-4 p-6 rounded-xl"
-                style={{
-                  background: "var(--color-bg-card)",
-                  border:     "0.5px solid var(--color-border)",
-                }}
-              >
+           
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {features.map(({ icon: Icon, title, desc }, i) => (
                 <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+                  key={title}
+                  className="flex flex-col gap-4 p-6 rounded-xl"
                   style={{
-                    background: i % 2 === 0
-                      ? "rgba(225,11,28,0.08)"
-                      : "rgba(252,208,99,0.12)",
+                    background: "var(--color-bg-card)",
+                    border: "0.5px solid var(--color-border)",
                   }}
                 >
-                  <Icon
-                    size={18}
-                    strokeWidth={1.5}
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
                     style={{
-                      color: i % 2 === 0
-                        ? "var(--color-primary)"
-                        : "var(--color-secondary-hover)",
+                      background: i % 2 === 0
+                        ? "rgba(225,11,28,0.08)"
+                        : "rgba(252,208,99,0.12)",
                     }}
-                  />
+                  >
+                    <Icon
+                      size={18}
+                      strokeWidth={1.5}
+                      style={{
+                        color: i % 2 === 0
+                          ? "var(--color-primary)"
+                          : "var(--color-secondary-hover)",
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm mb-1" style={{ color: "var(--color-heading)" }}>
+                      {title}
+                    </p>
+                    <p className="text-xs leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
+                      {desc}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-semibold text-sm mb-1" style={{ color: "var(--color-heading)" }}>
-                    {title}
-                  </p>
-                  <p className="text-xs leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
-                    {desc}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
       </section>
 
       {/* ══════════════════════════════════════════════════════
@@ -349,14 +297,14 @@ export default function AppDownloadPage() {
             <div
               className="inline-block px-8 py-3 rounded-xl font-mono font-bold mb-8"
               style={{
-                background:    "var(--color-bg-soft)",
-                border:        "1.5px dashed var(--color-primary)",
-                color:         "var(--color-primary)",
-                fontSize:      "1.1rem",
+                background: "var(--color-bg-soft)",
+                border: "1.5px dashed var(--color-primary)",
+                color: "var(--color-primary)",
+                fontSize: "1.1rem",
                 letterSpacing: "0.12em",
               }}
             >
-              FOODIESAPP
+              use code: FOODIESAPP
             </div>
 
             <div className="flex justify-center mb-6">
@@ -393,9 +341,9 @@ export default function AppDownloadPage() {
               <h2
                 className="font-display font-bold uppercase leading-none"
                 style={{
-                  fontSize:      "clamp(1.8rem,3.5vw,2.8rem)",
+                  fontSize: "clamp(1.8rem,3.5vw,2.8rem)",
                   letterSpacing: "-0.03em",
-                  color:         "var(--color-heading)",
+                  color: "var(--color-heading)",
                 }}
               >
                 See the App{" "}
@@ -418,8 +366,8 @@ export default function AppDownloadPage() {
                   className="relative rounded-xl overflow-hidden flex flex-col items-center justify-center group"
                   style={{
                     aspectRatio: "9/18",
-                    background:  "var(--color-bg-card)",
-                    border:      "0.5px solid var(--color-border)",
+                    background: "var(--color-bg-card)",
+                    border: "0.5px solid var(--color-border)",
                   }}
                 >
                   {/* Notch */}
@@ -427,8 +375,8 @@ export default function AppDownloadPage() {
                     className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 rounded-b-2xl"
                     style={{
                       background: "var(--color-bg-soft)",
-                      border:     "0.5px solid var(--color-border)",
-                      borderTop:  "none",
+                      border: "0.5px solid var(--color-border)",
+                      borderTop: "none",
                     }}
                   />
 
@@ -464,7 +412,7 @@ export default function AppDownloadPage() {
                 key={s.id}
                 className="h-1 rounded-full transition-all duration-300"
                 style={{
-                  width:      i === 0 ? "2rem" : "0.5rem",
+                  width: i === 0 ? "2rem" : "0.5rem",
                   background: i === 0 ? "var(--color-primary)" : "var(--color-border)",
                 }}
               />
@@ -473,32 +421,7 @@ export default function AppDownloadPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          FINAL CTA STRIP
-          ════════════════════════════════════════════════════ */}
-      <section
-        className="py-20 px-6 text-center"
-        style={{ background: "var(--color-surface-ink)" }}
-      >
-        <div className="max-w-2xl mx-auto">
-          <h2
-            className="font-display font-bold uppercase leading-none mb-4"
-            style={{
-              fontSize:      "clamp(2rem,4vw,3rem)",
-              letterSpacing: "-0.03em",
-              color:         "var(--color-on-ink)",
-            }}
-          >
-            Ready to order?
-          </h2>
-          <p className="mb-8 text-sm leading-relaxed" style={{ color: "var(--color-on-ink-muted)" }}>
-            Download the app and get ₦2,000 off your first order.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <AppButtons variant="ink" />
-          </div>
-        </div>
-      </section>
+
 
     </main>
   );

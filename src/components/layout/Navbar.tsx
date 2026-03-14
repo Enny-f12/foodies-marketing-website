@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "@/components/providers/ThemeProvider";
 
 const navLinks = [
-  { label: "Home",    href: "/" },
-  { label: "Menu",    href: "/menu" },
-  { label: "About",   href: "/about" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Menu", href: "/menu" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -19,9 +19,9 @@ export function Navbar() {
     <header
       className="fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-md"
       style={{
-        background:   "var(--color-surface-ink)",
+        background: "var(--color-surface-ink)",
         borderBottom: "1px solid var(--color-surface-ink-border)",
-        height:       "72px",
+        height: "72px",
       }}
     >
       <div
@@ -34,7 +34,7 @@ export function Navbar() {
             className="w-8 h-8 flex items-center justify-center font-black text-sm transition-transform group-hover:rotate-12"
             style={{
               background: "var(--color-primary)",
-              color:      "var(--color-surface-ink)",
+              color: "var(--color-surface-ink)",
             }}
           >
             F
@@ -70,10 +70,9 @@ export function Navbar() {
               >
                 {l.label}
                 {/* Modern Indicator: Red line for active, Yellow for hover */}
-                <span 
-                  className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-300 ${
-                    active ? "w-full bg-primary" : "w-0 bg-primary group-hover:w-full"
-                  }`} 
+                <span
+                  className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-300 ${active ? "w-full bg-primary" : "w-0 bg-primary group-hover:w-full"
+                    }`}
                 />
               </Link>
             );
@@ -97,7 +96,7 @@ export function Navbar() {
             className="hidden rounded-xl sm:inline-flex items-center gap-2 px-6 py-2.5 font-bold text-[10px] uppercase tracking-widest transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-black/20"
             style={{
               background: "var(--color-primary)",
-              color:      "var(--color-on-ink)",
+              color: "var(--color-on-ink)",
             }}
           >
             Download App

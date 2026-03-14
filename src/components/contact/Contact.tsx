@@ -26,7 +26,7 @@ export default function ContactPage() {
             {/* Embedded Map for Lekki */}
             <div className="w-full h-40 mb-4 rounded-sm overflow-hidden border border-border">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.728543594191!2d3.471676274478144!3d6.428886324021204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf5326889417f%3A0x673c6838a063b4b5!2sAdmiralty%20Way%2C%20Lekki%20Phase%201%2C%20Lagos!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng"
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d15850.774102664149!2d3.3086787999999996!3d6.6848344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sng!4v1773413415037!5m2!1sen!2sng"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -41,7 +41,7 @@ export default function ContactPage() {
                 <span>📍</span> 32b Admiralty Way, Opposite Prince Ebeano Supermarket, Lekki Phase 1
               </p>
               <p className="text-xs text-muted flex gap-2">
-                <span>📞</span> +234 [Phone Number]
+                <span>📞</span> +234 916 600 0777
               </p>
               <p className="text-xs text-primary font-medium flex gap-2">
                 <span>✉️</span> lekki@foodies.com.ng
@@ -53,19 +53,19 @@ export default function ContactPage() {
           </div>
           <div className="grid grid-cols-2 gap-2 mt-4">
             <Button size="sm">Book a Table</Button>
-            <Button variant="outline" size="sm">Takeaway</Button>
+            <Button variant="outline" size="sm">Order Takeaway</Button>
           </div>
         </Card>
 
         {/* Victoria Island Location */}
         <Card hover className="p-6 flex flex-col h-full">
           <div className="flex-1">
-            <h3 className="font-bold text-lg mb-4">Lagos</h3>
+            <h3 className="font-bold text-lg mb-4">Lekki, Lagos</h3>
 
             {/* Embedded Map for VI */}
             <div className="w-full h-40 mb-4 rounded-sm overflow-hidden border border-border">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.578505978847!2d3.4694701735036637!3d6.448123724037766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf44f99a08cdd%3A0x72edef8785ed5e85!2s31%20Admiralty%20Wy%2C%20Lekki%20Phase%201%2C%20Lekki%20106104%2C%20Lagos!5e0!3m2!1sen!2sng!4v1773309579974!5m2!1sen!2sng" 
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d15850.774102664149!2d3.3086787999999996!3d6.6848344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sng!4v1773413542286!5m2!1sen!2sng"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -77,12 +77,10 @@ export default function ContactPage() {
 
             <div className="space-y-3 mb-6">
               <p className="text-xs text-muted flex gap-2">
-                <span>📍</span> 31 Admiralty Way,
-                Opposite First Bank Lekki Phase 1
-                Lagos State
+                <span>📍</span> 23 Admiralty Way  opposite wole ariyo street Lekki phase 1
               </p>
               <p className="text-xs text-muted flex gap-2">
-                <span>📞</span> +234 [Phone Number]
+                <span>📞</span> +234 916 600 0666
               </p>
               <p className="text-xs text-primary font-medium flex gap-2">
                 <span>✉️</span> lekki@foodies.com.ng
@@ -94,7 +92,7 @@ export default function ContactPage() {
           </div>
           <div className="grid grid-cols-2 gap-2 mt-4">
             <Button size="sm">Book a Table</Button>
-            <Button variant="outline" size="sm">Takeaway</Button>
+            <Button variant="outline" size="sm">Order Takeaway</Button>
           </div>
         </Card>
 
@@ -106,17 +104,26 @@ export default function ContactPage() {
               {/*<span className="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded-full font-bold uppercase tracking-widest">Coming Soon</span>*/}
             </div>
 
-            {/* Map Placeholder for Maitama */}
-            <div className="w-full h-40 mb-4 rounded-sm bg-muted flex items-center justify-center border border-border">
-              <span className="text-xs text-muted">Map Preview Coming Soon</span>
+            
+            {/* Embedded Map for maitama */}
+            <div className="w-full h-40 mb-4 rounded-sm overflow-hidden border border-border">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.8419931523435!2d7.496495999999999!3d9.078155400000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0b39cc5957c7%3A0xc95b4a106d955ce6!2sFoodies%20Hot%20and%20Spicy%20Abuja%20-%20Best%20Restaurant%20In%20Abuja!5e0!3m2!1sen!2sng!4v1773413622836!5m2!1sen!2sng"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
 
             <div className="space-y-3 mb-6">
               <p className="text-xs text-muted flex gap-2">
-                <span>📍</span> [Address to be confirmed]
+                <span>📍</span> AP Filling Station, Ardova Mall, opposite Transcorp Hilton, Maitama, Abuja 900026, Federal Capital Territory
               </p>
               <p className="text-xs text-muted flex gap-2">
-                <span>📞</span> +234 [Phone Number]
+                <span>📞</span> +234 916 600 0888
               </p>
               <p className="text-xs text-primary font-medium flex gap-2">
                 <span>✉️</span> abuja@foodies.com.ng
@@ -128,7 +135,7 @@ export default function ContactPage() {
           </div>
           <div className="grid grid-cols-2 gap-2 mt-4">
             <Button size="sm" >Book a Table</Button>
-            <Button variant="outline" size="sm">Takeaway</Button>
+            <Button variant="outline" size="sm"> Order Takeaway</Button>
           </div>
         </Card>
       </div>
@@ -201,7 +208,7 @@ export default function ContactPage() {
           <div className="p-6 rounded-sm bg-(--color-bg-soft) border border-border">
             <h4 className="text-sm font-bold mb-2">Corporate & Bulk Bookings</h4>
             <p className="text-xs text-muted mb-4">
-              Strategic partnerships for event catering, bulk office orders, or corporate credit lines.
+             For Strategic partnerships for event catering, bulk office orders, or corporate credit lines:
             </p>
             <a href="mailto:corporate@foodies.com.ng" className="text-primary font-bold text-sm hover:underline">
               corporate@foodies.com.ng

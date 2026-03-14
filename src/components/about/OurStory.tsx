@@ -2,16 +2,11 @@ export function OurStorySection() {
   const paragraphs = [
     "Foodies Hot & Spicy was born from a simple belief: that exceptional Nigerian cuisine deserves an equally exceptional dining experience.",
     "What started as a passion project in Lagos has grown into a destination for food lovers across Nigeria, with locations in Lekki and Maitama, Abuja.",
-    "But we're not just about great food. We're about reimagining what a restaurant can be in the digital age. We asked ourselves: Why should technology diminish hospitality when it could enhance it?",
+    "We're not just about great food. We're about reimagining what a restaurant can be in the digital age — why should technology diminish hospitality when it could enhance it?",
     "The answer became our mission: to blend the rich, authentic flavors of Nigeria with world-class digital convenience. To create an experience where tradition meets innovation.",
   ];
 
-  const stats = [
-    { value: "2",    label: "Locations" },
-    { value: "255+", label: "Menu Items" },
-    { value: "20",   label: "Guests (Private Dining)" },
-    { value: "2026", label: "Founded" },
-  ];
+ 
 
   return (
     <section style={{ background: "var(--color-bg)" }}>
@@ -19,72 +14,92 @@ export function OurStorySection() {
         className="max-w-7xl mx-auto"
         style={{ padding: "clamp(4rem,8vw,6rem) clamp(1.25rem,5vw,3rem)" }}
       >
-        {/* Two-column: text left, stats right */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+        <div
+          className="grid grid-cols-1 lg:grid-cols-2 overflow-hidden"
+          style={{
+            border:       "1px solid var(--color-border)",
+            borderRadius: "var(--border-radius-lg, 12px)",
+          }}
+        >
 
-          {/* Left — story copy */}
-          <div className="lg:col-span-3 flex flex-col gap-5">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="h-px w-8 shrink-0" style={{ background: "var(--color-primary)" }} />
-              <span className="section-label">Our Story</span>
+          {/* ── LEFT PANEL: label + headline + stats ── */}
+          <div
+            className="flex flex-col justify-between p-10"
+            style={{
+              background:  "var(--color-bg-card)",
+              borderRight: "1px solid var(--color-border)",
+            }}
+          >
+            {/* Top: label + headline + rule */}
+            <div>
+              <span
+                className="block uppercase tracking-widest text-xs font-semibold mb-6"
+                style={{ color: "var(--color-text-secondary)" }}
+              >
+                Our Story
+              </span>
+
+              <h2
+                className="font-display font-black leading-tight mb-6"
+                style={{
+                  color:    "var(--color-heading)",
+                  fontSize: "clamp(1.6rem,3vw,2.2rem)",
+                }}
+              >
+                A Passion Project<br />
+                That Became<br />
+                a Movement.
+              </h2>
+
+              {/* Red rule */}
+              <div
+                className="mb-6"
+                style={{
+                  width:      "2rem",
+                  height:     "2px",
+                  background: "var(--color-primary)",
+                }}
+              />
+
+             
             </div>
 
-            <h2
-              className="font-display font-black leading-tight mb-2"
-              style={{
-                color:    "var(--color-heading)",
-                fontSize: "clamp(1.8rem,3.5vw,2.6rem)",
-              }}
-            >
-              A Passion Project That Became a Movement
-            </h2>
-
-            {paragraphs.map((p, i) => (
-              <p
-                key={i}
-                className="leading-relaxed"
-                style={{
-                  color:    "var(--color-text-secondary)",
-                  fontSize: "clamp(0.95rem,1.8vw,1.05rem)",
-                }}
-              >
-                {p}
-              </p>
-            ))}
+            
           </div>
 
-          {/* Right — stat cards */}
-          <div className="lg:col-span-2 grid grid-cols-2 gap-3 lg:pt-16">
-            {stats.map((s) => (
-              <div
-                key={s.label}
-                className="flex flex-col items-center justify-center text-center p-5 aspect-square"
-                style={{
-                  background: "var(--color-bg-card)",
-                  border:     "1px solid var(--color-border)",
-                }}
-              >
-                <span
-                  className="font-display font-black block mb-1"
-                  style={{
-                    color:    "var(--color-primary)",
-                    fontSize: "clamp(1.8rem,3vw,2.4rem)",
-                  }}
-                >
-                  {s.value}
-                </span>
-                <span
-                  className="text-xs uppercase tracking-widest font-semibold leading-tight"
-                  style={{ color: "var(--color-text-secondary)" }}
-                >
-                  {s.label}
-                </span>
-              </div>
-            ))}
+          {/* ── RIGHT PANEL: paragraphs ── */}
+          <div
+            className="flex flex-col p-10"
+            style={{ background: "var(--color-bg)" }}
+          >
+            <div className="flex flex-col gap-5 flex-1">
+              {paragraphs.map((p, i) => (
+                <div key={i}>
+                  <p
+                    className="leading-relaxed text-sm"
+                    style={{ color: "var(--color-text-secondary)" }}
+                  >
+                    {p}
+                  </p>
+                  {i < paragraphs.length - 1 && (
+                    <div
+                      className="mt-5"
+                      style={{
+                        height:     "1px",
+                        background: "var(--color-border)",
+                      }}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
+
+           
+            </div>
           </div>
 
         </div>
-      </div>
+      
     </section>
   );
 }

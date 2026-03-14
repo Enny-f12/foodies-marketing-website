@@ -5,25 +5,25 @@ const pillars = [
     icon:  Leaf,
     num:   "01",
     title: "Sustainability",
-    desc:  "Supporting local farmers and reducing waste through smart inventory — because good food starts with good choices.",
+    desc:  "We embrace sustainabilty, supporting local farmers, and reducing waste through smart inventory management.",
   },
   {
     icon:  Users,
     num:   "02",
     title: "Community",
-    desc:  "We give back to the communities that nourish us — actively involved in local initiatives and charities.",
+    desc:  "We give back to the communities that nourish us, actively involved in local initiatives and charities.",
   },
   {
     icon:  Lightbulb,
     num:   "03",
     title: "Innovation",
-    desc:  "Our menu is never done — we find inspiration in new ingredients, new approaches, and fresh takes on old standards.",
+    desc:  "We innovate constantly, Our menu is never done — we find inspiration in new ingredients, new approaches, and fresh takes on old standards.",
   },
   {
     icon:  Smartphone,
     num:   "04",
     title: "You in Control",
-    desc:  "Dine in, take away, or order delivery — our digital platform puts seamless hospitality at your fingertips.",
+    desc:  "We put you in control. Whether yu are dining in, taking away, or order delivery, our digital platform puts seamless hospitality at your fingertips.",
   },
 ];
 

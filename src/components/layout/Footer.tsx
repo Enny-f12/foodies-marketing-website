@@ -12,10 +12,10 @@ const quickLinks = [
 ];
 
 const socials = [
-  { label: "Instagram",   href: "#" },
-  { label: "Facebook",    href: "#" },
-  { label: "X (Twitter)", href: "#" },
-  { label: "LinkedIn",    href: "#" },
+  { label: "Instagram",   href: "https://www.instagram.com/foodies_hotandspicy" },
+  { label: "Facebook",    href: "https://www.facebook.com/foodieshotandspicey" },
+  { label: "Tiktok", href: "https://www.tiktok.com/@foodies_hotandspicy" },
+  { label: "Snapchat",    href: "https://www.snapchat.com/add/foodiesng" },
 ];
 
 export function Footer() {
@@ -99,9 +99,9 @@ export function Footer() {
             </h4>
             <div className="flex flex-col gap-5">
               {[
-                { city: "Lekki, Lagos",   addr: "31 Admiralty Way, Lekki Phase 1" },
-                
-                { city: "Maitama, Abuja", addr: "Address to be confirmed" },
+                { city: "Lekki, Lagos",   addr: "23 Admiralty Way  opposite wole ariyo street Lekki phase 1" },
+                { city: "Lekki, Lagos",   addr: "32a Admiralty Way opposite Ebaeno supermarket Lekki Phase 1" },
+                { city: "Maitama, Abuja", addr: "AP Filling Station, Ardova Mall, opposite Transcorp Hilton, Maitama, Abuja 900026, Federal Capital Territory" },
               ].map((loc) => (
                 <div key={loc.city}>
                   <p className="text-xs font-bold mb-1"
