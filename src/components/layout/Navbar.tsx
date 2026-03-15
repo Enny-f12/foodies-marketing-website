@@ -3,38 +3,41 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "@/components/providers/ThemeProvider";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Menu", href: "/menu" },
+  { label: "Home",    href: "/" },
+  { label: "About",   href: "/about" },
+  { label: "Menu",    href: "/menu" },
   { label: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {
-  const pathname = usePathname();
+  const pathname  = usePathname();
+  const [open, setOpen] = useState(false);
   useTheme();
 
   return (
     <header
       className="fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-md"
       style={{
-        background: "var(--color-surface-ink)",
+        background:   "var(--color-surface-ink)",
         borderBottom: "1px solid var(--color-surface-ink-border)",
-        height: "72px",
+        height:       "72px",
       }}
     >
       <div
         className="max-w-7xl mx-auto h-full flex items-center justify-between gap-6"
         style={{ padding: "0 clamp(1.25rem,5vw,3rem)" }}
       >
-        {/* Logo - Yellow used as a small high-impact accent */}
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
           <div
             className="w-8 h-8 flex items-center justify-center font-black text-sm transition-transform group-hover:rotate-12"
             style={{
               background: "var(--color-primary)",
-              color: "var(--color-surface-ink)",
+              color:      "var(--color-surface-ink)",
             }}
           >
             F
@@ -55,7 +58,7 @@ export function Navbar() {
           </div>
         </Link>
 
-        {/* Nav links - Neutral White/Gray for high-end look */}
+        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-10 flex-1 justify-center">
           {navLinks.map((l) => {
             const active = pathname === l.href;
@@ -69,10 +72,10 @@ export function Navbar() {
                 }}
               >
                 {l.label}
-                {/* Modern Indicator: Red line for active, Yellow for hover */}
                 <span
-                  className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-300 ${active ? "w-full bg-primary" : "w-0 bg-primary group-hover:w-full"
-                    }`}
+                  className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-300 ${
+                    active ? "w-full bg-primary" : "w-0 bg-primary group-hover:w-full"
+                  }`}
                 />
               </Link>
             );
@@ -80,29 +83,80 @@ export function Navbar() {
         </nav>
 
         {/* Right side */}
-        <div className="flex items-center gap-6 shrink-0">
-          {/* Refined Theme toggle 
-          <button
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-            className="hidden sm:flex items-center justify-center w-8 h-8 rounded-full border border-(--color-surface-ink-border) transition-colors hover:bg-white/5 cursor-pointer"
-          >
-            <span className="text-sm">{theme === "dark" ? "☀️" : "🌙"}</span>
-          </button>*/}
-
-          {/* Primary CTA - Brand Red */}
+        <div className="flex items-center gap-4 shrink-0">
+          {/* Desktop CTA */}
           <Link
             href="/download"
-            className="hidden rounded-xl sm:inline-flex items-center gap-2 px-6 py-2.5 font-bold text-[10px] uppercase tracking-widest transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-black/20"
+            className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-black/20"
             style={{
               background: "var(--color-primary)",
-              color: "var(--color-on-ink)",
+              color:      "var(--color-on-ink)",
             }}
           >
             Download App
           </Link>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden flex items-center justify-center w-9 h-9 rounded-lg transition-colors"
+            style={{
+              border: "1px solid var(--color-surface-ink-border)",
+              color:  "var(--color-on-ink)",
+            }}
+            aria-label="Toggle menu"
+          >
+            {open ? <X size={18} /> : <Menu size={18} />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Drawer */}
+      {open && (
+        <div
+          className="md:hidden absolute top-18 left-0 right-0 z-50 flex flex-col"
+          style={{
+            background:   "var(--color-surface-ink)",
+            borderBottom: "1px solid var(--color-surface-ink-border)",
+          }}
+        >
+          {/* Nav links */}
+          <nav className="flex flex-col px-6 py-4 gap-1">
+            {navLinks.map((l) => {
+              const active = pathname === l.href;
+              return (
+                <Link
+                  key={l.label}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="text-[11px] font-bold uppercase tracking-[0.2em] py-3 transition-colors border-b"
+                  style={{
+                    color:       active ? "var(--color-on-ink)" : "var(--color-on-ink-muted)",
+                    borderColor: "var(--color-surface-ink-border)",
+                  }}
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Mobile CTA */}
+          <div className="px-6 py-4">
+            <Link
+              href="/download"
+              onClick={() => setOpen(false)}
+              className="w-full flex items-center justify-center py-3 rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all active:scale-95"
+              style={{
+                background: "var(--color-primary)",
+                color:      "var(--color-on-ink)",
+              }}
+            >
+              Download App
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

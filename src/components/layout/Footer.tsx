@@ -1,21 +1,25 @@
 "use client";
+import { FaInstagram } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa6";
+import { FaSnapchat } from "react-icons/fa6";
 import Link from "next/link";
 import { useState } from "react";
 
 const quickLinks = [
-  { label: "Home",         href: "/" },
-  { label: "About Us",     href: "/about" },
-  { label: "Menu",         href: "/menu" },
-  { label: "Contact",      href: "/contact" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Menu", href: "/menu" },
+  { label: "Contact", href: "/contact" },
   { label: "Download App", href: "/app" },
-  { label: "Careers",      href: "/careers" },
+  { label: "Careers", href: "/careers" },
 ];
 
 const socials = [
-  { label: "Instagram",   href: "https://www.instagram.com/foodies_hotandspicy" },
-  { label: "Facebook",    href: "https://www.facebook.com/foodieshotandspicey" },
-  { label: "Tiktok", href: "https://www.tiktok.com/@foodies_hotandspicy" },
-  { label: "Snapchat",    href: "https://www.snapchat.com/add/foodiesng" },
+  { label: "Instagram", href: "https://www.instagram.com/foodies_hotandspicy", icon: FaInstagram, color: "#E1306C" },
+  { label: "Facebook", href: "https://www.facebook.com/foodieshotandspicey", icon: FaFacebookF, color: "#1877F2" },
+  { label: "TikTok", href: "https://www.tiktok.com/@foodies_hotandspicy", icon: FaTiktok, color: "#ffffff" },
+  { label: "Snapchat", href: "https://www.snapchat.com/add/foodiesng", icon: FaSnapchat, color: "#FFFC00" },
 ];
 
 export function Footer() {
@@ -25,7 +29,7 @@ export function Footer() {
     <footer
       style={{
         background: "var(--color-surface-ink)",
-        color:      "var(--color-on-ink)",
+        color: "var(--color-on-ink)",
       }}
     >
       <div
@@ -42,7 +46,7 @@ export function Footer() {
                 className="w-8 h-8 flex items-center justify-center font-black text-sm shrink-0 transition-transform group-hover:rotate-12"
                 style={{
                   background: "var(--color-primary)",
-                  color:      "var(--color-surface-ink)",
+                  color: "var(--color-surface-ink)",
                 }}
               >
                 F
@@ -99,11 +103,11 @@ export function Footer() {
             </h4>
             <div className="flex flex-col gap-5">
               {[
-                { city: "Lekki, Lagos",   addr: "23 Admiralty Way  opposite wole ariyo street Lekki phase 1" },
-                { city: "Lekki, Lagos",   addr: "32a Admiralty Way opposite Ebaeno supermarket Lekki Phase 1" },
+                { city: "Lekki, Lagos", addr: "23 Admiralty Way  opposite wole ariyo street Lekki phase 1" },
+                { city: "Lekki, Lagos", addr: "32a Admiralty Way opposite Ebaeno supermarket Lekki Phase 1" },
                 { city: "Maitama, Abuja", addr: "AP Filling Station, Ardova Mall, opposite Transcorp Hilton, Maitama, Abuja 900026, Federal Capital Territory" },
-              ].map((loc) => (
-                <div key={loc.city}>
+              ].map((loc, i) => (
+                <div key={i}>
                   <p className="text-xs font-bold mb-1"
                     style={{ color: "var(--color-on-ink)" }}>
                     {loc.city}
@@ -125,19 +129,25 @@ export function Footer() {
             >
               Connect
             </h4>
-            <ul className="flex flex-col gap-3">
+            <div className="flex flex-row gap-3">
               {socials.map((s) => (
-                <li key={s.label}>
-                  <Link
-                    href={s.href}
-                    className="text-xs transition-colors hover:text-secondary"
-                    style={{ color: "var(--color-on-ink-muted)" }}
-                  >
-                    {s.label}
-                  </Link>
-                </li>
+                <Link
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="w-9 h-9 flex items-center justify-center rounded-lg transition-all hover:scale-110"
+                  style={{
+                    background: "var(--color-surface-ink-deep)",
+                    border: "1px solid var(--color-surface-ink-border)",
+                    color: s.color,        // ✅ brand color per icon
+                  }}
+                >
+                  <s.icon size={16} strokeWidth={1.5} />
+                </Link>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
 
@@ -145,7 +155,7 @@ export function Footer() {
         <div
           className="flex flex-col lg:flex-row items-start lg:items-center gap-6 py-10 mb-8"
           style={{
-            borderTop:    "1px solid var(--color-surface-ink-border)",
+            borderTop: "1px solid var(--color-surface-ink-border)",
             borderBottom: "1px solid var(--color-surface-ink-border)",
           }}
         >
@@ -164,15 +174,15 @@ export function Footer() {
               className="flex-1 text-xs px-4 py-3 outline-none min-w-0 rounded-sm transition-all focus:ring-1 focus:ring-primary"
               style={{
                 background: "var(--color-surface-ink-deep)",
-                border:     "1px solid var(--color-surface-ink-border)",
-                color:      "var(--color-on-ink)",
+                border: "1px solid var(--color-surface-ink-border)",
+                color: "var(--color-on-ink)",
               }}
             />
             <button
               className="px-8 py-3 text-[10px] rounded-r-xl font-black uppercase tracking-widest shrink-0 cursor-pointer transition-all hover:scale-105 active:scale-95 shadow-lg"
               style={{
                 background: "var(--color-primary)",
-                color:      "var(--color-on-ink)",
+                color: "var(--color-on-ink)",
               }}
             >
               Subscribe

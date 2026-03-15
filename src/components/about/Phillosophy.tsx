@@ -5,7 +5,7 @@ const pillars = [
     icon:  Leaf,
     num:   "01",
     title: "Sustainability",
-    desc:  "We embrace sustainabilty, supporting local farmers, and reducing waste through smart inventory management.",
+    desc:  "We embrace sustainability, supporting local farmers, and reducing waste through smart inventory management.",
   },
   {
     icon:  Users,
@@ -17,13 +17,13 @@ const pillars = [
     icon:  Lightbulb,
     num:   "03",
     title: "Innovation",
-    desc:  "We innovate constantly, Our menu is never done — we find inspiration in new ingredients, new approaches, and fresh takes on old standards.",
+    desc:  "We innovate constantly. Our menu is never done — we find inspiration in new ingredients, new approaches, and fresh takes on old standards.",
   },
   {
     icon:  Smartphone,
     num:   "04",
     title: "You in Control",
-    desc:  "We put you in control. Whether yu are dining in, taking away, or order delivery, our digital platform puts seamless hospitality at your fingertips.",
+    desc:  "We put you in control. Whether you are dining in, taking away, or ordering delivery, our digital platform puts seamless hospitality at your fingertips.",
   },
 ];
 
@@ -33,7 +33,7 @@ export function PhilosophySection() {
       className="relative overflow-hidden"
       style={{ background: "var(--color-surface-ink)" }}
     >
-      {/* Ambient glow — bottom left */}
+      {/* Ambient glow */}
       <div
         className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full pointer-events-none"
         style={{
@@ -63,9 +63,9 @@ export function PhilosophySection() {
 
         {/* Pull quote */}
         <h2
-          className="font-display font-bold uppercase leading-none mb-5"
+          className="font-display font-bold leading-none mb-5"
           style={{
-            fontSize:     "clamp(1.8rem,4vw,3.2rem)",
+            fontSize:      "clamp(1.8rem,4vw,3.2rem)",
             letterSpacing: "-0.03em",
             color:         "var(--color-on-ink)",
             maxWidth:      "min(100vw,900px)",
@@ -80,7 +80,7 @@ export function PhilosophySection() {
         <p
           className="leading-relaxed mb-14"
           style={{
-            color:    "rgba(255,255,255,0.38)",
+            color:    "rgba(255,255,255,0.6)",
             fontSize: "clamp(0.875rem,1.6vw,1rem)",
             maxWidth: "min(90vw,480px)",
           }}
@@ -129,14 +129,14 @@ export function PhilosophySection() {
                   <Icon
                     size={20}
                     strokeWidth={1.5}
-                    style={{ color: "var(--color-bg-input)" }}
+                    style={{ color: "var(--color-on-ink)" }}
                   />
                 </div>
 
                 {/* Title */}
                 <h3
                   className="text-[11px] font-bold uppercase tracking-[0.22em] mb-3"
-                  style={{ color: "var(--color-bg-input)" }}
+                  style={{ color: "var(--color-on-ink)" }}
                 >
                   {p.title}
                 </h3>
@@ -144,7 +144,7 @@ export function PhilosophySection() {
                 {/* Desc */}
                 <p
                   className="text-[13px] leading-relaxed flex-1"
-                  style={{ color: "rgba(255,255,255,0.38)" }}
+                  style={{ color: "rgba(255,255,255,0.6)" }}
                 >
                   {p.desc}
                 </p>

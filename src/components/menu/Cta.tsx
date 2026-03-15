@@ -60,7 +60,7 @@ export function MenuCTA() {
               real-time availability is waiting for you in the app.
             </p>
 
-            <div className="flex flex-wrap items-center gap-3 mb-4">
+            <div className="flex flex-wrap items-center justify-center mx-auto gap-3 mb-4">
               {/* App Store */}
               <Link
                 href="/download"

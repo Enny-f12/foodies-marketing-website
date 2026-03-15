@@ -11,7 +11,7 @@ import {
   ShoppingBag,
 } from "lucide-react";
 
-/* ─── DATA ─────────────────────────────────────────────────── */
+/* ─── DATA ──────────────── */
 const features = [
   {
     icon: ShoppingBag,
@@ -57,7 +57,7 @@ const screens = [
 function AppButtons({ variant = "ink" }: { variant?: "ink" | "light" }) {
   const isInk = variant === "ink";
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className="flex flex-wrap items-center justify-center gap-3">
       <Link
         href="/download"
         className="inline-flex items-center gap-3 px-6 py-3.5 font-semibold rounded-xl transition-all hover:opacity-90 active:scale-95"
@@ -307,7 +307,7 @@ export default function AppDownloadPage() {
               use code: FOODIESAPP
             </div>
 
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center items-center mb-6">
               <AppButtons variant="light" />
             </div>
 
@@ -339,7 +339,7 @@ export default function AppDownloadPage() {
                 </span>
               </div>
               <h2
-                className="font-display font-bold uppercase leading-none"
+                className="font-display font-bold  leading-none"
                 style={{
                   fontSize: "clamp(1.8rem,3.5vw,2.8rem)",
                   letterSpacing: "-0.03em",

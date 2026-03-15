@@ -93,7 +93,7 @@ export function OurSpacesSection() {
               <div className="flex flex-col" style={{ direction: "ltr" }}>
                 <div className="flex items-baseline gap-4 mb-8">
                   <span
-                    className="font-display font-black text-7xl leading-none opacity-10"
+                    className="font-display font-black text-7xl leading-none opacity-30"
                     style={{ color: "var(--color-primary)" }}
                   >
                     {String(li + 1).padStart(2, "0")}
@@ -149,7 +149,7 @@ export function OurSpacesSection() {
                     className="px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest border border-border hover:bg-bg-soft transition-all"
                     style={{ color: "var(--color-heading)" }}
                   >
-                    View Private dining Options
+                    View Private dining
                   </Link>
                 </div>
               </div>

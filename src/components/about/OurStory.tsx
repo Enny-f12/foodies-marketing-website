@@ -24,7 +24,7 @@ export function OurStorySection() {
 
           {/* ── LEFT PANEL: label + headline + stats ── */}
           <div
-            className="flex flex-col justify-between p-10"
+            className="flex flex-col justify-between p-6 sm:p-10"
             style={{
               background:  "var(--color-bg-card)",
               borderRight: "1px solid var(--color-border)",
@@ -69,7 +69,7 @@ export function OurStorySection() {
 
           {/* ── RIGHT PANEL: paragraphs ── */}
           <div
-            className="flex flex-col p-10"
+            className="flex flex-col p-6 sm:p-10"
             style={{ background: "var(--color-bg)" }}
           >
             <div className="flex flex-col gap-5 flex-1">

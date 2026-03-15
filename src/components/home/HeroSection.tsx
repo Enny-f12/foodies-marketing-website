@@ -337,7 +337,7 @@ export function HeroSection() {
 
               {/* Stats row */}
               <div
-                className="fade-up grid grid-cols-4 gap-0"
+                className="fade-up grid grid-cols-3 gap-0"
                 style={{
                   animationDelay: "480ms",
                   opacity: loaded ? undefined : 0,
@@ -347,8 +347,7 @@ export function HeroSection() {
               >
                 {[
                   { value: "3", label: "Locations" },
-                  { value: "255+", label: "Dishes" },
-                  { value: "20", label: "Private Guests" },
+                  { value: "255+", label: "Dishes" }, 
                   { value: "5★", label: "Avg Rating" },
                 ].map((s, i, arr) => (
                   <div
