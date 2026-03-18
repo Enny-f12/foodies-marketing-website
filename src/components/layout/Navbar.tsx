@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "@/components/providers/ThemeProvider";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { useState } from "react";
 
 const navLinks = [
@@ -14,9 +14,9 @@ const navLinks = [
 ];
 
 export function Navbar() {
-  const pathname  = usePathname();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  useTheme();
+  const { toggleTheme, isDark } = useTheme();
 
   return (
     <header
@@ -83,7 +83,22 @@ export function Navbar() {
         </nav>
 
         {/* Right side */}
-        <div className="flex items-center gap-4 shrink-0">
+        <div className="flex items-center gap-3 shrink-0">
+
+          {/* Theme Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+            title={`Switch to ${isDark ? "light" : "dark"} mode`}
+            className="flex items-center justify-center w-9 h-9 rounded-lg border transition-all duration-300 hover:border-primary cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+            style={{
+              border: "1px solid var(--color-surface-ink-border)",
+              color:  "var(--color-on-ink)",
+            }}
+          >
+            {isDark ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
+
           {/* Desktop CTA */}
           <Link
             href="/download"
@@ -120,7 +135,6 @@ export function Navbar() {
             borderBottom: "1px solid var(--color-surface-ink-border)",
           }}
         >
-          {/* Nav links */}
           <nav className="flex flex-col px-6 py-4 gap-1">
             {navLinks.map((l) => {
               const active = pathname === l.href;
@@ -141,7 +155,6 @@ export function Navbar() {
             })}
           </nav>
 
-          {/* Mobile CTA */}
           <div className="px-6 py-4">
             <Link
               href="/download"

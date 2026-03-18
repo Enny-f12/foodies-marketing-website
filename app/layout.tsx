@@ -4,9 +4,8 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { WhatsAppFloat } from "@/components/home/WhatsappFloat";
 
-// Configure Helvena with all the weights from your designer
 const helvena = localFont({
   src: [
     {
@@ -36,6 +35,35 @@ const helvena = localFont({
     },
   ],
   variable: "--font-helvena",
+  display: "swap",
+});
+
+const nord = localFont({
+  src: [
+    {
+      path: "../public/fonts/NORD.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/NORD-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-nord",
+  display: "swap",
+});
+
+const pros = localFont({
+  src: [
+     {
+      path: "../public/fonts/PROS.otf",
+      weight: "600",
+      style: "normal",
+    },
+  ],
+  variable: "--font-pros",
   display: "swap",
 });
 
@@ -75,8 +103,7 @@ export default function RootLayout({
       lang="en"
       data-theme="light"
       data-scroll-behavior="smooth"
-      className={`${helvena.variable}`} // Removed Syne/DM Sans and added Helvena
-      suppressHydrationWarning
+      className={`${helvena.variable} ${nord.variable} ${pros.variable}`} 
     >
       <body className="font-sans antialiased selection:bg-primary/20 selection:text-primary">
         <ThemeProvider defaultTheme="light">
@@ -86,7 +113,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <ThemeToggle />
+          <WhatsAppFloat/>
         </ThemeProvider>
       </body>
     </html>

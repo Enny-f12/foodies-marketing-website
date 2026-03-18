@@ -1,15 +1,8 @@
 @import "tailwindcss";
 
-/* ============================================================
-   FOODIES HOT & SPICY — DESIGN SYSTEM
-   Brand colors confirmed by client (March 2026)
-   ============================================================ */
 
-
-/* ============================================================
-   BRAND TOKENS — theme-independent
-   ============================================================ */
 :root {
+  /* ── Brand Colors ── */
   --color-primary:          #E10B1C;
   --color-primary-hover:    #c40917;
   --color-secondary:        #FCD063;
@@ -21,20 +14,21 @@
   --color-error:   #ef4444;
   --color-info:    #3b82f6;
 
- 
-  --font-sans: var(--font-helvena);
-  --font-display: var(--font-helvena);
+  /* ── Typography ── */
+  --font-sans:    var(--font-helvena);  /* Body */
+  --font-display: var(--font-nord);     /* Headings & display text */
 
- 
   --text-body-lg: 1rem;
   --text-body:    0.875rem;
   --text-caption: 0.75rem;
 
+  --weight-black:    900;
   --weight-bold:     700;
   --weight-semibold: 600;
   --weight-medium:   500;
   --weight-regular:  400;
 
+  /* ── Spacing ── */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
@@ -44,74 +38,26 @@
   --transition-theme: background-color 0.3s ease, color 0.3s ease,
                       border-color 0.3s ease, box-shadow 0.3s ease;
 }
-  h1, .text-h1 {
-    /* clamp(minimum, preferred, maximum) */
-    font-size: clamp(40px, 8vw, 64px); 
-    font-weight: 700;           /* Bold */
-    line-height: 1.1;           /* 110% */
-    letter-spacing: -0.01em;    /* -1% */
-    text-transform: uppercase;  /* Standardizes that high-end look */
-  }
 
-  h2, .text-h2 {
-    font-size: clamp(32px, 6vw, 44px);
-    font-weight: 600;           /* Semibold */
-    line-height: 1.2;           /* 120% */
-    letter-spacing: -0.005em;   /* -0.5% */
-  }
 
-  h3, .text-h3 {
-    font-size: clamp(24px, 4vw, 32px);
-    font-weight: 600;           /* Semibold */
-    line-height: 1.3;           /* 130% */
-  }
 
-  /* Body text setup based on 16px Regular */
-  body {
-    font-family: var(--font-helvena);
-    font-size: 16px;
-    font-weight: 400;           /* Regular */
-    line-height: 1.6;           /* 160% */
-    color: var(--color-text);
-    background: var(--color-bg);
-  }
-
-  
-
-/* ============================================================
-   LIGHT THEME — default
-   ============================================================ */
 :root,
 [data-theme="light"] {
-  --color-bg:      #FCFBF7; 
-  --color-bg-soft: #F5F2E8; 
-  
-  /* Keep cards crisp white */
-  --color-bg-card: #FFFFFF;
+  --color-bg:             #FCFBF7;
+  --color-bg-soft:        #F5F2E8;
+  --color-bg-card:        #FFFFFF;
+  --color-bg-input:       #FFFFFF;
+  --color-bg-hover:       #FFF0C0;
+  --color-text-disabled:  #9ca3af;
 
-  /* Use the brand yellow as a secondary accent only */
-  
-  
-  /* Text improvement for premium feel */
-  --color-text:           #1A1A1A; 
+  --color-text:           #1A1A1A;
   --color-text-secondary: #555555;
+  --color-heading:        #2A2A2A;
 
- /* --color-bg:              #FFF6DA;
-  --color-bg-soft:         #FFF6DA;
-  --color-bg-card:         #FFFFFF;
-  
-  --color-bg-hover:        #FFF0C0;
+  --color-border:         #E2E8F0;
+  --color-border-focus:   var(--color-primary);
 
-  --color-text:            #111111;
-  --color-text-secondary:  #3D3D3D;*/
-  --color-bg-input:        #FFFFFF;
-  --color-text-disabled:   #9ca3af;
-  --color-heading:         #2A2A2A;
-
-  --color-border:          #E2E8F0;
-  --color-border-focus:    var(--color-primary);
-
-  --color-shadow:          rgba(0,0,0,0.08);
+  --color-shadow:         rgba(0,0,0,0.08);
 
   /* ── Dark surface — stays dark in BOTH themes (navbar, footer, dark CTAs) ── */
   --color-surface-ink:           #2A2A2A;
@@ -120,8 +66,6 @@
   --color-on-ink:                #FFF6DA;
   --color-on-ink-muted:          rgba(255,246,218,0.60);
   --color-on-ink-faint:          rgba(255,246,218,0.30);
-
-  
 }
 
 
@@ -129,23 +73,21 @@
    DARK THEME
    ============================================================ */
 [data-theme="dark"] {
-  --color-bg:              #1a1508;
-  --color-bg-soft:         #120f04;
-  --color-bg-card:         #2a2110;
-  --color-bg-input:        #3a2e18;
-  --color-bg-hover:        #3a2e18;
+  --color-bg:             #1a1508;
+  --color-bg-soft:        #120f04;
+  --color-bg-card:        #2a2110;
+  --color-bg-input:       #3a2e18;
+  --color-bg-hover:       #3a2e18;
+  --color-text-disabled:  #666666;
 
- --color-text:           #E2E2E2; /* Neutral Light Gray for Body Text */
-  --color-text-secondary: #A0A0A0; /* Neutral Medium Gray for Muted Text */
-  --color-text-disabled:  #666666; /* Darker neutral gray */
-  
-  /* KEEP THIS: This ensures your headings stay bright/white */
+  --color-text:           #E2E2E2;
+  --color-text-secondary: #A0A0A0;
   --color-heading:        #fdf8ec;
 
-  --color-border:          #3a2e18;
-  --color-border-focus:    var(--color-primary);
+  --color-border:         #3a2e18;
+  --color-border-focus:   var(--color-primary);
 
-  --color-shadow:          rgba(0,0,0,0.50);
+  --color-shadow:         rgba(0,0,0,0.50);
 
   /* ── Dark surface stays dark even in dark mode ── */
   --color-surface-ink:           #0c0a02;
@@ -172,8 +114,8 @@
   --color-success:    var(--color-success);
   --color-warning:    var(--color-warning);
   --color-error:      var(--color-error);
-  --font-sans: var(--font-helvena);
-  --font-display: var(--font-helvena);
+  --font-sans:        var(--font-helvena);  /* Body — Helvena */
+  --font-display:     var(--font-nord);     /* ✅ Fixed — Nord for display/headings */
 }
 
 
@@ -192,14 +134,32 @@ body {
   transition:  var(--transition-theme);
 }
 
+/* ── Headings — Nord font, single source of truth ── */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
+  font-family: var(--font-nord);
   color:       var(--color-heading);
   line-height: 1.2;
 }
-h1 { font-size: var(--text-h1); font-weight: var(--weight-bold); }
-h2 { font-size: var(--text-h2); font-weight: var(--weight-bold);     line-height: 1.3; }
-h3 { font-size: var(--text-h3); font-weight: var(--weight-semibold); line-height: 1.4; }
+
+h1 {
+  font-size:      clamp(40px, 8vw, 64px);
+  font-weight:    var(--weight-bold);
+  line-height:    1.1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size:   clamp(32px, 6vw, 44px);
+  font-weight: var(--weight-bold);
+  line-height: 1.3;
+}
+
+h3 {
+  font-size:   clamp(24px, 4vw, 32px);
+  font-weight: var(--weight-semibold);
+  line-height: 1.4;
+}
 
 
 /* ============================================================
@@ -231,6 +191,7 @@ h3 { font-size: var(--text-h3); font-weight: var(--weight-semibold); line-height
   background-clip:         text;
 }
 
+/* font-display utility — applies Nord via Tailwind class */
 .font-display { font-family: var(--font-display); }
 
 .stock-low { color: var(--color-warning); }
@@ -242,7 +203,7 @@ h3 { font-size: var(--text-h3); font-weight: var(--weight-semibold); line-height
     display: none;
   }
   .no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;     /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

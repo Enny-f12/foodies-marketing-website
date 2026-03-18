@@ -11,6 +11,14 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "i.pravatar.cc",
       },
+      {
+        protocol: "https",
+        hostname: "toppng.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.liblogo.com",
+      }
     ],
   },
 };
