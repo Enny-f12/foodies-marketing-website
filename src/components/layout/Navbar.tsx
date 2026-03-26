@@ -5,12 +5,15 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "@/components/providers/ThemeProvider";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 const navLinks = [
-  { label: "Home",    href: "/" },
-  { label: "About",   href: "/about" },
-  { label: "Menu",    href: "/menu" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Menu", href: "/menu" },
   { label: "Contact", href: "/contact" },
+  { label: "Careers", href: "/careers" },
+  { label: "Rewards", href: "/Loyalty-rewards" },
 ];
 
 export function Navbar() {
@@ -22,9 +25,9 @@ export function Navbar() {
     <header
       className="fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-md"
       style={{
-        background:   "var(--color-surface-ink)",
+        background: "var(--color-surface-ink)",
         borderBottom: "1px solid var(--color-surface-ink-border)",
-        height:       "72px",
+        height: "72px",
       }}
     >
       <div
@@ -32,34 +35,19 @@ export function Navbar() {
         style={{ padding: "0 clamp(1.25rem,5vw,3rem)" }}
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
-          <div
-            className="w-8 h-8 flex items-center justify-center font-black text-sm transition-transform group-hover:rotate-12"
-            style={{
-              background: "var(--color-primary)",
-              color:      "var(--color-surface-ink)",
-            }}
-          >
-            F
-          </div>
-          <div className="leading-none">
-            <p
-              className="font-display font-black text-sm tracking-tight"
-              style={{ color: "var(--color-on-ink)" }}
-            >
-              FOODIES
-            </p>
-            <p
-              className="text-[9px] uppercase tracking-[0.2em] font-bold"
-              style={{ color: "var(--color-primary)" }}
-            >
-              HOT &amp; SPICY
-            </p>
-          </div>
+        <Link href="/" className="flex items-center justify-center  shrink-0">
+          <Image
+            src="/assets/Logo.png"
+            alt="Foodies Hot & Spicy"
+            width={90}
+            height={30}
+            className="object-contain mt-4"
+
+          />
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-10 flex-1 justify-center">
+        <nav className="hidden lg:flex items-center gap-10 flex-1 justify-center">
           {navLinks.map((l) => {
             const active = pathname === l.href;
             return (
@@ -73,9 +61,8 @@ export function Navbar() {
               >
                 {l.label}
                 <span
-                  className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-300 ${
-                    active ? "w-full bg-primary" : "w-0 bg-primary group-hover:w-full"
-                  }`}
+                  className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-300 ${active ? "w-full bg-primary" : "w-0 bg-primary group-hover:w-full"
+                    }`}
                 />
               </Link>
             );
@@ -93,7 +80,7 @@ export function Navbar() {
             className="flex items-center justify-center w-9 h-9 rounded-lg border transition-all duration-300 hover:border-primary cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
             style={{
               border: "1px solid var(--color-surface-ink-border)",
-              color:  "var(--color-on-ink)",
+              color: "var(--color-on-ink)",
             }}
           >
             {isDark ? <Sun size={16} /> : <Moon size={16} />}
@@ -102,10 +89,10 @@ export function Navbar() {
           {/* Desktop CTA */}
           <Link
             href="/download"
-            className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-black/20"
+            className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-black/20"
             style={{
               background: "var(--color-primary)",
-              color:      "var(--color-on-ink)",
+              color: "var(--color-on-ink)",
             }}
           >
             Download App
@@ -114,10 +101,10 @@ export function Navbar() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden flex items-center justify-center w-9 h-9 rounded-lg transition-colors"
+            className="lg:hidden flex items-center justify-center w-9 h-9 rounded-lg transition-colors"
             style={{
               border: "1px solid var(--color-surface-ink-border)",
-              color:  "var(--color-on-ink)",
+              color: "var(--color-on-ink)",
             }}
             aria-label="Toggle menu"
           >
@@ -129,9 +116,9 @@ export function Navbar() {
       {/* Mobile Drawer */}
       {open && (
         <div
-          className="md:hidden absolute top-18 left-0 right-0 z-50 flex flex-col"
+          className="lg:hidden absolute top-18 left-0 right-0 z-50 flex flex-col"
           style={{
-            background:   "var(--color-surface-ink)",
+            background: "var(--color-surface-ink)",
             borderBottom: "1px solid var(--color-surface-ink-border)",
           }}
         >
@@ -145,7 +132,7 @@ export function Navbar() {
                   onClick={() => setOpen(false)}
                   className="text-[11px] font-bold uppercase tracking-[0.2em] py-3 transition-colors border-b"
                   style={{
-                    color:       active ? "var(--color-on-ink)" : "var(--color-on-ink-muted)",
+                    color: active ? "var(--color-on-ink)" : "var(--color-on-ink-muted)",
                     borderColor: "var(--color-surface-ink-border)",
                   }}
                 >
@@ -162,7 +149,7 @@ export function Navbar() {
               className="w-full flex items-center justify-center py-3 rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all active:scale-95"
               style={{
                 background: "var(--color-primary)",
-                color:      "var(--color-on-ink)",
+                color: "var(--color-on-ink)",
               }}
             >
               Download App

@@ -114,8 +114,8 @@
   --color-success:    var(--color-success);
   --color-warning:    var(--color-warning);
   --color-error:      var(--color-error);
-  --font-sans:        var(--font-helvena);  /* Body — Helvena */
-  --font-display:     var(--font-nord);     /* ✅ Fixed — Nord for display/headings */
+  --font-sans:        var(--font-helvena);  
+  --font-display:     var(--font-nord);    
 }
 
 
@@ -136,7 +136,7 @@ body {
 
 /* ── Headings — Nord font, single source of truth ── */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-nord);
+ 
   color:       var(--color-heading);
   line-height: 1.2;
 }

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function AppStoreButtons() {
   return (
-    <div className="flex flex-wrap items-center gap-4">
+    <div className="flex flex-wrap items-center justify-center gap-4">
       <Link
         href="/download"
         className="transition-transform hover:scale-105 active:scale-95"

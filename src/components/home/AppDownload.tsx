@@ -138,7 +138,7 @@ export default function AppDownload() {
         </motion.p>
 
         {/* App buttons */}
-        <div className="flex justify-center mb-6">
+        <div className="flex items-center justify-center mb-6">
           <AppStoreButtons/>
         </div>
 

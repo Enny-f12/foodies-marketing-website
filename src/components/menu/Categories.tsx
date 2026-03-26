@@ -323,7 +323,7 @@ export function MenuCategories() {
                 >
                   <Link
                     href="/download"
-                    className="text-sm font-black uppercase tracking-widest px-6 py-3 rounded-xl transition-all"
+                    className="text-sm font-black uppercase tracking-widest px-3 md:px-6 py-3 rounded-xl transition-all"
                     style={{ color: "var(--color-primary)" }}
                   >
                     View Full Menu in App →

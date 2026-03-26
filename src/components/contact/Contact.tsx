@@ -139,7 +139,7 @@ export default function ContactPage() {
           </motion.span>
 
           <motion.h1
-            className="mt-4 mb-4 sm:mb-6"
+            className="mt-4 mb-4 sm:mb-6 font-display"
             variants={headlineContainer}
             initial="hidden"
             animate={headerInView ? "visible" : "hidden"}
@@ -147,7 +147,7 @@ export default function ContactPage() {
             {["Our", "Locations"].map((word) => (
               <span
                 key={word}
-                style={{ display: "inline-block", overflow: "hidden", verticalAlign: "bottom", marginRight: "0.3em", textTransform: "capitalize" }}
+                style={{ display: "inline-block",  overflow: "hidden", verticalAlign: "bottom", marginRight: "0.3em", textTransform: "capitalize" }}
               >
                 <motion.span style={{ display: "inline-block" }} variants={lineUnmask}>
                   {word}
@@ -179,7 +179,7 @@ export default function ContactPage() {
           {/* Lekki 1 */}
           <LocationCard index={0} inView={cardsInView}>
             <div className="flex-1">
-              <h3 className="font-bold text-lg mb-4">Lekki, Lagos</h3>
+              <h3 className="font-bold text-lg mb-4 font-display">Lekki, Lagos</h3>
               <motion.div
                 className="w-full h-40 mb-4 rounded-sm overflow-hidden border border-border"
                 whileHover={{ scale: 1.02, transition: { duration: 0.3, ease: spring2 } }}
@@ -221,7 +221,7 @@ export default function ContactPage() {
           {/* Lekki 2 */}
           <LocationCard index={1} inView={cardsInView}>
             <div className="flex-1">
-              <h3 className="font-bold text-lg mb-4">Lekki, Lagos</h3>
+              <h3 className="font-bold text-lg mb-4 font-display">Lekki, Lagos</h3>
               <motion.div
                 className="w-full h-40 mb-4 rounded-sm overflow-hidden border border-border"
                 whileHover={{ scale: 1.02, transition: { duration: 0.3, ease: spring2 } }}
@@ -263,7 +263,7 @@ export default function ContactPage() {
           {/* Maitama */}
           <LocationCard index={2} isDashed inView={cardsInView}>
             <div className="flex-1">
-              <h3 className="font-bold text-lg mb-4">Maitama, Abuja</h3>
+              <h3 className="font-bold text-lg mb-4 font-display">Maitama, Abuja</h3>
               <motion.div
                 className="w-full h-40 mb-4 rounded-sm overflow-hidden border border-border"
                 whileHover={{ scale: 1.02, transition: { duration: 0.3, ease: spring2 } }}
@@ -318,7 +318,7 @@ export default function ContactPage() {
           >
             <Card className="p-6 sm:p-8">
               <motion.h2
-                className="text-h3 mb-6"
+                className="text-h3 mb-6 font-display"
                 initial={{ opacity: 0, y: 12 }}
                 animate={bottomInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.55, delay: 0.1 }}
@@ -397,7 +397,7 @@ export default function ContactPage() {
                 }}
               >
                 <Card className="p-6 sm:p-8 border-l-4 border-primary">
-                  <h2 className="text-h3 mb-4">Private Dining &amp; Events</h2>
+                  <h2 className="text-h3 mb-4 font-display">Private Dining &amp; Events</h2>
                   <p className="text-muted text-sm mb-6">
                     Host your next celebration with us. From intimate anniversaries to corporate lunches,
                     we bring our world-class digital hospitality to your special moments.

@@ -140,7 +140,7 @@ export default function NotFound() {
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
           />
           <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "var(--color-primary)" }}>
-            Coming Soon
+            Not Found
           </span>
           <motion.div
             className="h-px shrink-0"

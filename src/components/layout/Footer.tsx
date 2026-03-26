@@ -5,6 +5,7 @@ import { FaTiktok } from "react-icons/fa6";
 import { FaSnapchat } from "react-icons/fa6";
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -41,26 +42,16 @@ export function Footer() {
 
           {/* Brand - Strategic Position */}
           <div>
-            <Link href="/" className="flex items-center gap-2.5 mb-6 group">
-              <div
-                className="w-8 h-8 flex items-center justify-center font-black text-sm shrink-0 transition-transform group-hover:rotate-12"
-                style={{
-                  background: "var(--color-primary)",
-                  color: "var(--color-surface-ink)",
-                }}
-              >
-                F
-              </div>
-              <div className="leading-none">
-                <p className="font-display font-black text-sm tracking-tight"
-                  style={{ color: "var(--color-on-ink)" }}>
-                  FOODIES
-                </p>
-                <p className="text-[9px] uppercase tracking-widest font-bold"
-                  style={{ color: "var(--color-primary)" }}>
-                  HOT &amp; SPICY
-                </p>
-              </div>
+            {/* Logo */}
+            <Link href="/" className="flex items-center shrink-0">
+              <Image
+                src="/assets/Logo.png"
+                alt="Foodies Hot & Spicy"
+                width={90}
+                height={30}
+                className="object-contain"
+
+              />
             </Link>
             <p
               className="text-xs leading-relaxed opacity-70 italic"
@@ -196,16 +187,20 @@ export function Footer() {
             © 2026 Foodies Hot &amp; Spicy Nigeria. All rights reserved.
           </p>
           <div className="flex flex-wrap gap-6">
-            {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((l) => (
+            {[
+              { label: "Privacy Policy", href: "/privacy-policy" },
+              { label: "Terms of Service", href: "/terms-of-service" },
+              { label: "Cookie Policy", href: "/cookie-policy" },
+            ].map((l) => (
               <Link
-                key={l}
-                href="#"
+                key={l.label}
+                href={l.href}
                 className="text-[10px] uppercase tracking-widest font-medium opacity-40 hover:opacity-100 transition-opacity"
               >
-                {l}
+                {l.label}
               </Link>
             ))}
-          </div>
+          </div>{/*  */}
         </div>
       </div>
     </footer>
