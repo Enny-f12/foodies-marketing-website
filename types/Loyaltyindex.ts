@@ -46,4 +46,4 @@ export interface Notification {
   icon: string;
   text: string;
   sub: string;
-}
+} 
