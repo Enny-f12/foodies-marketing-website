@@ -4,7 +4,7 @@ import {
 } from "lucide-react";
 import type {
   EarningAction, CalcRow, Reward, Tier, TierData, TierFeature, Notification,
-} from "../types/indexs";
+} from "../types/Loyaltyindex";
 
 export const EARNING_ACTIONS: EarningAction[] = [
   { icon: Zap,      label: "Every ₦100 spent",     pts: "10 pts",     note: "On food subtotal only" },

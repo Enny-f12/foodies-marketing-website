@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { TrendingUp } from "lucide-react";
-import type { Tier } from "../../../types/indexs";
-import { TIERS } from "../../../lib/datas";
+import type { Tier } from "../../../types/Loyaltyindex";
+import { TIERS } from "../../../lib/loyaltydata";
 
 export function PointsCalculator() {
   const [input, setInput] = useState(5000);

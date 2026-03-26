@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check } from "lucide-react";
-import { NOTIFICATIONS } from "../../../lib/datas";
+import { NOTIFICATIONS } from "../../../lib/loyaltydata";
 
 const ACTIVITY_ITEMS = [
   "Placing any order",

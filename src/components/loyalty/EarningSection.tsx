@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Trophy } from "lucide-react";
-import { EARNING_ACTIONS, CALC_TABLE } from "../../../lib/datas";
+import { EARNING_ACTIONS, CALC_TABLE } from "../../../lib/loyaltydata";
 import { SectionLabel } from "@/components/loyalty/Ui";
 import { PointsCalculator } from "@/components/loyalty/PointsCalculator";
 

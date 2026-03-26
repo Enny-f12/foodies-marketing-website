@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { REWARDS } from "../../../lib/datas";
+import { REWARDS } from "../../../lib/loyaltydata";
 import { PointsBadge } from "../../../src/components/loyalty/Ui";
 
 export function RewardsGrid() {

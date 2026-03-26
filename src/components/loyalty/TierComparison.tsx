@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
-import type { Tier } from "../../../types/indexs";
-import { TIERS, TIER_FEATURES } from "../../../lib/datas";
+import type { Tier } from "../../../types/Loyaltyindex";
+import { TIERS, TIER_FEATURES } from "../../../lib/loyaltydata";
 
 export function TierComparison() {
   const [highlighted, setHighlighted] = useState<Tier>("silver");
