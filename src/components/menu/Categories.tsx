@@ -259,7 +259,7 @@ export function MenuCategories() {
                     >
                       {/* Image zooms inside */}
                       <motion.div
-                        className="w-full h-full"
+                        className="w-full h-full relative"
                         whileHover={{ scale: 1.09 }}
                         transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
                       >

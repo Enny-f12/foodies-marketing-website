@@ -47,10 +47,10 @@ export function Footer() {
               <Image
                 src="/assets/Logo.png"
                 alt="Foodies Hot & Spicy"
-                width={90}
-                height={30}
-                className="object-contain"
-
+                width={60}
+                height={20}
+                className="object-contain w-auto h-auto"
+                loading="eager"
               />
             </Link>
             <p

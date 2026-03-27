@@ -168,7 +168,7 @@ export default function AppDownload() {
             }}
           >
             <Image
-              src="/qr-code.png"
+              src="https://i.pinimg.com/1200x/0e/97/27/0e972709749e682fb5bf8d85dcb2e35d.jpg"
               alt="Scan to download Foodies app"
               width={112}
               height={112}

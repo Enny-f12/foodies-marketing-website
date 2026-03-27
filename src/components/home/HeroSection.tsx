@@ -290,9 +290,12 @@ export function HeroSection() {
           <div className="absolute inset-0" style={{
             background: "linear-gradient(105deg, rgba(6,4,2,0.97) 0%, rgba(6,4,2,0.88) 38%, rgba(6,4,2,0.55) 62%, rgba(6,4,2,0.15) 100%)",
           }} />
-          <div className="absolute inset-0" style={{
-            background: "linear-gradient(to top, rgba(6,4,2,0.6) 0%, transparent 40%)",
-          }} />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "linear-gradient(to top, rgba(6,4,2,0.6) 0%, rgba(6,4,2,0) 40%)",
+            }}
+          />
         </div>
 
         {/* Ambient glow */}
@@ -325,8 +328,8 @@ export function HeroSection() {
                   {
                     text: "Not",
                     style: {
-                      fontFamily: "var(--font-nord)",  
-                      textTransform: "uppercase",      
+                      fontFamily: "var(--font-nord)",
+                      textTransform: "uppercase",
                       fontSize: "clamp(4rem, 9vw, 9.5rem)",
                       fontWeight: 900,
                       letterSpacing: "-0.03em",
@@ -339,8 +342,8 @@ export function HeroSection() {
                   {
                     text: "Just Our",
                     style: {
-                      fontFamily: "var(--font-nord)", 
-                      textTransform: "uppercase",       
+                      fontFamily: "var(--font-nord)",
+                      textTransform: "uppercase",
                       fontSize: "clamp(4rem, 9vw, 9.5rem)",
                       fontWeight: 900,
                       letterSpacing: "-0.03em",
@@ -352,8 +355,8 @@ export function HeroSection() {
                   {
                     text: "Meals —",
                     style: {
-                      fontFamily: "var(--font-nord)",   
-                      textTransform: "uppercase",     
+                      fontFamily: "var(--font-nord)",
+                      textTransform: "uppercase",
                       fontSize: "clamp(3.4rem, 7.5vw, 8rem)",
                       fontWeight: 900,
                       letterSpacing: "-0.03em",
@@ -368,7 +371,7 @@ export function HeroSection() {
                 ] as const).map(({ text, style, delay }) => (
                   <motion.div
                     key={text}
-                    className="uppercase leading-none"   
+                    className="uppercase leading-none"
                     style={style as React.CSSProperties}
                     initial={{ opacity: 0, x: -48 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -449,7 +452,7 @@ export function HeroSection() {
               />
 
               <motion.div variants={fadeUp} className="mb-4">
-                <AppStoreButtons />
+                <AppStoreButtons align="left" />
               </motion.div>
 
               {/* QR line */}

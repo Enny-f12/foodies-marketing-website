@@ -148,7 +148,7 @@ function AccordionItem({ faq, index }: { faq: any; index: number }) {
           {faq.question}
         </span>
         <motion.div
-          animate={{ rotate: isOpen ? 180 : 0, backgroundColor: isOpen ? "var(--color-primary)" : "transparent" }}
+          animate={{ rotate: isOpen ? 180 : 0, backgroundColor: isOpen ? "var(--color-primary)" : "rgba(6,4,2,0)" }}
           className={`mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-primary transition-colors`}
         >
           {isOpen ? (

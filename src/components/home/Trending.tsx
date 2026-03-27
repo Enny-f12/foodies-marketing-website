@@ -157,7 +157,7 @@ function HeroCard({ dish }: { dish: typeof dishes[0] }) {
           style={{ scale: 1.08 }}
         >
           <motion.div
-            className="w-full h-full"
+            className="w-full h-full relative"
             style={{ y: useTransform(springY, [-0.5, 0.5], [-12, 12]) }}
           >
             <Image
@@ -281,7 +281,7 @@ function DishCard({ dish, index }: { dish: typeof dishes[0]; index: number }) {
       {/* Image zoom on hover */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="w-full h-full"
+          className="w-full h-full relative"
           whileHover={{ scale: 1.08 }}
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
@@ -289,7 +289,7 @@ function DishCard({ dish, index }: { dish: typeof dishes[0]; index: number }) {
             src={dish.image}
             alt={dish.name}
             fill
-            className="object-cover"
+            className=" object-cover"
             sizes="(max-width:640px) 50vw, 22vw"
           />
         </motion.div>

@@ -146,7 +146,7 @@ function LocationBlock({ loc, index }: { loc: typeof locations[0]; index: number
           whileHover={{ scale: 1.02, transition: { duration: 0.4, ease: spring2 } }}
         >
           <motion.div
-            className="w-full h-full"
+            className="w-full h-full relative"
             whileHover={{ scale: 1.07 }}
             transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
@@ -174,7 +174,7 @@ function LocationBlock({ loc, index }: { loc: typeof locations[0]; index: number
           whileHover={{ scale: 1.02, y: "1.5rem", transition: { duration: 0.4, ease: spring2 } }}
         >
           <motion.div
-            className="w-full h-full"
+            className="w-full h-full relative"
             whileHover={{ scale: 1.07 }}
             transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
           >

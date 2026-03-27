@@ -303,7 +303,7 @@ export default function AppDownloadPage() {
           {/* Banner image — zoom on hover */}
           <div className="relative h-52 overflow-hidden">
             <motion.div
-              className="w-full h-full"
+              className="w-full h-full relative"
               whileHover={{ scale: 1.06 }}
               transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
             >

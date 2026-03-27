@@ -462,52 +462,65 @@ const TermsOfService = () => {
           </section>
 
           {/* 13 & 14 — DISCLAIMER + LIABILITY */}
-          {/* Changed padding from px-auto to responsive values */}
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 bg-surface-ink rounded-4xl md:rounded-[4rem] text-on-ink p-8 md:p-16 lg:p-20">
-            <div className="space-y-8">
-              <div className="flex items-center gap-4 border-b border-surface-ink-border pb-4">
-                <AlertTriangle className="text-secondary" size={28} />
-                <h3 className="font-sans font-bold uppercase tracking-tight text-on-ink text-lg md:text-xl">13. Disclaimer</h3>
-              </div>
-              <p className="text-muted lowercase text-[10px] md:text-caption tracking-widest leading-relaxed font-sans opacity-80">
-                OUR SERVICES ARE PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE.&quot; TO THE FULLEST EXTENT PERMITTED BY LAW,
-                WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-              </p>
-            </div>
-            <div className="space-y-8">
-              <div className="flex items-center gap-4 border-b border-surface-ink-border pb-4">
-                <Scale className="text-secondary" size={28} />
-                <h3 className="font-sans font-bold uppercase tracking-tight text-on-ink text-lg md:text-xl">14. Liability</h3>
-              </div>
-              <p className="text-muted lowercase text-[10px] md:text-caption tracking-widest leading-relaxed font-sans opacity-80">
-                TO THE MAXIMUM EXTENT PERMITTED BY LAW, FOODIES SHALL NOT BE LIABLE FOR ANY INDIRECT OR CONSEQUENTIAL DAMAGES.
-                OUR TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT PAID FOR THE SPECIFIC ORDER.
-              </p>
-            </div>
-          </section>
+<section className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 bg-surface-ink rounded-3xl md:rounded-[3rem] text-on-ink">
+  
+  {/* Disclaimer */}
+  <div className="space-y-6">
+    <div className="flex items-center gap-4 border-b border-white/10 pb-4">
+      <AlertTriangle className="text-secondary shrink-0" size={24} />
+      <h3 className="font-sans font-bold uppercase tracking-widest text-white text-base md:text-lg">
+        13. Disclaimer
+      </h3>
+    </div>
+    <p className="text-sm md:text-base leading-relaxed font-sans">
+      Our services are provided &quot;as is&#34; and &quot;as available.&ldquo; To the fullest extent permitted by law, 
+      we we disclaim all warranties, express or implied, including merchantability and fitness for 
+      a particular purpose.
+    </p>
+  </div>
 
-          {/* 15, 16, 17 */}
-          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-2">
-            {[
-              {
-                num: "15.Indemnification",
-                body: "You agree to indemnify and hold Foodies harmless from any claims arising from your violation of these Terms.",
-              },
-              {
-                num: "16.Termination",
-                body: "We may suspend access at any time for violations. You may delete your account through app settings.",
-              },
-              {
-                num: "17.Governing Law",
-                body: "These Terms are governed by the laws of Nigeria. Disputes subject to exclusive jurisdiction of Lagos State courts.",
-              },
-            ].map((item) => (
-              <div key={item.num} className="px-6 py-8 md:py-10 rounded-3xl md:rounded-4xl bg-card border border-border">
-                <h3 className="font-sans font-bold text-heading uppercase text-[10px] md:text-xs tracking-widest mb-4">{item.num}</h3>
-                <p className="text-muted text-sm md:text-body leading-relaxed font-sans">{item.body}</p>
-              </div>
-            ))}
-          </section>
+  {/* Liability */}
+  <div className="space-y-6">
+    <div className="flex items-center gap-4 border-b border-white/10 pb-4">
+      <Scale className="text-secondary shrink-0" size={24} />
+      <h3 className="font-sans font-bold uppercase tracking-widest text-white text-base md:text-lg">
+        14. Liability
+      </h3>
+    </div>
+    <p className="text-sm md:text-base leading-relaxed font-sans">
+      To the maximum extent permitted by law, Foodies shall not be liable for any indirect or 
+      consequential damages. Our total liability shall not exceed the amount paid for the 
+      specific order.
+    </p>
+  </div>
+</section>
+
+{/* 15, 16, 17 — The bottom cards */}
+<section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {[
+    {
+      num: "15. Indemnification",
+      body: "You agree to indemnify and hold Foodies harmless from any claims arising from your violation of these Terms.",
+    },
+    {
+      num: "16. Termination",
+      body: "We may suspend access at any time for violations. You may delete your account through app settings.",
+    },
+    {
+      num: "17. Governing Law",
+      body: "These Terms are governed by the laws of Nigeria. Disputes subject to exclusive jurisdiction of Lagos State courts.",
+    },
+  ].map((item) => (
+    <div key={item.num} className="p-8 rounded-3xl bg-card border border-border transition-all hover:border-primary/30">
+      <h3 className="font-sans font-bold text-primary uppercase text-xs tracking-widest mb-4">
+        {item.num}
+      </h3>
+      <p className="text-sm md:text-base text-muted leading-relaxed font-sans">
+        {item.body}
+      </p>
+    </div>
+  ))}
+</section>
 
           {/* 18. DISPUTE RESOLUTION */}
           <section className="space-y-8 p-6 md:p-10 rounded-4xl md:rounded-[3rem] border-2 border-border bg-bg-soft/30">
@@ -554,7 +567,7 @@ const TermsOfService = () => {
                       href="mailto:info@foodieshotandspicy.com"
                       className="text-base md:text-xl font-bold text-heading hover:text-primary transition-colors font-sans truncate block"
                     >
-                      info@foodieshotandspicy.com
+                      legal@foodieshotandspicy.com
                     </a>
                   </div>
                 </div>

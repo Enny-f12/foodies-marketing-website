@@ -20,6 +20,7 @@ export function HeroSection() {
           src="https://i.pinimg.com/736x/df/a2/f6/dfa2f64e7d7e34b0765d695d3e87cb32.jpg"
           alt="Foodies kitchen background"
           fill
+           sizes="(max-width: 1024px) 100vw, 50vw"
           priority
           className="object-cover object-center opacity-25"
         />
@@ -114,6 +115,7 @@ export function HeroSection() {
                 src="https://i.pinimg.com/736x/72/8f/5a/728f5a88489d3a06a3c66da00d0cd532.jpg"
                 alt="Foodies chef at work"
                 fill
+                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-center"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
@@ -154,7 +156,8 @@ export function HeroSection() {
                   src="https://i.pinimg.com/736x/ef/07/d0/ef07d0b8045148a8fa6dcb46382f262b.jpg"
                   alt="Foodies dining experience"
                   fill
-                  className="object-cover object-center"
+                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-center w-auto h-auto"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
 
