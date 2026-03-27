@@ -40,7 +40,7 @@ const staggerContainer: Variants = {
 
 const TermsOfService = () => {
   return (
-    <div className="w-full min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-white mt-10">
+    <div className="w-full bg-background text-foreground font-sans  mt-10">
 
       {/* --- HERO SECTION --- */}
       {/* Added responsive padding py-16 for mobile, py-32 for desktop */}

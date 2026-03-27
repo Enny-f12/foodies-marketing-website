@@ -23,7 +23,7 @@ export default function LoyaltyPage() {
   });
 
   return (
-    <section style={{ background: "var(--color-bg)" }} className="w-full">
+    <section style={{ background: "var(--color-bg)" }} className="w-full mt-10">
       <div
         ref={ref}
         className="max-w-7xl mx-auto"

@@ -156,7 +156,7 @@ export function MenuCTA() {
 
             {/* App buttons */}
            <div className=" mb-6">
-            <AppStoreButtons/>
+            <AppStoreButtons align="left"/>
            </div>
             {/* Tagline */}
             <motion.p

@@ -12,7 +12,7 @@ export function HeroSection() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen overflow-hidden bg-neutral-950 flex items-center"
+      className="relative overflow-hidden bg-neutral-950 flex items-center"
     >
       {/* ── Background image with dark overlay ── */}
       <div className="absolute inset-0 z-0">

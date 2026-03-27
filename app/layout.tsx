@@ -103,17 +103,18 @@ export default function RootLayout({
       lang="en"
       data-theme="light"
       data-scroll-behavior="smooth"
-      className={`${helvena.variable} ${nord.variable} ${pros.variable}`} 
+      className={`${helvena.variable} ${nord.variable} ${pros.variable}`}
     >
-      <body className="font-sans antialiased selection:bg-primary/20 selection:text-primary">
-        <ThemeProvider defaultTheme="light">
-          <Navbar />
-          {/* Main container to ensure typography flows correctly */}
-          <main className="min-h-screen">
-            {children}
-          </main>
-          <Footer />
-          <WhatsAppFloat/>
+      <body className="font-sans overflow-x-hidden antialiased selection:bg-primary/20 selection:text-primary">
+        <ThemeProvider defaultTheme="light">       
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <main className="grow ">
+              {children}
+            </main>
+            <Footer />
+            <WhatsAppFloat />
+          </div>
         </ThemeProvider>
       </body>
     </html>

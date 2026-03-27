@@ -15,7 +15,7 @@ import {
 
 const PrivacyPolicy = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-white w-full">
+    <div className="bg-background text-foreground font-sans w-full">
 
       {/* --- HERO SECTION --- */}
       {/* py-16 on mobile, py-24/32 on desktop */}

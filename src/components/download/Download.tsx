@@ -90,7 +90,7 @@ export default function AppDownloadPage() {
   const screensInView  = useInView(screensRef,  { once: true, margin: "-60px 0px" });
 
   return (
-    <main className="min-h-screen" style={{ background: "var(--color-bg)", color: "var(--color-text)" }}>
+    <main  style={{ background: "var(--color-bg)", color: "var(--color-text)" }}>
 
       {/* ══ HERO ══ */}
       <section
