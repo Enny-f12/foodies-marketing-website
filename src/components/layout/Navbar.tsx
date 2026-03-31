@@ -12,8 +12,8 @@ const navLinks = [
   { label: "About", href: "/about" },
   { label: "Menu", href: "/menu" },
   { label: "Contact", href: "/contact" },
-  { label: "Careers", href: "/careers" },
-  { label: "Rewards", href: "/Loyalty-rewards" },
+  //{ label: "Careers", href: "/careers" },
+  //{ label: "Rewards", href: "/Loyalty-rewards" },
 ];
 
 export function Navbar() {
