@@ -19,7 +19,7 @@ import {
 
 const PrivacyPolicy = () => {
   return (
-    <div className="bg-background text-foreground font-sans w-full">
+    <div className="bg-background text-foreground font-sans w-full mt-10">
 
       {/* --- HERO --- */}
       <header className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-surface-ink w-full">

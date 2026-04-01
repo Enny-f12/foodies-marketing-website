@@ -270,7 +270,7 @@ export function HeroSection() {
       <div style={{ height: "72px" }} />
 
       <section
-        className="relative w-full overflow-hidden"
+        className="relative w-full overflow-hidden z-50"
         style={{ minHeight: "calc(100svh - 72px)" }}
       >
         {/* Background ken-burns */}

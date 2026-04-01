@@ -210,10 +210,10 @@ export default function ContactPage() {
             </div>
             <div className="grid grid-cols-2 gap-2 mt-4">
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Button size="sm" className="w-full">Book a Table</Button>
+                <Button size="md" className="w-full">Book a Table</Button>
               </motion.div>
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Button variant="outline" size="sm" className="w-full">Order Takeaway</Button>
+                <Button variant="outline" size="md" className="w-full">Order Takeaway</Button>
               </motion.div>
             </div>
           </LocationCard>
@@ -252,10 +252,10 @@ export default function ContactPage() {
             </div>
             <div className="grid grid-cols-2 gap-2 mt-4">
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Button size="sm" className="w-full">Book a Table</Button>
+                <Button size="md" className="w-full">Book a Table</Button>
               </motion.div>
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Button variant="outline" size="sm" className="w-full">Order Takeaway</Button>
+                <Button variant="outline" size="md" className="w-full">Order Takeaway</Button>
               </motion.div>
             </div>
           </LocationCard>
@@ -294,10 +294,10 @@ export default function ContactPage() {
             </div>
             <div className="grid grid-cols-2 gap-2 mt-4">
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Button size="sm" className="w-full">Book a Table</Button>
+                <Button size="md" className="w-full">Book a Table</Button>
               </motion.div>
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Button variant="outline" size="sm" className="w-full">Order Takeaway</Button>
+                <Button variant="outline" size="md" className="w-full">Order Takeaway</Button>
               </motion.div>
             </div>
           </LocationCard>

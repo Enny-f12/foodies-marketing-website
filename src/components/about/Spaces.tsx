@@ -287,7 +287,7 @@ function LocationBlock({ loc, index }: { loc: typeof locations[0]; index: number
 
         {/* CTAs */}
         <motion.div
-          className="flex flex-wrap gap-4"
+          className="flex flex-wrap gap-6 sm:gap-4 justify-center sm:justify-start"
           variants={ctaVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
@@ -318,7 +318,7 @@ function LocationBlock({ loc, index }: { loc: typeof locations[0]; index: number
             </motion.div>
           </motion.div>
 
-          <motion.div variants={ctaItem}>
+          <motion.div variants={ctaItem} >
             <motion.div
               whileHover={{ y: -3, scale: 1.03, transition: { duration: 0.2, ease: spring2 } }}
               whileTap={{ scale: 0.97 }}
