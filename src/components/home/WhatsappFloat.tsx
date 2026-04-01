@@ -1,11 +1,8 @@
 export function WhatsAppFloat() {
-  const phoneNumber = "2348000000000"; 
-  const message = "Hi! I'd like to place an order 🍛";
-  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-
+  
   return (
     <a
-      href={url}
+      href=''
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
