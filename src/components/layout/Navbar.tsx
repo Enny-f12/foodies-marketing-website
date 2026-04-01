@@ -39,8 +39,8 @@ export function Navbar() {
           <Image
             src="/assets/Logo.png"
             alt="Foodies Hot & Spicy"
-            width={80}
-            height={25}
+            width={60}
+            height={20}
             className="object-contain mt-4 h-auto w-auto"
             loading="eager"
 
