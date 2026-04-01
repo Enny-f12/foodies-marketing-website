@@ -35,15 +35,14 @@ export function Navbar() {
         style={{ padding: "0 clamp(1.25rem,5vw,3rem)" }}
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center justify-center  shrink-0">
+        <Link href="/" className="flex items-center shrink-0">
           <Image
             src="/assets/Logo.png"
             alt="Foodies Hot & Spicy"
-            width={80}
-            height={25}
-            className="object-contain mt-4 h-auto w-auto"
+            width={60}
+            height={20}
+            className="object-contain w-auto h-auto md:h-10 lg:h-14"
             loading="eager"
-
           />
         </Link>
 
