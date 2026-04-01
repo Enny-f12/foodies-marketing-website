@@ -81,12 +81,10 @@ export default function AppDownloadPage() {
 
   const heroRef     = useRef<HTMLElement>(null);
   const featuresRef = useRef<HTMLElement>(null);
-  const offerRef    = useRef<HTMLElement>(null);
   const screensRef  = useRef<HTMLElement>(null);
 
   const heroInView     = useInView(heroRef,     { once: true, margin: "-60px 0px" });
   const featuresInView = useInView(featuresRef, { once: true, margin: "-60px 0px" });
-  const offerInView    = useInView(offerRef,    { once: true, margin: "-60px 0px" });
   const screensInView  = useInView(screensRef,  { once: true, margin: "-60px 0px" });
 
   return (
@@ -290,110 +288,7 @@ export default function AppDownloadPage() {
         </div>
       </section>
 
-      {/* ══ FIRST ORDER OFFER ══ */}
-      <section ref={offerRef} className="py-24 px-6" style={{ background: "var(--color-bg)" }}>
-        <motion.div
-          className="max-w-3xl mx-auto rounded-xl overflow-hidden"
-          style={{ border: "0.5px solid var(--color-border)" }}
-          initial={{ opacity: 0, y: 40, scale: 0.97 }}
-          animate={offerInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-          transition={{ duration: 0.8, ease: spring1 }}
-          whileHover={{ scale: 1.01, transition: { duration: 0.3, ease: spring2 } }}
-        >
-          {/* Banner image — zoom on hover */}
-          <div className="relative h-52 overflow-hidden">
-            <motion.div
-              className="w-full h-full relative"
-              whileHover={{ scale: 1.06 }}
-              transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
-            >
-              <Image
-                src="https://i.pinimg.com/1200x/73/f8/a9/73f8a962194665f8ff4a72d0267f0fff.jpg"
-                alt="Nigerian food spread"
-                fill
-                className="object-cover object-center"
-                sizes="800px"
-              />
-            </motion.div>
-            <div
-              className="absolute inset-0"
-              style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.65))" }}
-            />
-            <motion.div
-              className="absolute inset-0 flex items-center justify-center"
-              initial={{ opacity: 0, y: 12 }}
-              animate={offerInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, ease: spring1, delay: 0.3 }}
-            >
-              <span
-                className="font-display font-bold uppercase text-white"
-                style={{ fontSize: "clamp(1.4rem,3vw,2.2rem)", letterSpacing: "-0.02em" }}
-              >
-                First Order Offer
-              </span>
-            </motion.div>
-          </div>
-
-          {/* Body */}
-          <div className="p-10 text-center" style={{ background: "var(--color-bg-card)" }}>
-            <motion.p
-              className="text-lg mb-6 leading-relaxed"
-              style={{ color: "var(--color-text)" }}
-              initial={{ opacity: 0, y: 14 }}
-              animate={offerInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.25 }}
-            >
-              Download now and get{" "}
-              <motion.span
-                className="font-bold"
-                style={{ color: "var(--color-primary)" }}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={offerInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.45, ease: spring2, delay: 0.4 }}
-              >
-                ₦2,000 off
-              </motion.span>{" "}
-              your first order.
-            </motion.p>
-
-            {/* Promo code — pulses */}
-            <motion.div
-              className="inline-block px-8 py-3 rounded-xl font-mono font-bold mb-8"
-              style={{
-                background:    "var(--color-bg-soft)",
-                border:        "1.5px dashed var(--color-primary)",
-                color:         "var(--color-primary)",
-                fontSize:      "1.1rem",
-                letterSpacing: "0.12em",
-              }}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={offerInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, ease: spring2, delay: 0.45 }}
-              whileHover={{
-                scale:     1.04,
-                boxShadow: "0 0 0 3px color-mix(in srgb, var(--color-primary) 25%, transparent)",
-                transition: { duration: 0.2 },
-              }}
-            >
-              use code: FOODIESAPP
-            </motion.div>
-
-            <div className="flex justify-center items-center mb-6">
-              <AppStoreButtons/>
-            </div>
-
-            <motion.p
-              className="text-[10px] uppercase tracking-widest"
-              style={{ color: "var(--color-text-disabled)" }}
-              initial={{ opacity: 0 }}
-              animate={offerInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.7 }}
-            >
-              Valid for new users only. Minimum order applies.
-            </motion.p>
-          </div>
-        </motion.div>
-      </section>
+     
 
       {/* ══ SCREEN PREVIEWS ══ */}
       <section ref={screensRef} className="py-24" style={{ background: "var(--color-bg-soft)" }}>

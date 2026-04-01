@@ -23,11 +23,11 @@ export function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-md"
+      className="fixed top-0 left-0 right-0 z-80 w-full backdrop-blur-md"
       style={{
         background: "var(--color-surface-ink)",
         borderBottom: "1px solid var(--color-surface-ink-border)",
-        height: "72px",
+        height: "80px",
       }}
     >
       <div
@@ -39,8 +39,8 @@ export function Navbar() {
           <Image
             src="/assets/Logo.png"
             alt="Foodies Hot & Spicy"
-            width={60}
-            height={20}
+            width={80}
+            height={25}
             className="object-contain mt-4 h-auto w-auto"
             loading="eager"
 
@@ -78,7 +78,7 @@ export function Navbar() {
             onClick={toggleTheme}
             aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
             title={`Switch to ${isDark ? "light" : "dark"} mode`}
-            className="flex items-center justify-center w-9 h-9 rounded-lg border transition-all duration-300 hover:border-primary cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+            className="flex items-center justify-center w-9 h-9 rounded-lg border transition-all duration-300 hover:border-primary cursor-pointer focus:outline-none"
             style={{
               border: "1px solid var(--color-surface-ink-border)",
               color: "var(--color-on-ink)",
