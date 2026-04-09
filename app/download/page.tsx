@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import React from 'react';
 import AppDownloadPage from '@/components/download/Download';
+import DownloadHero from "@/components/download/DownloadHero";
 
 // Implementing SEO Meta Data for the Dedicated Landing Page
 export const metadata: Metadata = {
@@ -23,7 +24,12 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
+    <div>
+
+    
+    <DownloadHero/>
     <AppDownloadPage />
+    </div>
   );
 };
 

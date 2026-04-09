@@ -74,7 +74,7 @@ export function FAQSection() {
                   <button
                     onClick={() => setActiveId(cat.id)}
                     className={`group relative flex w-full items-center gap-3 rounded-lg px-4 py-2.5 text-left transition-colors ${
-                      activeId === cat.id ? "bg-primary/10 text-heading" : "text-muted-foreground hover:bg-muted"
+                      activeId === cat.id ? "bg-primary/10 text-heading" : "text-muted-foreground "
                     }`}
                   >
                     {activeId === cat.id && (

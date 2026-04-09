@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Zap, CalendarCheck, Truck,
   Gift, MessageCircle, ShoppingBag,
@@ -13,7 +14,6 @@ import {
   type Variants,
   type Transition,
 } from "framer-motion";
-import { AppStoreButtons } from "../ui/AppStoreButtons";
 
 /* ── Easing ────────────────────────────────────────────────────────── */
 type Bezier = [number, number, number, number];
@@ -27,15 +27,7 @@ const fadeUp: Variants = {
   visible: { opacity: 1, y: 0, transition: t1() },
 };
 
-const wordUnmaskContainer: Variants = {
-  hidden:  {},
-  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
-};
 
-const wordUnmask: Variants = {
-  hidden:  { opacity: 0, y: 44, skewY: 3 },
-  visible: { opacity: 1, y: 0,  skewY: 0, transition: t1() },
-};
 
 const staggerContainer: Variants = {
   hidden:  {},
@@ -52,142 +44,40 @@ const lineVariants: Variants = {
   visible: { width: 32, transition: { duration: 0.55, ease: "easeOut" as const, delay: 0.15 } },
 };
 
-
-
-
-
-
 /* ── Data ──── */
 const features = [
-  { icon: ShoppingBag,   title: "Seamless Ordering",    desc: "Browse our full menu, customize your dishes, and checkout in seconds."                    },
-  { icon: Zap,           title: "Real-Time Inventory",  desc: "See live stock availability before you order. No more disappointment."                    },
-  { icon: CalendarCheck, title: "Easy Reservations",    desc: "Book tables in real-time, make special requests, and get instant confirmations."          },
-  { icon: Truck,         title: "Live Tracking",        desc: "Track your driver live on the map with accurate ETA updates."                             },
-  { icon: Gift,          title: "Loyalty & Rewards",    desc: "Earn points on every order, unlock VIP tiers, and get exclusive offers."                  },
-  { icon: MessageCircle, title: "Concierge Chat",       desc: "Chat with our team for assistance, recommendations, or dietary needs."                    },
+  { icon: ShoppingBag,   title: "Seamless Ordering",    desc: "Browse our full menu, customize your dishes, and checkout in seconds."           },
+  { icon: Zap,           title: "Real-Time Inventory",  desc: "See live stock availability before you order. No more disappointment."           },
+  { icon: CalendarCheck, title: "Easy Reservations",    desc: "Book tables in real-time, make special requests, and get instant confirmations." },
+  { icon: Truck,         title: "Live Tracking",        desc: "Track your driver live on the map with accurate ETA updates."                    },
+  { icon: Gift,          title: "Loyalty & Rewards",    desc: "Earn points on every order, unlock VIP tiers, and get exclusive offers."         },
+  { icon: MessageCircle, title: "Concierge Chat",       desc: "Chat with our team for assistance, recommendations, or dietary needs."           },
 ];
 
+// ── Each screen has its own unique image path and href ──
 const screens = [
-  { id: 1, label: "Home",     desc: "Real-time discovery"       },
-  { id: 2, label: "Menu",     desc: "255+ authentic dishes"      },
-  { id: 3, label: "Order",    desc: "Seamless digital checkout"  },
-  { id: 4, label: "Tracking", desc: "Live delivery updates"      },
-  { id: 5, label: "Profile",  desc: "Exclusive loyalty tiers"    },
+  { id: 1, label: "Home",     desc: "Real-time discovery",       image: "/assets/download/Home.png",     href: "/screens/home"     },
+  { id: 2, label: "Menu",     desc: "255+ authentic dishes",     image: "/assets/download/Menu.png",     href: "/screens/menu"     },
+  { id: 3, label: "Order",    desc: "Seamless digital checkout", image: "/assets/download/Cart.png",    href: "/screens/order"    },
+  { id: 4, label: "Tracking", desc: "Live delivery updates",     image: "/assets/download/Track Order.png", href: "/screens/tracking" },
+  { id: 5, label: "Reservation",  desc: "Private dining experiences",   image: "/assets/download/Reservation.png",  href: "/screens/profile"  },
 ];
 
 /* ── Page ───── */
 export default function AppDownloadPage() {
   const [activeScreen, setActiveScreen] = useState(0);
+  // Tracks which screen images failed to load — keyed by screen id
+  const [failedImages, setFailedImages] = useState<Record<number, boolean>>({});
 
-  const heroRef     = useRef<HTMLElement>(null);
   const featuresRef = useRef<HTMLElement>(null);
   const screensRef  = useRef<HTMLElement>(null);
 
-  const heroInView     = useInView(heroRef,     { once: true, margin: "-60px 0px" });
   const featuresInView = useInView(featuresRef, { once: true, margin: "-60px 0px" });
   const screensInView  = useInView(screensRef,  { once: true, margin: "-60px 0px" });
 
   return (
-    <main  style={{ background: "var(--color-bg)", color: "var(--color-text)" }}>
+    <main style={{ background: "var(--color-bg)", color: "var(--color-text)" }}>
 
-      {/* ══ HERO ══ */}
-      <section
-        ref={heroRef}
-        className="relative overflow-hidden"
-        style={{ background: "var(--color-surface-ink)", paddingTop: "72px" }}
-      >
-        {/* Breathing ambient glow */}
-        <motion.div
-          className="absolute -top-24 left-1/2 -translate-x-1/2 w-150 h-75 rounded-full pointer-events-none"
-          style={{ background: "var(--color-primary)", filter: "blur(100px)" }}
-          animate={{ opacity: [0.06, 0.12, 0.06], scaleX: [1, 1.1, 1] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        />
-
-        <div
-          className="relative z-10 max-w-7xl mx-auto text-center"
-          style={{ padding: "clamp(4rem,8vw,7rem) clamp(1.25rem,5vw,3rem) clamp(3rem,6vw,5rem)" }}
-        >
-          {/* Headline — word unmask */}
-          <motion.h1
-            className="font-display font-bold  leading-none mb-6 mx-auto"
-            style={{
-              textTransform: "capitalize",
-              fontSize:      "clamp(2.8rem,7vw,6rem)",
-              letterSpacing: "-0.03em",
-              color:         "var(--color-on-ink)",
-              maxWidth:      "min(90vw,820px)",
-            }}
-            variants={wordUnmaskContainer}
-            initial="hidden"
-            animate={heroInView ? "visible" : "hidden"}
-          >
-            {["Download", "the"].map((w) => (
-              <span key={w} style={{ display: "inline-block", overflow: "hidden", verticalAlign: "bottom", marginRight: "0.3em" }}>
-                <motion.span style={{ display: "inline-block" }} variants={wordUnmask}>{w}</motion.span>
-              </span>
-            ))}
-            {/* "Foodies" in red */}
-            <span style={{ display: "inline-block", overflow: "hidden", verticalAlign: "bottom", marginRight: "0.3em" }}>
-              <motion.span style={{ display: "inline-block", color: "var(--color-primary)" }} variants={wordUnmask}>Foodies</motion.span>
-            </span>
-            <span style={{ display: "inline-block", overflow: "hidden", verticalAlign: "bottom" }}>
-              <motion.span style={{ display: "inline-block" }} variants={wordUnmask}>App</motion.span>
-            </span>
-          </motion.h1>
-
-          {/* Subtext */}
-          <motion.p
-            className="mx-auto mb-12 leading-relaxed"
-            style={{
-              fontSize: "clamp(0.95rem,1.8vw,1.05rem)",
-              color:    "var(--color-on-ink-muted)",
-              maxWidth: "min(90vw,480px)",
-            }}
-            initial={{ opacity: 0, y: 18 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.65, ease: "easeOut", delay: 0.55 }}
-          >
-            Your passport to premium Nigerian dining, now in your pocket.
-          </motion.p>
-
-          {/* App buttons */}
-          <div className="flex justify-center mb-10">
-            <AppStoreButtons/>
-          </div>
-
-          {/* Mockup image */}
-          <motion.div
-            className="relative mx-auto rounded-2xl overflow-hidden"
-            style={{
-              maxWidth:    "900px",
-              aspectRatio: "16/9",
-              border:      "0.5px solid var(--color-surface-ink-border)",
-            }}
-            initial={{ opacity: 0, y: 40, scale: 0.97 }}
-            animate={heroInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-            transition={{ duration: 0.9, ease: spring1, delay: 0.4 }}
-            whileHover={{ scale: 1.015, transition: { duration: 0.4, ease: spring2 } }}
-          >
-            <Image
-              src="/images/app-mockup.png"
-              alt="Foodies app screens"
-              fill
-              className="object-cover object-top"
-              sizes="900px"
-              priority
-            />
-            <div
-              className="absolute inset-0 flex items-center justify-center"
-              style={{ background: "rgba(255,255,255,0.03)" }}
-            >
-              <p className="text-xs uppercase tracking-widest" style={{ color: "var(--color-on-ink-faint)" }}>
-                [ App Mockup Image ]
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* ══ FEATURES GRID ══ */}
       <section ref={featuresRef} className="py-24 px-6" style={{ background: "var(--color-bg-soft)" }}>
@@ -250,7 +140,7 @@ export default function AppDownloadPage() {
                   background: i % 2 === 0
                     ? "color-mix(in srgb, var(--color-primary) 4%, var(--color-bg-card))"
                     : "color-mix(in srgb, var(--color-secondary) 4%, var(--color-bg-card))",
-                  boxShadow: "0 12px 32px rgba(0,0,0,0.08)",
+                  boxShadow:  "0 12px 32px rgba(0,0,0,0.08)",
                   transition: { duration: 0.25 },
                 }}
               >
@@ -287,8 +177,6 @@ export default function AppDownloadPage() {
 
         </div>
       </section>
-
-     
 
       {/* ══ SCREEN PREVIEWS ══ */}
       <section ref={screensRef} className="py-24" style={{ background: "var(--color-bg-soft)" }}>
@@ -335,64 +223,106 @@ export default function AppDownloadPage() {
           >
             {screens.map((screen, i) => (
               <motion.div
-                key={screen.id}
+                key={screen.id}           // ← unique per card (1–5)
                 className="min-w-65 snap-center shrink-0"
                 variants={staggerItem}
-                onClick={() => setActiveScreen(i)}
               >
-                <motion.div
-                  className="relative rounded-xl overflow-hidden flex flex-col items-center justify-center cursor-pointer"
-                  style={{
-                    aspectRatio: "9/18",
-                    background:  "var(--color-bg-card)",
-                    border:      `0.5px solid ${activeScreen === i ? "var(--color-primary)" : "var(--color-border)"}`,
+                <Link
+                  href={screen.href}
+                  onClick={(e) => {
+                    // First click selects; if already active the Link navigates normally
+                    if (activeScreen !== i) {
+                      e.preventDefault();
+                      setActiveScreen(i);
+                    }
                   }}
-                  whileHover={{
-                    y:           -6,
-                    scale:       1.02,
-                    borderColor: "var(--color-primary)",
-                    background:  "color-mix(in srgb, var(--color-primary) 4%, var(--color-bg-card))",
-                    transition:  { duration: 0.25, ease: spring2 },
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                  animate={activeScreen === i ? { borderColor: "var(--color-primary)" } : {}}
+                  style={{ textDecoration: "none", display: "block" }}
                 >
-                  {/* Notch */}
-                  <div
-                    className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 rounded-b-2xl"
-                    style={{ background: "var(--color-bg-soft)", border: "0.5px solid var(--color-border)", borderTop: "none" }}
-                  />
+                  <motion.div
+                    className="relative rounded-xl overflow-hidden flex flex-col items-center justify-center cursor-pointer"
+                    style={{
+                      aspectRatio: "9/18",
+                      background:  "var(--color-bg-card)",
+                      border:      `0.5px solid ${activeScreen === i ? "var(--color-primary)" : "var(--color-border)"}`,
+                    }}
+                    whileHover={{
+                      y:           -6,
+                      scale:       1.02,
+                      borderColor: "var(--color-primary)",
+                      background:  "color-mix(in srgb, var(--color-primary) 4%, var(--color-bg-card))",
+                      transition:  { duration: 0.25, ease: spring2 },
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                    animate={activeScreen === i ? { borderColor: "var(--color-primary)" } : {}}
+                  >
+                    {/* Notch */}
+                    <div
+                      className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 rounded-b-2xl z-20"
+                      style={{ background: "var(--color-bg-soft)", border: "0.5px solid var(--color-border)", borderTop: "none" }}
+                    />
 
-                  {/* Active indicator line at top */}
-                  <AnimatePresence>
-                    {activeScreen === i && (
-                      <motion.div
-                        className="absolute top-0 left-0 right-0 h-0.5"
-                        style={{ background: "var(--color-primary)" }}
-                        initial={{ scaleX: 0, originX: 0 }}
-                        animate={{ scaleX: 1 }}
-                        exit={{ scaleX: 0 }}
-                        transition={{ duration: 0.35, ease: spring2 }}
-                      />
+                    {/* Active indicator line */}
+                    <AnimatePresence>
+                      {activeScreen === i && (
+                        <motion.div
+                          className="absolute top-0 left-0 right-0 h-0.5 z-20"
+                          style={{ background: "var(--color-primary)" }}
+                          initial={{ scaleX: 0, originX: 0 }}
+                          animate={{ scaleX: 1 }}
+                          exit={{ scaleX: 0 }}
+                          transition={{ duration: 0.35, ease: spring2 }}
+                        />
+                      )}
+                    </AnimatePresence>
+
+                    {/* ── Image with label fallback ── */}
+                    {!failedImages[screen.id] ? (
+                      <>
+                        <Image
+                          src={screen.image}
+                          alt={screen.label}
+                          fill
+                          className="object-cover object-top"
+                          sizes="260px"
+                          onError={() =>
+                            setFailedImages((prev) => ({ ...prev, [screen.id]: true }))
+                          }
+                        />
+                        {/* Gradient label overlay */}
+                        <div
+                          className="absolute bottom-0 left-0 right-0 z-10 px-4 pb-4 pt-10"
+                          style={{
+                            background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%)",
+                          }}
+                        >
+                          <h4 className="font-semibold text-sm mb-0.5" style={{ color: "#fff" }}>
+                            {screen.label}
+                          </h4>
+                          <p className="text-xs" style={{ color: "rgba(255,255,255,0.72)" }}>
+                            {screen.desc}
+                          </p>
+                        </div>
+                      </>
+                    ) : (
+                      /* Fallback — numbered label block (same as original) */
+                      <div className="z-10 text-center px-8">
+                        <motion.div
+                          className="w-11 h-11 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-sm"
+                          style={{ background: "rgba(225,11,28,0.08)", color: "var(--color-primary)" }}
+                          whileHover={{ scale: 1.15, rotate: -6, transition: { duration: 0.3, ease: spring2 } }}
+                        >
+                          {screen.id}
+                        </motion.div>
+                        <h4 className="font-semibold text-base mb-1" style={{ color: "var(--color-heading)" }}>
+                          {screen.label}
+                        </h4>
+                        <p className="text-xs leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
+                          {screen.desc}
+                        </p>
+                      </div>
                     )}
-                  </AnimatePresence>
-
-                  <div className="z-10 text-center px-8">
-                    <motion.div
-                      className="w-11 h-11 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-sm"
-                      style={{ background: "rgba(225,11,28,0.08)", color: "var(--color-primary)" }}
-                      whileHover={{ scale: 1.15, rotate: -6, transition: { duration: 0.3, ease: spring2 } }}
-                    >
-                      {screen.id}
-                    </motion.div>
-                    <h4 className="font-semibold text-base mb-1" style={{ color: "var(--color-heading)" }}>
-                      {screen.label}
-                    </h4>
-                    <p className="text-xs leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
-                      {screen.desc}
-                    </p>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </Link>
               </motion.div>
             ))}
           </motion.div>
@@ -404,11 +334,11 @@ export default function AppDownloadPage() {
                 key={s.id}
                 onClick={() => setActiveScreen(i)}
                 style={{
-                  height:     "4px",
-                  background: i === activeScreen ? "var(--color-primary)" : "var(--color-border)",
-                  border:     "none",
-                  padding:    0,
-                  cursor:     "pointer",
+                  height:       "4px",
+                  background:   i === activeScreen ? "var(--color-primary)" : "var(--color-border)",
+                  border:       "none",
+                  padding:      0,
+                  cursor:       "pointer",
                   borderRadius: "2px",
                 }}
                 animate={{ width: i === activeScreen ? 32 : 8 }}

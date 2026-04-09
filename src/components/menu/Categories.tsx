@@ -23,61 +23,61 @@ const t2 = (extra?: Partial<Transition>): Transition => ({ duration: 0.45, ease:
 
 /* Category panel — fades + slight Y on tab switch */
 const panelVariants: Variants = {
-  enter:  { opacity: 0, y: 20 },
+  enter: { opacity: 0, y: 20 },
   center: { opacity: 1, y: 0, transition: t1() },
-  exit:   { opacity: 0, y: -12, transition: { duration: 0.25, ease: "easeIn" as const } },
+  exit: { opacity: 0, y: -12, transition: { duration: 0.25, ease: "easeIn" as const } },
 };
 
 const headerVariants: Variants = {
-  hidden:  { opacity: 0, x: -20 },
+  hidden: { opacity: 0, x: -20 },
   visible: { opacity: 1, x: 0, transition: t1() },
 };
 
 const lineVariants: Variants = {
-  hidden:  { width: 0 },
+  hidden: { width: 0 },
   visible: { width: 32, transition: { duration: 0.5, ease: "easeOut" as const, delay: 0.1 } },
 };
 
 const headlineContainer: Variants = {
-  hidden:  {},
+  hidden: {},
   visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
 };
 
 const lineUnmask: Variants = {
-  hidden:  { opacity: 0, y: 28, skewY: 2 },
-  visible: { opacity: 1, y: 0,  skewY: 0, transition: t1() },
+  hidden: { opacity: 0, y: 28, skewY: 2 },
+  visible: { opacity: 1, y: 0, skewY: 0, transition: t1() },
 };
 
 const subCopy: Variants = {
-  hidden:  { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 16 },
   visible: { opacity: 1, y: 0, transition: t1({ delay: 0.2 }) },
 };
 
 /* Chips stagger */
 const chipsContainer: Variants = {
-  hidden:  {},
+  hidden: {},
   visible: { transition: { staggerChildren: 0.06, delayChildren: 0.3 } },
 };
 
 const chipItem: Variants = {
-  hidden:  { opacity: 0, scale: 0.85, y: 8 },
-  visible: { opacity: 1, scale: 1,    y: 0, transition: t2() },
+  hidden: { opacity: 0, scale: 0.85, y: 8 },
+  visible: { opacity: 1, scale: 1, y: 0, transition: t2() },
 };
 
 /* Images stagger */
 const imagesContainer: Variants = {
-  hidden:  {},
+  hidden: {},
   visible: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
 };
 
 const imageCard = (i: number): Variants => ({
-  hidden:  { opacity: 0, y: i === 0 ? 30 : 50, scale: 0.96 },
-  visible: { opacity: 1, y: 0,                  scale: 1,    transition: t1({ delay: i * 0.1 }) },
+  hidden: { opacity: 0, y: i === 0 ? 30 : 50, scale: 0.96 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: t1({ delay: i * 0.1 }) },
 });
 
 /* Bottom strip */
 const stripVariants: Variants = {
-  hidden:  { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: t1({ delay: 0.4 }) },
 };
 
@@ -85,7 +85,7 @@ const stripVariants: Variants = {
 export function MenuCategories() {
   const [activeId, setActiveId] = useState(categories[0].id);
 
-  const cat      = categories.find((c) => c.id === activeId) ?? categories[0];
+  const cat = categories.find((c) => c.id === activeId) ?? categories[0];
   const catIndex = categories.findIndex((c) => c.id === activeId);
   const sectionBg = catIndex % 2 === 0 ? "var(--color-bg)" : "var(--color-bg-soft)";
 
@@ -137,7 +137,7 @@ export function MenuCategories() {
                   <motion.h2
                     className="font-display font-black leading-tight mb-4"
                     style={{
-                      color:    "var(--color-heading)",
+                      color: "var(--color-heading)",
                       fontSize: "clamp(1.8rem,3.5vw,2.8rem)",
                     }}
                     variants={headlineContainer}
@@ -155,7 +155,7 @@ export function MenuCategories() {
                   <motion.p
                     className="leading-relaxed mb-8"
                     style={{
-                      color:    "var(--color-text-secondary)",
+                      color: "var(--color-text-secondary)",
                       fontSize: "clamp(0.95rem,1.8vw,1.05rem)",
                       maxWidth: "min(100%,480px)",
                     }}
@@ -181,14 +181,14 @@ export function MenuCategories() {
                           className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-xl border"
                           style={{
                             borderColor: "var(--color-border)",
-                            background:  "var(--color-bg-card)",
-                            color:       "var(--color-text-secondary)",
+                            background: "var(--color-bg-card)",
+                            color: "var(--color-text-secondary)",
                           }}
                           variants={chipItem}
                           whileHover={{
                             borderColor: "color-mix(in srgb, var(--color-primary) 40%, transparent)",
-                            background:  "color-mix(in srgb, var(--color-primary) 6%, transparent)",
-                            color:       "var(--color-heading)",
+                            background: "color-mix(in srgb, var(--color-primary) 6%, transparent)",
+                            color: "var(--color-heading)",
                             y: -2,
                             scale: 1.03,
                             transition: { duration: 0.2 },
@@ -212,9 +212,9 @@ export function MenuCategories() {
                           className="flex items-center gap-2 px-4 py-2.5 text-sm font-semibold rounded-xl"
                           style={{
                             background: "var(--color-primary)",
-                            color:      "white",
-                            position:   "relative",
-                            overflow:   "hidden",
+                            color: "white",
+                            position: "relative",
+                            overflow: "hidden",
                           }}
                         >
                           <motion.span
@@ -240,14 +240,14 @@ export function MenuCategories() {
                   initial="hidden"
                   animate="visible"
                 >
-                  {cat.items.slice(0, 2).map((item, i) => (
+                  {cat.items.slice(0, 4).map((item, i) => (
                     <motion.div
                       key={`${activeId}-img-${i}`}
                       className="relative overflow-hidden rounded-2xl border"
                       style={{
-                        aspectRatio:  i === 0 ? "4/5" : "1/1",
-                        marginTop:    i === 1 ? "2rem" : "0",
-                        borderColor:  "var(--color-border)",
+                        aspectRatio: i % 2 === 0 ? "4/5" : "1/1", // Updated logic for 4 items
+                        marginTop: i % 2 === 1 ? "2rem" : "0",
+                        borderColor: "var(--color-border)",
                       }}
                       variants={imageCard(i)}
                       /* Card lifts on hover */
@@ -306,7 +306,7 @@ export function MenuCategories() {
               <motion.div
                 className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-6 rounded-2xl border"
                 style={{
-                  background:  "var(--color-bg-card)",
+                  background: "var(--color-bg-card)",
                   borderColor: "var(--color-border)",
                 }}
                 variants={stripVariants}

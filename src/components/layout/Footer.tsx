@@ -43,7 +43,7 @@ export function Footer() {
           {/* Brand - Strategic Position */}
           <div>
             {/* Logo */}
-            <Link href="/" className="flex items-center shrink-0 justify-center">
+            <Link href="/" className="flex items-leftshrink-0 justify-left">
               <Image
                 src="/assets/Logo.png"
                 alt="Foodies Hot & Spicy"

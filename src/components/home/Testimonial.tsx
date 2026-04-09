@@ -18,24 +18,15 @@ const t2 = (extra?: Partial<Transition>): Transition => ({ duration: 0.45, ease:
 
 /* ── Data ──────────────────────────────────────────────────────────── */
 const testimonials = [
-  {
-    quote:    "The app is incredible. I booked a table for my anniversary in under 2 minutes, and they had wine waiting when we arrived. This is how dining should be.",
-    name:     "Adeola O.",
-    location: "Lekki",
-    stars:    5,
-  },
-  {
-    quote:    "I order takeaway 3–4 times a week. Being able to see live stock means I never get disappointed. And the points add up fast!",
-    name:     "Tunde A.",
-    location: "Ikoyi",
-    stars:    5,
-  },
-  {
-    quote:    "As a restaurant manager, the admin dashboard is a game-changer. I can manage orders, track inventory, and train staff all from one place. We've cut phone orders by 60%.",
-    name:     "Chioma N.",
-    location: "Operations Manager",
-    stars:    5,
-  },
+  { quote: "The app is incredible. I booked a table for my anniversary in under 2 minutes, and they had wine waiting when we arrived.", name: "Adeola O.", location: "Lekki", stars: 5 },
+  { quote: "I order takeaway 3–4 times a week. Being able to see live stock means I never get disappointed.", name: "Tunde A.", location: "Ikoyi", stars: 5 },
+  { quote: "As a manager, the admin dashboard is a game-changer. We've cut phone orders by 60%.", name: "Chioma N.", location: "Operations", stars: 5 },
+  { quote: "Best Jollof in the city, and the delivery was surprisingly fast. The packaging was neat too!", name: "Emeka K.", location: "Victoria Island", stars: 5 },
+  { quote: "Love the loyalty points system! I already got a free bowl of Egusi just by ordering through the app.", name: "Sarah M.", location: "Surulere", stars: 5 },
+  { quote: "The Seafood Pasta is to die for. Finding authentic flavors like this on an app is rare.", name: "Femi B.", location: "Ajah", stars: 4 },
+  { quote: "Smooth UI and very easy to navigate. The live tracking of my rider actually works perfectly.", name: "Zainab H.", location: "Gbagada", stars: 5 },
+  { quote: "Great customer service. I had a small issue with my order and they resolved it in minutes via chat.", name: "Victor E.", location: "Ikeja", stars: 5 },
+  { quote: "The Pounded Yam was fresh and hot when it arrived. Tastes just like home cooking.", name: "Bisi T.", location: "Yaba", stars: 5 },
 ];
 
 /* ── Variants ──────────────────────────────────────────────────────── */
