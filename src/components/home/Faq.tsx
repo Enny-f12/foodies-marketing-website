@@ -95,7 +95,7 @@ export function FAQSection() {
 
           {/* FAQ Accordion List */}
           <div className="min-w-0">
-            <div className="mb-6 flex items-center gap-4 border-b-2 border-muted pb-4">
+            <div className="mb-6 flex items-center gap-4 border-b-2 border-muted/10 pb-4">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 border border-primary/20 text-primary">
                 <activeCategory.Icon size={20} />
               </div>

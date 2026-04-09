@@ -12,81 +12,79 @@ import {
   type Transition,
 } from "framer-motion";
 
-/* ── Easing ────────────────────────────────────────────────────────── */
+/* ── Easing ─────── */
 type Bezier = [number, number, number, number];
 const spring1: Bezier = [0.22, 0.68, 0, 1.1];
 const spring2: Bezier = [0.22, 0.68, 0, 1.2];
 const t1 = (extra?: Partial<Transition>): Transition => ({ duration: 0.7, ease: spring1, ...extra });
 const t2 = (extra?: Partial<Transition>): Transition => ({ duration: 0.45, ease: spring2, ...extra });
 
-/* ── Variants ──────────────────────────────────────────────────────── */
-
-/* Category panel — fades + slight Y on tab switch */
+/* ── Variants ─────────────── */
 const panelVariants: Variants = {
-  enter: { opacity: 0, y: 20 },
-  center: { opacity: 1, y: 0, transition: t1() },
-  exit: { opacity: 0, y: -12, transition: { duration: 0.25, ease: "easeIn" as const } },
+  enter:  { opacity: 0, y: 20 },
+  center: { opacity: 1, y: 0,   transition: t1() },
+  exit:   { opacity: 0, y: -12, transition: { duration: 0.25, ease: "easeIn" as const } },
 };
 
 const headerVariants: Variants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: { opacity: 1, x: 0, transition: t1() },
+  hidden:  { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0,   transition: t1() },
 };
 
 const lineVariants: Variants = {
-  hidden: { width: 0 },
+  hidden:  { width: 0 },
   visible: { width: 32, transition: { duration: 0.5, ease: "easeOut" as const, delay: 0.1 } },
 };
 
 const headlineContainer: Variants = {
-  hidden: {},
+  hidden:  {},
   visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
 };
 
 const lineUnmask: Variants = {
-  hidden: { opacity: 0, y: 28, skewY: 2 },
-  visible: { opacity: 1, y: 0, skewY: 0, transition: t1() },
+  hidden:  { opacity: 0, y: 28, skewY: 2 },
+  visible: { opacity: 1, y: 0,  skewY: 0, transition: t1() },
 };
 
 const subCopy: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: t1({ delay: 0.2 }) },
+  hidden:  { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0,  transition: t1({ delay: 0.2 }) },
 };
 
-/* Chips stagger */
 const chipsContainer: Variants = {
-  hidden: {},
+  hidden:  {},
   visible: { transition: { staggerChildren: 0.06, delayChildren: 0.3 } },
 };
 
 const chipItem: Variants = {
-  hidden: { opacity: 0, scale: 0.85, y: 8 },
-  visible: { opacity: 1, scale: 1, y: 0, transition: t2() },
+  hidden:  { opacity: 0, scale: 0.85, y: 8 },
+  visible: { opacity: 1, scale: 1,    y: 0, transition: t2() },
 };
 
-/* Images stagger */
 const imagesContainer: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
+  hidden:  {},
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
 };
 
 const imageCard = (i: number): Variants => ({
-  hidden: { opacity: 0, y: i === 0 ? 30 : 50, scale: 0.96 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: t1({ delay: i * 0.1 }) },
+  hidden:  { opacity: 0, y: 40, scale: 0.96 },
+  visible: { opacity: 1, y: 0,  scale: 1,   transition: t1({ delay: i * 0.08 }) },
 });
 
-/* Bottom strip */
 const stripVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: t1({ delay: 0.4 }) },
+  hidden:  { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0,  transition: t1({ delay: 0.4 }) },
 };
+
+/* ── Offset amounts — col 0 sits high, col 1 sits low ── */
+const offsets = ["-2rem", "2rem", "-2rem", "2rem"];
 
 /* ── Component ─────────────────────────────────────────────────────── */
 export function MenuCategories() {
   const [activeId, setActiveId] = useState(categories[0].id);
 
-  const cat = categories.find((c) => c.id === activeId) ?? categories[0];
-  const catIndex = categories.findIndex((c) => c.id === activeId);
+  const cat       = categories.find((c) => c.id === activeId) ?? categories[0];
+  const catIndex  = categories.findIndex((c) => c.id === activeId);
   const sectionBg = catIndex % 2 === 0 ? "var(--color-bg)" : "var(--color-bg-soft)";
 
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -131,13 +129,12 @@ export function MenuCategories() {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start mb-10">
 
-                {/* ── Left: copy + chips ── */}
+                {/* ══ LEFT: copy + chips ══ */}
                 <div>
-                  {/* Headline — line unmask */}
                   <motion.h2
                     className="font-display font-black leading-tight mb-4"
                     style={{
-                      color: "var(--color-heading)",
+                      color:    "var(--color-heading)",
                       fontSize: "clamp(1.8rem,3.5vw,2.8rem)",
                     }}
                     variants={headlineContainer}
@@ -151,11 +148,10 @@ export function MenuCategories() {
                     </span>
                   </motion.h2>
 
-                  {/* Description */}
                   <motion.p
                     className="leading-relaxed mb-8"
                     style={{
-                      color: "var(--color-text-secondary)",
+                      color:    "var(--color-text-secondary)",
                       fontSize: "clamp(0.95rem,1.8vw,1.05rem)",
                       maxWidth: "min(100%,480px)",
                     }}
@@ -181,17 +177,17 @@ export function MenuCategories() {
                           className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-xl border"
                           style={{
                             borderColor: "var(--color-border)",
-                            background: "var(--color-bg-card)",
-                            color: "var(--color-text-secondary)",
+                            background:  "var(--color-bg-card)",
+                            color:       "var(--color-text-secondary)",
                           }}
                           variants={chipItem}
                           whileHover={{
                             borderColor: "color-mix(in srgb, var(--color-primary) 40%, transparent)",
-                            background: "color-mix(in srgb, var(--color-primary) 6%, transparent)",
-                            color: "var(--color-heading)",
-                            y: -2,
-                            scale: 1.03,
-                            transition: { duration: 0.2 },
+                            background:  "color-mix(in srgb, var(--color-primary) 6%, transparent)",
+                            color:       "var(--color-heading)",
+                            y:           -2,
+                            scale:       1.03,
+                            transition:  { duration: 0.2 },
                           }}
                           whileTap={{ scale: 0.96 }}
                         >
@@ -212,16 +208,16 @@ export function MenuCategories() {
                           className="flex items-center gap-2 px-4 py-2.5 text-sm font-semibold rounded-xl"
                           style={{
                             background: "var(--color-primary)",
-                            color: "white",
-                            position: "relative",
-                            overflow: "hidden",
+                            color:      "white",
+                            position:   "relative",
+                            overflow:   "hidden",
                           }}
                         >
                           <motion.span
                             className="absolute inset-0 pointer-events-none"
                             style={{
                               background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
-                              x: "-100%",
+                              x:          "-100%",
                             }}
                             whileHover={{ x: "100%" }}
                             transition={{ duration: 0.45 }}
@@ -233,71 +229,118 @@ export function MenuCategories() {
                   </motion.div>
                 </div>
 
-                {/* ── Right: image grid ── */}
+                {/* ══ RIGHT: offset 2-column image grid ══ */}
                 <motion.div
-                  className="grid grid-cols-2 gap-4"
+                  className="relative"
                   variants={imagesContainer}
                   initial="hidden"
                   animate="visible"
+                  /* extra bottom padding so offset cards don't clip */
+                  style={{ paddingBottom: "2rem" }}
                 >
-                  {cat.items.slice(0, 4).map((item, i) => (
-                    <motion.div
-                      key={`${activeId}-img-${i}`}
-                      className="relative overflow-hidden rounded-2xl border"
-                      style={{
-                        aspectRatio: i % 2 === 0 ? "4/5" : "1/1", // Updated logic for 4 items
-                        marginTop: i % 2 === 1 ? "2rem" : "0",
-                        borderColor: "var(--color-border)",
-                      }}
-                      variants={imageCard(i)}
-                      /* Card lifts on hover */
-                      whileHover={{
-                        y: -6,
-                        scale: 1.02,
-                        transition: { duration: 0.35, ease: spring2 },
-                      }}
-                    >
-                      {/* Image zooms inside */}
+                  <div className="grid grid-cols-2 gap-4">
+                    {cat.items.slice(0, 4).map((item, i) => (
                       <motion.div
-                        className="w-full h-full relative"
-                        whileHover={{ scale: 1.09 }}
-                        transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        key={`${activeId}-img-${i}`}
+                        className="relative overflow-hidden rounded-2xl border"
+                        style={{
+                          aspectRatio: "3/4",
+                          borderColor: "var(--color-border)",
+                          /* col 0 & 2 shift up, col 1 & 3 shift down */
+                          marginTop:   offsets[i],
+                        }}
+                        variants={imageCard(i)}
+                        whileHover={{
+                          y:          -8,
+                          scale:      1.02,
+                          transition: { duration: 0.35, ease: spring2 },
+                        }}
+                        whileTap={{ scale: 0.98 }}
                       >
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 1024px) 100vw, 50vw"
-                          priority={i === 0}
-                          loading="eager"
-                        />
-                      </motion.div>
+                        {/* Image — zooms on hover */}
+                        <motion.div
+                          className="w-full h-full relative"
+                          whileHover={{ scale: 1.08 }}
+                          transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        >
+                          <Image
+                            src={item.image}
+                            alt={item.name}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 1024px) 50vw, 25vw"
+                            priority={i === 0}
+                            loading={i === 0 ? "eager" : "lazy"}
+                          />
+                        </motion.div>
 
-                      {/* Dark overlay fades on hover */}
-                      <motion.div
-                        className="absolute inset-0 pointer-events-none"
-                        initial={{ opacity: 1 }}
-                        whileHover={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        style={{ background: "rgba(0,0,0,0.12)" }}
-                      />
+                        {/* Always-visible bottom gradient overlay */}
+                        <div
+                          className="absolute bottom-0 left-0 right-0 pointer-events-none"
+                          style={{
+                            background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.2) 50%, transparent 100%)",
+                            padding:    "1.25rem 1rem 0.85rem",
+                            /* stretch gradient tall enough to always cover text */
+                            height:     "55%",
+                            display:    "flex",
+                            flexDirection: "column",
+                            justifyContent: "flex-end",
+                            gap:        "2px",
+                          }}
+                        >
+                          {/* Category pill */}
+                          <span
+                            style={{
+                              display:       "inline-block",
+                              fontSize:      "9px",
+                              fontWeight:    800,
+                              letterSpacing: "0.14em",
+                              textTransform: "uppercase",
+                              color:         "var(--color-primary)",
+                              marginBottom:  "2px",
+                            }}
+                          >
+                            {cat.title}
+                          </span>
 
-                      {/* Info card — slides up on hover */}
-                      <motion.div
-                        className="absolute bottom-4 left-4 right-4 p-3 rounded-lg shadow-lg"
-                        style={{ background: "rgba(255,255,255,0.95)", backdropFilter: "blur(8px)" }}
-                        initial={{ y: 10, opacity: 0 }}
-                        whileHover={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.3, ease: spring2 }}
-                      >
-                        <p className="text-[10px] font-black uppercase tracking-widest" style={{ color: "var(--color-primary)" }}>
-                          {cat.title}
-                        </p>
-                        <p className="text-xs font-bold text-neutral-900">{item.name}</p>
+                          {/* Dish name */}
+                          <p
+                            style={{
+                              fontSize:   "13px",
+                              fontWeight: 700,
+                              color:      "#fff",
+                              lineHeight: 1.25,
+                              margin:     0,
+                            }}
+                          >
+                            {item.name}
+                          </p>
+                        </div>
+
+                        {/* Subtle red corner accent on first card */}
+                        {i === 0 && (
+                          <div
+                            className="absolute top-3 right-3"
+                            style={{
+                              width:        "28px",
+                              height:       "28px",
+                              borderRadius: "50%",
+                              background:   "var(--color-primary)",
+                              display:      "flex",
+                              alignItems:   "center",
+                              justifyContent: "center",
+                            }}
+                          >
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                              <path d="M2.5 9.5l7-7M9.5 9.5V2.5H2.5" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </div>
+                        )}
                       </motion.div>
-                    </motion.div>
-                  ))}
+                    ))}
+                  </div>
+
+                
                 </motion.div>
 
               </div>
@@ -306,7 +349,7 @@ export function MenuCategories() {
               <motion.div
                 className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-6 rounded-2xl border"
                 style={{
-                  background: "var(--color-bg-card)",
+                  background:  "var(--color-bg-card)",
                   borderColor: "var(--color-border)",
                 }}
                 variants={stripVariants}
@@ -318,9 +361,7 @@ export function MenuCategories() {
                   available with real-time stock visibility.
                 </p>
 
-                <motion.div
-                  whileHover={{ x: 3, transition: { duration: 0.2 } }}
-                >
+                <motion.div whileHover={{ x: 3, transition: { duration: 0.2 } }}>
                   <Link
                     href="/download"
                     className="text-sm font-black uppercase tracking-widest px-3 md:px-6 py-3 rounded-xl transition-all"

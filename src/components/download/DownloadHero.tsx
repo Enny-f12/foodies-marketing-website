@@ -139,16 +139,16 @@ export default function DownloadHero() {
                         }}
                         initial={{ opacity: 0, y: 18 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.65, ease: "easeOut", delay: 0.55 }}
+                        transition={{ duration: 0.65, ease: spring1, delay: 0.55 }}
                     >
                         Your passport to premium Nigerian dining, now in your pocket.
                     </motion.p>
 
                     <motion.div
-                        className="flex flex-col gap-3 mb-10"
+                        className="grid grid-cols-2 gap-3 mb-10"
                         initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, ease: "easeOut", delay: 0.7 }}
+                        transition={{ duration: 0.6, ease: spring1, delay: 0.7 }}
                     >
                         {[
                             "Seamless food ordering",
@@ -178,9 +178,46 @@ export default function DownloadHero() {
                     <motion.div
                         initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, ease: "easeOut", delay: 0.85 }}
+                        transition={{ duration: 0.6, ease: spring1, delay: 0.85 }}
                     >
                         <AppStoreButtons align="left" />
+
+                        
+                                {/* Divider text */}
+                                <motion.p
+                                  className="text-sm mb-4 mt-4"
+                                  style={{ color: "var(--color-on-ink-muted)" }}
+                                  initial={{ opacity: 0 }}
+                                  animate={{ opacity: 1 }}
+                                  transition={{ duration: 0.6, ease: spring1, delay: 0.85 }}
+                                >
+                                  Or scan to download:
+                                </motion.p>
+                        
+                                {/* QR Code — pops in with rotation */}
+                                <motion.div
+                                  className="flex justify-left mb-2"
+                                  initial={{ opacity: 0, scale: 0.8 }}
+                                  animate={{ opacity: 1, scale: 1 }}
+                                  transition={{ duration: 0.6, ease: spring1, delay: 0.85 }}
+                                >
+                                  <motion.div
+                                    className="w-24 h-24 flex items-center justify-center rounded-lg bg-white p-2"
+                                    whileHover={{
+                                      scale: 1.08,
+                                      rotate: 2,
+                                      boxShadow: "0 12px 32px rgba(0,0,0,0.3)",
+                                      transition: { duration: 0.3, ease: spring1 },
+                                    }}
+                                  >
+                                    <Image
+                                      src="https://i.pinimg.com/1200x/0e/97/27/0e972709749e682fb5bf8d85dcb2e35d.jpg"
+                                      alt="Scan to download Foodies app"
+                                      width={112}
+                                      height={112}
+                                    />
+                                  </motion.div>
+                                </motion.div>
                     </motion.div>
                 </div>
 
