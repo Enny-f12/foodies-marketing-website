@@ -74,7 +74,7 @@ export function FAQSection() {
                   <button
                     onClick={() => setActiveId(cat.id)}
                     className={`group relative flex w-full items-center gap-3 rounded-lg px-4 py-2.5 text-left transition-colors ${
-                      activeId === cat.id ? "bg-primary/10 text-heading" : "text-muted-foreground hover:bg-muted"
+                      activeId === cat.id ? "bg-primary/10 text-heading" : "text-muted-foreground "
                     }`}
                   >
                     {activeId === cat.id && (
@@ -95,7 +95,7 @@ export function FAQSection() {
 
           {/* FAQ Accordion List */}
           <div className="min-w-0">
-            <div className="mb-6 flex items-center gap-4 border-b-2 border-muted pb-4">
+            <div className="mb-6 flex items-center gap-4 border-b-2 border-muted/10 pb-4">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 border border-primary/20 text-primary">
                 <activeCategory.Icon size={20} />
               </div>
