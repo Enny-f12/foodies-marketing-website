@@ -14,7 +14,7 @@ import {
   type Transition,
 } from "framer-motion";
 
-/* ── Easing ─────────────────────────────────────────────────────────── */
+/* ── Easing ────── */
 type Bezier = [number, number, number, number];
 const spring1: Bezier = [0.22, 0.68, 0, 1.1];
 const spring2: Bezier = [0.22, 0.68, 0, 1.2];
@@ -157,7 +157,7 @@ export function MenuCategories() {
                   />
                   <span
                     className="uppercase tracking-widest font-semibold"
-                    style={{ fontSize: "10px", color: "var(--color-text-secondary)" }}
+                    style={{ fontSize: "10px", color: "var(--color-secondary)" }}
                   >
                     {cat.label}
                   </span>
@@ -290,7 +290,8 @@ export function MenuCategories() {
                     <p className="uppercase tracking-widest font-bold mb-1" style={{ fontSize: "9px", color: "var(--color-primary)" }}>
                       Signature Dish
                     </p>
-                    <h3 className="font-display font-black leading-tight text-white text-base mb-1">{hero?.name}</h3>
+                    <h3 className="font-display font-black leading-tight text-white text-base mb-1" 
+                    style={{color: "#ffffff"}}>{hero?.name}</h3>
                     {hero?.desc && (
                       <p className="leading-relaxed line-clamp-2" style={{ fontSize: "11px", color: "rgba(255,255,255,0.62)" }}>
                         {hero.desc}
@@ -366,7 +367,7 @@ export function MenuCategories() {
                     </p>
                     <h3
                       className="font-display font-black leading-tight text-white mb-2"
-                      style={{ fontSize: "clamp(1.2rem, 2.5vw, 1.6rem)" }}
+                      style={{ fontSize: "clamp(1.2rem, 2.5vw, 1.6rem)", color: "#ffffff" }}
                     >
                       {hero?.name}
                     </h3>
@@ -467,7 +468,7 @@ export function MenuCategories() {
                     </p>
                     <h3
                       className="font-display font-black leading-tight text-white mb-3"
-                      style={{ fontSize: "clamp(1.35rem, 2.4vw, 1.9rem)" }}
+                      style={{ fontSize: "clamp(1.35rem, 2.4vw, 1.9rem)", color: "#ffffff" }}
                     >
                       {hero?.name}
                     </h3>
