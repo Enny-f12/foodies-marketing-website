@@ -54,7 +54,7 @@ export default function DownloadHero() {
         if (timerRef.current) clearInterval(timerRef.current);
         timerRef.current = setInterval(() => {
             setCurrent((prev) => (prev + 1) % screens.length);
-        }, 3000);                                                        // 3s gives transition room to breathe
+        }, 4000);                                                        // 3s gives transition room to breathe
     };
 
     useEffect(() => {

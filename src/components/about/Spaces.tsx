@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Clock, Sparkles, ArrowRight } from "lucide-react";
+import { MapPin, Clock, Sparkles, ArrowRight, Utensils} from "lucide-react";
 import {
   motion,
   useInView,
@@ -201,7 +201,7 @@ function LocationBlock({ loc, index }: { loc: typeof locations[0]; index: number
             rel="noopener noreferrer"
             className="flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest border border-border text-(--color-heading) hover:border-primary transition-all"
           >
-            Get Directions <MapPin size={16} />
+            Private Dining Options <Utensils size={16} />
           </a>
         </div>
       </motion.div>

@@ -287,7 +287,7 @@ const PrivacyPolicy = () => {
                     </div>
                     <div className="min-w-0">
                       <p className="text-heading uppercase font-bold font-sans text-xs md:text-sm">Email</p>
-                      <a href="mailto:info@foodieshotandspicy.com" className="text-blue-500 underline font-sans truncate block text-sm md:text-base">
+                      <a href="mailto:legal@foodieshotandspicy.com" className="text-blue-500 underline font-sans truncate block text-sm md:text-base">
                         legal@foodieshotandspicy.com
                       </a>
                     </div>

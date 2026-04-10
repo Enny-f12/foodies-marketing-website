@@ -564,7 +564,7 @@ const TermsOfService = () => {
                   <div className="min-w-0">
                     <p className="text-[10px] md:text-caption text-text-disabled uppercase font-bold tracking-widest mb-1 font-sans">Legal Support</p>
                     <a
-                      href="mailto:info@foodieshotandspicy.com"
+                      href="mailto:legal@foodieshotandspicy.com"
                       className="text-base md:text-xl font-bold text-heading hover:text-primary transition-colors font-sans truncate block"
                     >
                       legal@foodieshotandspicy.com
