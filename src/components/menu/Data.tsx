@@ -46,8 +46,9 @@ export const categories: MenuCategory[] = [
     icon: Soup,
     desc: "From rich, nutty Egusi to draw soups like Ogbono and Okro, our soups are made with traditional techniques and the freshest ingredients.",
     items: [
+       { name: "Oha Soup", image: "https://i.pinimg.com/1200x/33/54/4a/33544a780071ea22ffe18f73f3b3b3e5.jpg", icon: Leaf, desc: "Slow-cooked Igbo delicacy made with tender oha leaves and cocoyam thickener." },
       { name: "Egusi Soup", image: "https://i.pinimg.com/1200x/0f/5b/d2/0f5bd267d61559281921fe0c64bc56f5.jpg", icon: Soup, desc: "A hearty West African classic simmered with ground melon seeds, palm oil and assorted meats." },
-      { name: "Oha Soup", image: "https://i.pinimg.com/1200x/33/54/4a/33544a780071ea22ffe18f73f3b3b3e5.jpg", icon: Leaf, desc: "Slow-cooked Igbo delicacy made with tender oha leaves and cocoyam thickener." },
+     
       { name: "Ogbono Soup", image: "https://i.pinimg.com/736x/71/c7/32/71c73298611ef7142c3d5bd5b425ee24.jpg", icon: Soup },
       { name: "Okro Soup", image: "https://i.pinimg.com/736x/ae/b6/fc/aeb6fc5265bea42e11230908647d95b8.jpg", icon: UtensilsCrossed },
       { name: "Bitterleaf Soup", image: "https://i.pinimg.com/1200x/8f/77/c4/8f77c41fb4b4194ae9dd176107ac5ac2.jpg", icon: Leaf },

@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { categories } from "./Data";
 import { MenuTabs } from "./Tabs";
+import { Button } from "@/components/ui/Button";
 import {
   motion,
   AnimatePresence,
@@ -77,6 +78,26 @@ const stripVariants: Variants = {
   visible: { opacity: 1, y: 0,  transition: t1({ delay: 0.35 }) },
 };
 
+/* ── Overlay gradients ───────────────────────────────────────────────── */
+const overlayGradient = "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.15) 55%, transparent 100%)";
+const heroOverlay     = "linear-gradient(to top, rgba(0,0,0,0.84) 0%, rgba(0,0,0,0.22) 45%, transparent 100%)";
+
+/*
+ * Accurate sizes per slot per breakpoint.
+ * Each layout section is hidden at other breakpoints via Tailwind,
+ * so sizes only needs to be accurate for the breakpoint where it renders.
+ * The "1px" fallback tells Next.js the image isn't used in other ranges.
+ */
+const SIZES = {
+  mobileHero:  "(max-width: 767px) calc(100vw - 2rem), 1px",
+  mobileSmall: "(max-width: 767px) 33vw, 1px",
+  tabletHero:  "(min-width: 768px) and (max-width: 1023px) calc(100vw - 2rem), 1px",
+  tabletSmall: "(min-width: 768px) and (max-width: 1023px) 33vw, 1px",
+  desktopHero: "(min-width: 1024px) 55vw, 1px",
+  desktopTopR: "(min-width: 1024px) 45vw, 1px",
+  desktopBot:  "(min-width: 1024px) 22vw, 1px",
+} as const;
+
 /* ── Component ───────────────────────────────────────────────────────── */
 export function MenuCategories() {
   const [activeId, setActiveId] = useState(categories[0].id);
@@ -88,13 +109,6 @@ export function MenuCategories() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const inView     = useInView(sectionRef, { once: true, margin: "-60px 0px" });
 
-  /*
-   * Image slot mapping from cat.items:
-   *   [0] hero     — tall left card, spans full grid height
-   *   [1] topRight — wide image, top of right column
-   *   [2] botLeft  — small image, bottom-left of right column
-   *   [3] botRight — small image, bottom-right of right column
-   */
   const hero     = cat.items[0];
   const topRight = cat.items[1];
   const botLeft  = cat.items[2];
@@ -111,7 +125,7 @@ export function MenuCategories() {
         <div
           ref={sectionRef}
           className="max-w-7xl mx-auto"
-          style={{ padding: "clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,3rem)" }}
+          style={{ padding: "clamp(2.5rem,6vw,5rem) clamp(1rem,5vw,3rem)" }}
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -124,9 +138,8 @@ export function MenuCategories() {
 
               {/* ══════════════════════════════════════════════════════════
                   HEADER
-                  Eyebrow row, then: [giant title] | [divider] | [desc + chips]
                   ══════════════════════════════════════════════════════════ */}
-              <div className="mb-12 lg:mb-16">
+              <div className="mb-10 lg:mb-16">
 
                 {/* Eyebrow */}
                 <motion.div
@@ -151,15 +164,15 @@ export function MenuCategories() {
                 </motion.div>
 
                 {/* Title | divider | desc + chips */}
-                <div className="flex flex-col lg:flex-row lg:items-stretch gap-8 lg:gap-14">
+                <div className="flex flex-col lg:flex-row lg:items-stretch gap-6 lg:gap-14">
 
-                  {/* Giant display title — uses titleLine1 & titleLine2 */}
+                  {/* Giant display title */}
                   <div className="lg:w-[42%] shrink-0 overflow-hidden">
                     <motion.h2
                       className="font-display font-black leading-none"
                       style={{
                         color:    "var(--color-heading)",
-                        fontSize: "clamp(3rem, 7vw, 5.5rem)",
+                        fontSize: "clamp(2.4rem, 7vw, 5.5rem)",
                       }}
                       variants={titleVariants}
                       initial="hidden"
@@ -172,7 +185,7 @@ export function MenuCategories() {
                     </motion.h2>
                   </div>
 
-                  {/* Vertical divider */}
+                  {/* Vertical divider — desktop only */}
                   <motion.div
                     className="hidden lg:block w-px self-stretch shrink-0"
                     style={{ background: "var(--color-border)" }}
@@ -181,13 +194,22 @@ export function MenuCategories() {
                     animate={inView ? "visible" : "hidden"}
                   />
 
-                  {/* Right: description + chips */}
-                  <div className="flex flex-col justify-center gap-6">
+                  {/* Horizontal rule — mobile/tablet only */}
+                  <motion.div
+                    className="block lg:hidden h-px w-full"
+                    style={{ background: "var(--color-border)" }}
+                    initial={{ scaleX: 0, originX: "0%" }}
+                    animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
+                    transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
+                  />
+
+                  {/* Right: desc + chips */}
+                  <div className="flex flex-col justify-center gap-5">
                     <motion.p
                       className="leading-relaxed"
                       style={{
                         color:    "var(--color-text-secondary)",
-                        fontSize: "clamp(0.95rem, 1.6vw, 1.05rem)",
+                        fontSize: "clamp(0.9rem, 1.6vw, 1.05rem)",
                         maxWidth: "min(100%, 520px)",
                       }}
                       variants={descVariants}
@@ -197,7 +219,6 @@ export function MenuCategories() {
                       {cat.desc}
                     </motion.p>
 
-                    {/* Pill chips */}
                     <motion.div
                       className="flex flex-wrap gap-2"
                       variants={chipsContainer}
@@ -209,7 +230,7 @@ export function MenuCategories() {
                         return (
                           <motion.div
                             key={`${activeId}-chip-${item.name}`}
-                            className="flex items-center gap-1.5 px-4 py-2 rounded-full border text-sm font-medium cursor-default"
+                            className="flex items-center gap-1.5 px-3 py-2 rounded-xl border text-sm font-medium cursor-default"
                             style={{
                               borderColor: "var(--color-border)",
                               background:  "var(--color-bg-card)",
@@ -230,25 +251,10 @@ export function MenuCategories() {
                         );
                       })}
 
-                      {/* + More in App chip */}
                       <motion.div variants={chipItem}>
-                        <motion.div
-                          whileHover={{ y: -2, scale: 1.04, transition: { duration: 0.18, ease: spring2 } }}
-                          whileTap={{ scale: 0.96 }}
-                        >
-                          <Link
-                            href="/download"
-                            className="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold"
-                            style={{
-                              background: "var(--color-primary)",
-                              color:      "white",
-                              position:   "relative",
-                              overflow:   "hidden",
-                            }}
-                          >
-                            + More in App
-                          </Link>
-                        </motion.div>
+                        <Link href="/download">
+                          <Button variant="primary" size="sm">+ More in App</Button>
+                        </Link>
                       </motion.div>
                     </motion.div>
                   </div>
@@ -256,21 +262,182 @@ export function MenuCategories() {
               </div>
 
               {/* ══════════════════════════════════════════════════════════
-                  IMAGE GRID
-                  ┌──────────────────────┬──────────────────┐
-                  │                      │  topRight (wide) │
-                  │   hero  (tall)       ├─────────┬────────┤
-                  │                      │ botLeft │botRight│
-                  └──────────────────────┴─────────┴────────┘
+                  IMAGE GRID — MOBILE  (< md)
+                  Hero 4:3 full width · 3 equal squares below
+                  No priority — mobile layout is hidden on desktop load
+                  ══════════════════════════════════════════════════════════ */}
+              <div className="flex flex-col gap-3 md:hidden">
+
+                <motion.div
+                  className="relative overflow-hidden rounded-xl w-full"
+                  style={{ aspectRatio: "4/3" }}
+                  variants={heroVariants}
+                  initial="hidden"
+                  animate={inView ? "visible" : "hidden"}
+                >
+                  {hero?.image && (
+                    <Image
+                      src={hero.image}
+                      alt={hero.name}
+                      fill
+                      loading="lazy"
+                      className="object-cover"
+                      sizes={SIZES.mobileHero}
+                    />
+                  )}
+                  <div className="absolute inset-0 pointer-events-none" style={{ background: heroOverlay }} />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <p className="uppercase tracking-widest font-bold mb-1" style={{ fontSize: "9px", color: "var(--color-primary)" }}>
+                      Signature Dish
+                    </p>
+                    <h3 className="font-display font-black leading-tight text-white text-base mb-1">{hero?.name}</h3>
+                    {hero?.desc && (
+                      <p className="leading-relaxed line-clamp-2" style={{ fontSize: "11px", color: "rgba(255,255,255,0.62)" }}>
+                        {hero.desc}
+                      </p>
+                    )}
+                  </div>
+                </motion.div>
+
+                <div className="grid grid-cols-3 gap-3">
+                  {([topRight, botLeft, botRight] as const).map((item, i) => (
+                    <motion.div
+                      key={`${activeId}-mob-${i}`}
+                      className="relative overflow-hidden rounded-xl"
+                      style={{ aspectRatio: "1" }}
+                      variants={imageCard(0.1 + i * 0.08)}
+                      initial="hidden"
+                      animate={inView ? "visible" : "hidden"}
+                    >
+                      {item?.image && (
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          fill
+                          loading="lazy"
+                          className="object-cover"
+                          sizes={SIZES.mobileSmall}
+                        />
+                      )}
+                      <div className="absolute inset-0 pointer-events-none" style={{ background: overlayGradient }} />
+                      <div className="absolute bottom-0 left-0 right-0 p-2">
+                        <p className="text-white font-bold leading-tight" style={{ fontSize: "9px" }}>{item?.name}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* ══════════════════════════════════════════════════════════
+                  IMAGE GRID — TABLET  (md → lg)
+                  Hero 16:7 panoramic · 3 equal 4:3 images below
+                  No priority — tablet layout is hidden on desktop load
+                  ══════════════════════════════════════════════════════════ */}
+              <div className="hidden md:flex lg:hidden flex-col gap-3">
+
+                <motion.div
+                  className="relative overflow-hidden rounded-xl w-full"
+                  style={{ aspectRatio: "16/7" }}
+                  variants={heroVariants}
+                  initial="hidden"
+                  animate={inView ? "visible" : "hidden"}
+                  whileHover={{ scale: 1.01, transition: { duration: 0.35, ease: spring2 } }}
+                >
+                  {hero?.image && (
+                    <motion.div
+                      className="absolute inset-0"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    >
+                      <Image
+                        src={hero.image}
+                        alt={hero.name}
+                        fill
+                        loading="lazy"
+                        className="object-cover"
+                        sizes={SIZES.tabletHero}
+                      />
+                    </motion.div>
+                  )}
+                  <div className="absolute inset-0 pointer-events-none" style={{ background: heroOverlay }} />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <p className="uppercase tracking-widest font-bold mb-1" style={{ fontSize: "9px", color: "var(--color-primary)" }}>
+                      Signature Dish
+                    </p>
+                    <h3
+                      className="font-display font-black leading-tight text-white mb-2"
+                      style={{ fontSize: "clamp(1.2rem, 2.5vw, 1.6rem)" }}
+                    >
+                      {hero?.name}
+                    </h3>
+                    {hero?.desc && (
+                      <p className="leading-relaxed mb-3" style={{ fontSize: "13px", color: "rgba(255,255,255,0.65)", maxWidth: "40ch" }}>
+                        {hero.desc}
+                      </p>
+                    )}
+                    <motion.button
+                      className="w-9 h-9 rounded-xl flex items-center justify-center"
+                      style={{ background: "var(--color-primary)" }}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.88 }}
+                    >
+                      <svg width="14" height="14" viewBox="0 0 15 15" fill="none">
+                        <path d="M2.5 12.5L12.5 2.5M12.5 2.5H5.5M12.5 2.5V9.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </motion.button>
+                  </div>
+                </motion.div>
+
+                <div className="grid grid-cols-3 gap-3">
+                  {([topRight, botLeft, botRight] as const).map((item, i) => (
+                    <motion.div
+                      key={`${activeId}-tab-${i}`}
+                      className="relative overflow-hidden rounded-xl"
+                      style={{ aspectRatio: "4/3" }}
+                      variants={imageCard(0.15 + i * 0.09)}
+                      initial="hidden"
+                      animate={inView ? "visible" : "hidden"}
+                      whileHover={{ scale: 1.02, transition: { duration: 0.3, ease: spring2 } }}
+                    >
+                      {item?.image && (
+                        <motion.div
+                          className="absolute inset-0"
+                          whileHover={{ scale: 1.07 }}
+                          transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        >
+                          <Image
+                            src={item.image}
+                            alt={item.name}
+                            fill
+                            loading="lazy"
+                            className="object-cover"
+                            sizes={SIZES.tabletSmall}
+                          />
+                        </motion.div>
+                      )}
+                      <div className="absolute inset-0 pointer-events-none" style={{ background: overlayGradient }} />
+                      <div className="absolute bottom-0 left-0 right-0 p-3">
+                        <p className="text-white font-bold leading-tight" style={{ fontSize: "12px" }}>{item?.name}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* ══════════════════════════════════════════════════════════
+                  IMAGE GRID — DESKTOP  (≥ lg)
+                  Tall hero 55% left · right column: wide top + 2-col bottom
+                  Only the desktop hero gets priority — it is the only image
+                  that is genuinely above-the-fold on a desktop page load.
                   ══════════════════════════════════════════════════════════ */}
               <div
-                className="grid gap-4 "
+                className="hidden lg:grid gap-4"
                 style={{ gridTemplateColumns: "55fr 45fr" }}
               >
 
-                {/* ── HERO — left, full height ── */}
+                {/* Desktop hero — only image with priority */}
                 <motion.div
-                  className="relative overflow-hidden rounded-2xl"
+                  className="relative overflow-hidden rounded-xl"
                   style={{ minHeight: "clamp(400px, 62vh, 660px)" }}
                   variants={heroVariants}
                   initial="hidden"
@@ -287,71 +454,46 @@ export function MenuCategories() {
                         src={hero.image}
                         alt={hero.name}
                         fill
-                        className="object-cover"
-                        sizes="55vw"
                         priority
+                        className="object-cover"
+                        sizes={SIZES.desktopHero}
                       />
                     </motion.div>
                   )}
-
-                  {/* Gradient overlay */}
-                  <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      background:
-                        "linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.22) 45%, transparent 100%)",
-                    }}
-                  />
-
-                  {/* Hero content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                    <p
-                      className="uppercase tracking-widest font-bold mb-2"
-                      style={{ fontSize: "10px", color: "var(--color-primary)" }}
-                    >
+                  <div className="absolute inset-0 pointer-events-none" style={{ background: heroOverlay }} />
+                  <div className="absolute bottom-0 left-0 right-0 p-8">
+                    <p className="uppercase tracking-widest font-bold mb-2" style={{ fontSize: "10px", color: "var(--color-primary)" }}>
                       Signature Dish
                     </p>
                     <h3
-                      className="font-display font-black leading-tight text-white dark:text-white mb-3"
+                      className="font-display font-black leading-tight text-white mb-3"
                       style={{ fontSize: "clamp(1.35rem, 2.4vw, 1.9rem)" }}
                     >
                       {hero?.name}
                     </h3>
                     {hero?.desc && (
-                      <p
-                        className="leading-relaxed mb-5"
-                        style={{ fontSize: "13px", color: "rgba(255,255,255,0.68)", maxWidth: "28ch" }}
-                      >
+                      <p className="leading-relaxed mb-5" style={{ fontSize: "13px", color: "rgba(255,255,255,0.68)", maxWidth: "28ch" }}>
                         {hero.desc}
                       </p>
                     )}
-
-                    {/* Arrow circle button */}
                     <motion.button
-                      className="w-10 h-10 rounded-full flex items-center justify-center"
+                      className="w-10 h-10 rounded-xl flex items-center justify-center"
                       style={{ background: "var(--color-primary)" }}
                       whileHover={{ scale: 1.12, transition: { duration: 0.2 } }}
                       whileTap={{ scale: 0.88 }}
                     >
                       <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-                        <path
-                          d="M2.5 12.5L12.5 2.5M12.5 2.5H5.5M12.5 2.5V9.5"
-                          stroke="white"
-                          strokeWidth="1.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
+                        <path d="M2.5 12.5L12.5 2.5M12.5 2.5H5.5M12.5 2.5V9.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </motion.button>
                   </div>
                 </motion.div>
 
-                {/* ── RIGHT COLUMN ── */}
+                {/* Desktop right column — all lazy */}
                 <div className="flex flex-col gap-4">
 
-                  {/* Top-right: wide single image */}
                   <motion.div
-                    className="relative overflow-hidden rounded-2xl flex-1"
+                    className="relative overflow-hidden rounded-xl flex-1"
                     style={{ minHeight: "clamp(170px, 28vh, 300px)" }}
                     variants={imageCard(0.18)}
                     initial="hidden"
@@ -368,28 +510,23 @@ export function MenuCategories() {
                           src={topRight.image}
                           alt={topRight.name}
                           fill
+                          loading="lazy"
                           className="object-cover"
-                          sizes="45vw"
+                          sizes={SIZES.desktopTopR}
                         />
                       </motion.div>
                     )}
-                    <div
-                      className="absolute inset-0 pointer-events-none"
-                      style={{ background: "linear-gradient(to top, rgba(0,0,0,0.58) 0%, transparent 55%)" }}
-                    />
+                    <div className="absolute inset-0 pointer-events-none" style={{ background: overlayGradient }} />
                     <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <p className="text-white font-bold leading-tight" style={{ fontSize: "13px" }}>
-                        {topRight?.name}
-                      </p>
+                      <p className="text-white font-bold leading-tight" style={{ fontSize: "13px" }}>{topRight?.name}</p>
                     </div>
                   </motion.div>
 
-                  {/* Bottom row: two equal images */}
                   <div className="grid grid-cols-2 gap-4">
                     {([botLeft, botRight] as const).map((item, i) => (
                       <motion.div
                         key={`${activeId}-bot-${i}`}
-                        className="relative overflow-hidden rounded-2xl"
+                        className="relative overflow-hidden rounded-xl"
                         style={{ aspectRatio: "4/3" }}
                         variants={imageCard(0.26 + i * 0.09)}
                         initial="hidden"
@@ -406,22 +543,15 @@ export function MenuCategories() {
                               src={item.image}
                               alt={item.name}
                               fill
+                              loading="lazy"
                               className="object-cover"
-                              sizes="22vw"
+                              sizes={SIZES.desktopBot}
                             />
                           </motion.div>
                         )}
-                        <div
-                          className="absolute inset-0 pointer-events-none"
-                          style={{ background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%)" }}
-                        />
+                        <div className="absolute inset-0 pointer-events-none" style={{ background: overlayGradient }} />
                         <div className="absolute bottom-0 left-0 right-0 p-3">
-                          <p
-                            className="text-white font-bold leading-tight"
-                            style={{ fontSize: "12px" }}
-                          >
-                            {item?.name}
-                          </p>
+                          <p className="text-white font-bold leading-tight" style={{ fontSize: "12px" }}>{item?.name}</p>
                         </div>
                       </motion.div>
                     ))}
@@ -430,9 +560,11 @@ export function MenuCategories() {
                 </div>
               </div>
 
-              
+              {/* ══════════════════════════════════════════════════════════
+                  BOTTOM CTA STRIP
+                  ══════════════════════════════════════════════════════════ */}
               <motion.div
-                className="mt-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-6 lg:p-8 rounded-2xl border"
+                className="mt-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 lg:p-7 rounded-xl border"
                 style={{
                   background:  "var(--color-bg-card)",
                   borderColor: "var(--color-border)",
@@ -441,37 +573,22 @@ export function MenuCategories() {
                 initial="hidden"
                 animate={inView ? "visible" : "hidden"}
               >
-                <p
-                  className="text-sm font-medium"
-                  style={{ color: "var(--color-text-secondary)" }}
-                >
+                <p className="text-sm font-medium" style={{ color: "var(--color-text-secondary)" }}>
                   <span style={{ color: "var(--color-primary)", fontWeight: 900 }}>255+ dishes</span>{" "}
                   available with real-time stock visibility.
                 </p>
 
-                <div className="flex items-center gap-4 shrink-0">
-                  <motion.div whileHover={{ x: 3, transition: { duration: 0.18 } }}>
-                    <Link
-                      href="/download"
-                      className="text-sm font-black uppercase tracking-widest"
-                      style={{ color: "var(--color-primary)" }}
-                    >
-                      View Full Menu in App →
-                    </Link>
-                  </motion.div>
-
-                  <motion.div
-                    whileHover={{ y: -2, transition: { duration: 0.18, ease: spring2 } }}
-                    whileTap={{ scale: 0.96 }}
-                  >
-                    <Link
-                      href="/order"
-                      className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white"
-                      style={{ background: "var(--color-primary)" }}
-                    >
+                <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
+                  <Link href="/download" className="flex-1 sm:flex-none">
+                    <Button variant="ghost" size="sm" fullWidth>
+                      View Full Menu →
+                    </Button>
+                  </Link>
+                  <Link href="/download" className="flex-1 sm:flex-none">
+                    <Button variant="primary" size="sm" fullWidth>
                       Order Now
-                    </Link>
-                  </motion.div>
+                    </Button>
+                  </Link>
                 </div>
               </motion.div>
 
