@@ -12,13 +12,13 @@ const quickLinks = [
   { label: "About Us", href: "/about" },
   { label: "Menu", href: "/menu" },
   { label: "Contact", href: "/contact" },
-  { label: "Download App", href: "/app" },
+  { label: "Download App", href: "/download" },
   { label: "Careers", href: "/careers" },
 ];
 
 const socials = [
   { label: "Instagram", href: "https://www.instagram.com/foodies_hotandspicy", icon: FaInstagram, color: "#E1306C" },
-  { label: "Facebook", href: "https://www.facebook.com/foodieshotandspicey", icon: FaFacebookF, color: "#1877F2" },
+  { label: "Facebook", href: "https://www.facebook.com/share/182gdLwLfK/", icon: FaFacebookF, color: "#1877F2" },
   { label: "TikTok", href: "https://www.tiktok.com/@foodies_hotandspicy", icon: FaTiktok, color: "#ffffff" },
   { label: "Snapchat", href: "https://www.snapchat.com/add/foodiesng", icon: FaSnapchat, color: "#FFFC00" },
 ];
