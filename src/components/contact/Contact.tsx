@@ -19,62 +19,62 @@ const t2 = (extra?: Partial<Transition>): Transition => ({ duration: 0.45, ease:
 
 /* ── Variants ──────────────────────────────────────────────────────── */
 const headerVariants: Variants = {
-  hidden:  { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: t1() },
 };
 
 const headlineContainer: Variants = {
-  hidden:  {},
+  hidden: {},
   visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
 };
 
 const lineUnmask: Variants = {
-  hidden:  { opacity: 0, y: 28, skewY: 2 },
-  visible: { opacity: 1, y: 0,  skewY: 0, transition: t1() },
+  hidden: { opacity: 0, y: 28, skewY: 2 },
+  visible: { opacity: 1, y: 0, skewY: 0, transition: t1() },
 };
 
 const cardsContainer: Variants = {
-  hidden:  {},
+  hidden: {},
   visible: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } },
 };
 
 const cardItem: Variants = {
-  hidden:  { opacity: 0, y: 40, scale: 0.97 },
-  visible: { opacity: 1, y: 0,  scale: 1,   transition: t1() },
+  hidden: { opacity: 0, y: 40, scale: 0.97 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: t1() },
 };
 
 const formVariants: Variants = {
-  hidden:  { opacity: 0, x: -36 },
-  visible: { opacity: 1, x: 0,  transition: t1() },
+  hidden: { opacity: 0, x: -36 },
+  visible: { opacity: 1, x: 0, transition: t1() },
 };
 
 const sidebarVariants: Variants = {
-  hidden:  {},
+  hidden: {},
   visible: { transition: { staggerChildren: 0.14, delayChildren: 0.15 } },
 };
 
 const sidebarItem: Variants = {
-  hidden:  { opacity: 0, x: 36 },
+  hidden: { opacity: 0, x: 36 },
   visible: { opacity: 1, x: 0, transition: t1() },
 };
 
 const listItemVariants: Variants = {
-  hidden:  {},
+  hidden: {},
   visible: { transition: { staggerChildren: 0.08, delayChildren: 0.3 } },
 };
 
 const listChild: Variants = {
-  hidden:  { opacity: 0, x: -12 },
+  hidden: { opacity: 0, x: -12 },
   visible: { opacity: 1, x: 0, transition: t2() },
 };
 
 const inputVariants: Variants = {
-  hidden:  {},
+  hidden: {},
   visible: { transition: { staggerChildren: 0.07, delayChildren: 0.2 } },
 };
 
 const inputItem: Variants = {
-  hidden:  { opacity: 0, y: 12 },
+  hidden: { opacity: 0, y: 12 },
   visible: { opacity: 1, y: 0, transition: t2() },
 };
 
@@ -109,13 +109,13 @@ function LocationCard({
 
 /* ── Main component ─────────────────────────────────────────────────── */
 export default function ContactPage() {
-  const headerRef  = useRef<HTMLDivElement>(null);
-  const cardsRef   = useRef<HTMLDivElement>(null);
-  const bottomRef  = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+  const bottomRef = useRef<HTMLDivElement>(null);
 
-  const headerInView = useInView(headerRef,  { once: true, margin: "-60px 0px" });
-  const cardsInView  = useInView(cardsRef,   { once: true, margin: "-60px 0px" });
-  const bottomInView = useInView(bottomRef,  { once: true, margin: "-60px 0px" });
+  const headerInView = useInView(headerRef, { once: true, margin: "-60px 0px" });
+  const cardsInView = useInView(cardsRef, { once: true, margin: "-60px 0px" });
+  const bottomInView = useInView(bottomRef, { once: true, margin: "-60px 0px" });
 
   return (
     <main className=" pt-24 pb-12">
@@ -147,7 +147,7 @@ export default function ContactPage() {
             {["Our", "Locations"].map((word) => (
               <span
                 key={word}
-                style={{ display: "inline-block",  overflow: "hidden", verticalAlign: "bottom", marginRight: "0.3em", textTransform: "capitalize" }}
+                style={{ display: "inline-block", overflow: "hidden", verticalAlign: "bottom", marginRight: "0.3em", textTransform: "capitalize" }}
               >
                 <motion.span style={{ display: "inline-block" }} variants={lineUnmask}>
                   {word}
@@ -194,7 +194,7 @@ export default function ContactPage() {
                 {[
                   { icon: "📍", text: "32b Admiralty Way, Opposite Prince Ebeano Supermarket, Lekki Phase 1" },
                   { icon: "📞", text: "+234 916 600 0777" },
-                  { icon: "✉️", text: "ordersfoodies2@foodieshotandspicy.com", isEmail: true, href: "mailto:ordersfoodies2@foodieshotandspicy.com" },
+                  { icon: "✉️", text: "orderfoodies2@foodieshotandspicy.com", isEmail: true, href: "mailto:orderfoodies2@foodieshotandspicy.com" },
                   { icon: "🕒", text: "Monday – Sunday: 11:00 AM – 9:00 PM" },
                 ].map(({ icon, text, isEmail, href }) => (
                   <motion.p
@@ -236,7 +236,7 @@ export default function ContactPage() {
                 {[
                   { icon: "📍", text: "23 Admiralty Way opposite Wole Ariyo Street Lekki Phase 1" },
                   { icon: "📞", text: "+234 916 600 0666" },
-                  { icon: "✉️", text: "Orderfoodies1@foodieshotandspicy.com", isEmail: true, href: "mailto:Orderfoodies1@foodieshotandspicy.com" },
+                  { icon: "✉️", text: "orderfoodies1@foodieshotandspicy.com", isEmail: true, href: "mailto:orderfoodies1@foodieshotandspicy.com" },
                   { icon: "🕒", text: "Monday – Sunday: 11:00 AM – 9:00 PM" },
                 ].map(({ icon, text, isEmail, href }) => (
                   <motion.p
@@ -278,7 +278,7 @@ export default function ContactPage() {
                 {[
                   { icon: "📍", text: "AP Filling Station, Ardova Mall, opposite Transcorp Hilton, Maitama, Abuja" },
                   { icon: "📞", text: "+234 916 600 0888" },
-                  { icon: "✉️", text: "Orderfoodies3@foodieshotandspicy.com", isEmail: true, href: "mailto:Orderfoodies3@foodieshotandspicy.com" },
+                  { icon: "✉️", text: "orderfoodies3@foodieshotandspicy.com", isEmail: true, href: "mailto:orderfoodies3@foodieshotandspicy.com" },
                   { icon: "🕒", text: "Monday – Sunday: 11:00 AM – 9:00 PM" },
                 ].map(({ icon, text, isEmail, href }) => (
                   <motion.p
@@ -460,11 +460,25 @@ export default function ContactPage() {
                 For strategic partnerships, event catering, bulk office orders, or corporate credit lines:
               </p>
               <motion.a
-                href="mailto:corporate@foodies.com.ng"
+                href="mailto:orderfoodies1@foodieshotandspicy.com"
                 className="text-primary font-bold text-sm break-all"
                 whileHover={{ x: 3, transition: { duration: 0.2 } }}
               >
-                corporate@foodies.com.ng
+                orderfoodies1@foodieshotandspicy.com
+              </motion.a> <br />
+              <motion.a
+                href="mailto:orderfoodies2@foodieshotandspicy.com"
+                className="text-primary font-bold text-sm break-all"
+                whileHover={{ x: 3, transition: { duration: 0.2 } }}
+              >
+                orderfoodies2@foodieshotandspicy.com
+              </motion.a> <br />
+              <motion.a
+                href="mailto:orderfoodies3@foodieshotandspicy.com"
+                className="text-primary font-bold text-sm break-all"
+                whileHover={{ x: 3, transition: { duration: 0.2 } }}
+              >
+                orderfoodies3@foodieshotandspicy.com
               </motion.a>
             </motion.div>
 
