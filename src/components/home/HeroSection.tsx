@@ -273,10 +273,8 @@ export function HeroSection() {
         className="relative w-full overflow-hidden z-50"
         style={{ minHeight: "calc(100svh - 72px)" }}
       >
-        {/* ── BACKGROUND ── */}
+        {/* Background ken-burns */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-
-          {/* Ken-burns image */}
           <motion.div
             className="relative w-full h-full"
             initial={{ scale: 1 }}
@@ -284,96 +282,29 @@ export function HeroSection() {
             transition={{ duration: 12, ease: "easeOut" }}
           >
             <Image
-              src="/assets/foodies/Comfy Studio 3.jpg.jpeg"
+              src="https://i.pinimg.com/1200x/bd/b9/ab/bdb9abb6d73a15e466c244fd8d23aeaa.jpg"
               alt="Smoky Jollof background"
-              fill
-              className="object-cover object-top"
-              priority
-              sizes="100vw"
+              fill className="object-cover" priority sizes="100vw"
             />
           </motion.div>
-
-          {/* Layer 1 — Base dark wash (multiply tones the whole image without crushing blacks) */}
+          <div className="absolute inset-0" style={{
+            background: "linear-gradient(105deg, rgba(6,4,2,0.97) 0%, rgba(6,4,2,0.88) 38%, rgba(6,4,2,0.55) 62%, rgba(6,4,2,0.15) 100%)",
+          }} />
           <div
             className="absolute inset-0"
             style={{
-              background: "rgba(6,4,2,0.45)",
-              mixBlendMode: "multiply",
+              background: "linear-gradient(to top, rgba(6,4,2,0.6) 0%, rgba(6,4,2,0) 40%)",
             }}
           />
-
-          {/* Layer 2 — Warm brand ember on right where dish card lives (ties bg to brand palette) */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(ellipse 75% 90% at 78% 55%, rgba(190,55,28,0.22) 0%, rgba(160,80,20,0.08) 45%, transparent 70%)",
-              mixBlendMode: "screen",
-            }}
-          />
-
-          {/* Layer 3 — Main cinematic directional gradient (gradual, not abrupt) */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(102deg, rgba(6,4,2,1) 0%, rgba(6,4,2,0.97) 22%, rgba(6,4,2,0.85) 38%, rgba(6,4,2,0.55) 58%, rgba(6,4,2,0.18) 78%, rgba(6,4,2,0.04) 100%)",
-            }}
-          />
-
-          {/* Layer 4 — Radial vignette (darkens all edges naturally like a camera lens) */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(ellipse 115% 115% at 50% 50%, transparent 28%, rgba(6,4,2,0.45) 65%, rgba(6,4,2,0.88) 100%)",
-            }}
-          />
-
-          {/* Layer 5 — Bottom ground fade (anchors stats/buttons area) */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(to top, rgba(6,4,2,0.9) 0%, rgba(6,4,2,0.35) 16%, transparent 32%)",
-            }}
-          />
-
-          {/* Layer 6 — Top fade (blends into nav bar) */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(to bottom, rgba(6,4,2,0.55) 0%, rgba(6,4,2,0.15) 8%, transparent 18%)",
-            }}
-          />
-
         </div>
 
-        {/* Ambient glow — left side brand warmth */}
+        {/* Ambient glow */}
         <motion.div
           className="absolute -top-32 -left-32 w-125 h-125 rounded-full pointer-events-none z-1"
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.09 }}
           transition={{ duration: 2, delay: 0.3 }}
           style={{ background: "var(--color-primary)", filter: "blur(120px)" }}
-        />
-
-        {/* Subtle right-side warm glow behind dish card */}
-        <motion.div
-          className="absolute pointer-events-none z-1"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.06 }}
-          transition={{ duration: 2.5, delay: 0.8 }}
-          style={{
-            top: "10%",
-            right: "-5%",
-            width: "45%",
-            height: "70%",
-            background: "var(--color-primary)",
-            filter: "blur(90px)",
-            borderRadius: "50%",
-          }}
         />
 
         {/* Main layout */}

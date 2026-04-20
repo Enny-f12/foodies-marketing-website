@@ -51,7 +51,7 @@ export function AboutHero() {
           alt="Hero Background"
           fill
           priority
-          className="object-cover object-top object-center w-full h-full"
+          className="object-cover object-top  w-full h-full"
           sizes="100vw"
         />
         <div 
