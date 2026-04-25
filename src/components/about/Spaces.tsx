@@ -65,8 +65,8 @@ const locations = [
     // Use a direct search URL for links to avoid the "must be in iframe" error
     mapSearchUrl: "https://www.google.com/maps/search/?api=1&query=32b+Admiralty+Way+Lekki+Lagos",
     images: [
-      "https://i.pinimg.com/736x/51/a7/ed/51a7edcd6c26ea2bccee7eb87039aca4.jpg",
-      "https://i.pinimg.com/736x/51/a7/ed/51a7edcd6c26ea2bccee7eb87039aca4.jpg",
+      "/assets/foodies/Comfy Studio 1.jpg.jpeg",
+      "/assets/foodies/Comfy Studio 2.jpg.jpeg",
     ],
   },
   {
@@ -77,8 +77,8 @@ const locations = [
     note: "Private dining available",
     mapSearchUrl: "https://www.google.com/maps/search/?api=1&query=Gana+Street+Maitama+Abuja",
     images: [
-      "https://i.pinimg.com/736x/53/14/52/531452de613131d384f31ddb76d43139.jpg",
-      "https://i.pinimg.com/736x/53/14/52/531452de613131d384f31ddb76d43139.jpg",
+      "/assets/foodies/Comfy Studio 7.jpg.jpeg",
+      "/assets/foodies/Comfy Studio 6.jpg.jpeg",
     ],
   },
   {
@@ -89,8 +89,8 @@ const locations = [
     note: "Private dining available",
     mapSearchUrl: "https://www.google.com/maps/search/?api=1&query=23+Admiralty+Way+Lekki",
     images: [
-      "https://i.pinimg.com/736x/53/14/52/531452de613131d384f31ddb76d43139.jpg",
-      "https://i.pinimg.com/736x/53/14/52/531452de613131d384f31ddb76d43139.jpg",
+      "/assets/foodies/Comfy Studio 8.jpg.jpeg",
+      "/assets/foodies/Comfy Studio.jpg.jpeg",
     ],
   },
 ];

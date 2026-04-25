@@ -47,11 +47,11 @@ export function AboutHero() {
       {/* ── BACKGROUND & OVERLAY ── */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://i.pinimg.com/736x/6a/98/af/6a98af59fd6e9f57851ca41ae894e340.jpg" // Ensure this matches your file path
+          src="/assets/foodies/Comfy Studio 9.jpg.jpeg"
           alt="Hero Background"
           fill
           priority
-          className="object-cover object-center w-full h-full"
+          className="object-cover object-top  w-full h-full"
           sizes="100vw"
         />
         <div 
