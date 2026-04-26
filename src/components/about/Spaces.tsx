@@ -77,8 +77,8 @@ const locations = [
     note: "Private dining available",
     mapSearchUrl: "https://www.google.com/maps/search/?api=1&query=Gana+Street+Maitama+Abuja",
     images: [
-      "/assets/foodies/Comfy Studio 7.jpg.jpeg",
-      "/assets/foodies/Comfy Studio 6.jpg.jpeg",
+      "/assets/foodies/Abuja 1.jpeg",
+      "/assets/foodies/Abuja 2.jpeg",
     ],
   },
   {

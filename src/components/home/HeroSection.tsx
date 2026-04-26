@@ -282,18 +282,76 @@ export function HeroSection() {
             transition={{ duration: 12, ease: "easeOut" }}
           >
             <Image
-              src="https://i.pinimg.com/1200x/bd/b9/ab/bdb9abb6d73a15e466c244fd8d23aeaa.jpg"
-              alt="Smoky Jollof background"
-              fill className="object-cover" priority sizes="100vw"
+              src="/assets/foodies/Home.jpeg"
+              alt="Foodies restaurant exterior"
+              fill className="object-cover object-center" priority sizes="100vw"
             />
           </motion.div>
-          <div className="absolute inset-0" style={{
-            background: "linear-gradient(105deg, rgba(6,4,2,0.97) 0%, rgba(6,4,2,0.88) 38%, rgba(6,4,2,0.55) 62%, rgba(6,4,2,0.15) 100%)",
-          }} />
+
+          {/* ── OVERLAY STACK ──────────────────────────────────────────
+              Full-coverage dark overlay that unifies the multi-color
+              facade (gold, stained glass, LED grid) into one rich,
+              cohesive backdrop across the entire hero.
+
+              Layer 1 — Base blackout: flat dark over everything.
+              Layer 2 — Warm brand wash: full-width deep red/brown tint
+                        so the image reads through the brand palette,
+                        not as raw multicolor noise.
+              Layer 3 — Diagonal depth: slightly lighter bottom-right
+                        corner gives a cinematic lift and stops it
+                        looking like a solid fill.
+              Layer 4 — Top vignette: caps the LED grid band.
+              Layer 5 — Bottom anchor: grounds the section edge.
+          ──────────────────────────────────────────────────────────── */}
+
+          {/* Layer 1 — Full base blackout */}
+          <div
+            className="absolute inset-0"
+            style={{ background: "rgba(6,4,2,0.82)" }}
+          />
+
+          {/* Layer 2 — Full-width warm brand tint */}
           <div
             className="absolute inset-0"
             style={{
-              background: "linear-gradient(to top, rgba(6,4,2,0.6) 0%, rgba(6,4,2,0) 40%)",
+              background:
+                "linear-gradient(135deg, rgba(90,18,6,0.45) 0%, rgba(60,12,4,0.30) 50%, rgba(30,8,2,0.20) 100%)",
+            }}
+          />
+
+          {/* Layer 3 — Diagonal depth lift (bottom-right stays slightly lighter) */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(6,4,2,0.20) 0%, rgba(6,4,2,0.0) 55%, rgba(6,4,2,0.15) 100%)",
+            }}
+          />
+
+          {/* Layer 3b — Left text shield (extra darkness behind headline) */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to right, rgba(6,4,2,0.60) 0%, rgba(6,4,2,0.40) 25%, rgba(6,4,2,0.10) 50%, rgba(6,4,2,0.0) 65%)",
+            }}
+          />
+
+          {/* Layer 4 — Top vignette */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(6,4,2,0.55) 0%, rgba(6,4,2,0.0) 35%)",
+            }}
+          />
+
+          {/* Layer 5 — Bottom anchor */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(6,4,2,0.70) 0%, rgba(6,4,2,0.0) 30%)",
             }}
           />
         </div>
