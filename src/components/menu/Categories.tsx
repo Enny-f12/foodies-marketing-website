@@ -19,68 +19,68 @@ type Bezier = [number, number, number, number];
 const spring1: Bezier = [0.22, 0.68, 0, 1.1];
 const spring2: Bezier = [0.22, 0.68, 0, 1.2];
 const t1 = (extra?: Partial<Transition>): Transition => ({ duration: 0.65, ease: spring1, ...extra });
-const t2 = (extra?: Partial<Transition>): Transition => ({ duration: 0.4,  ease: spring2, ...extra });
+const t2 = (extra?: Partial<Transition>): Transition => ({ duration: 0.4, ease: spring2, ...extra });
 
 /* ── Variants ────────────────────────────────────────────────────────── */
 const panelVariants: Variants = {
-  enter:  { opacity: 0, y: 22 },
-  center: { opacity: 1, y: 0,   transition: t1() },
-  exit:   { opacity: 0, y: -14, transition: { duration: 0.22, ease: "easeIn" as const } },
+  enter: { opacity: 0, y: 22 },
+  center: { opacity: 1, y: 0, transition: t1() },
+  exit: { opacity: 0, y: -14, transition: { duration: 0.22, ease: "easeIn" as const } },
 };
 
 const eyebrowVariants: Variants = {
-  hidden:  { opacity: 0, x: -16 },
-  visible: { opacity: 1, x: 0,   transition: t1() },
+  hidden: { opacity: 0, x: -16 },
+  visible: { opacity: 1, x: 0, transition: t1() },
 };
 
 const lineVariants: Variants = {
-  hidden:  { scaleX: 0, originX: "0%" },
+  hidden: { scaleX: 0, originX: "0%" },
   visible: { scaleX: 1, originX: "0%", transition: { duration: 0.5, ease: "easeOut" as const, delay: 0.1 } },
 };
 
 const titleVariants: Variants = {
-  hidden:  { opacity: 0, y: 32, skewY: 1.5 },
-  visible: { opacity: 1, y: 0,  skewY: 0,   transition: t1({ delay: 0.08 }) },
+  hidden: { opacity: 0, y: 32, skewY: 1.5 },
+  visible: { opacity: 1, y: 0, skewY: 0, transition: t1({ delay: 0.08 }) },
 };
 
 const descVariants: Variants = {
-  hidden:  { opacity: 0, y: 18 },
-  visible: { opacity: 1, y: 0,  transition: t1({ delay: 0.18 }) },
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0, transition: t1({ delay: 0.18 }) },
 };
 
 const chipsContainer: Variants = {
-  hidden:  {},
+  hidden: {},
   visible: { transition: { staggerChildren: 0.06, delayChildren: 0.28 } },
 };
 
 const chipItem: Variants = {
-  hidden:  { opacity: 0, scale: 0.82, y: 6 },
-  visible: { opacity: 1, scale: 1,    y: 0, transition: t2() },
+  hidden: { opacity: 0, scale: 0.82, y: 6 },
+  visible: { opacity: 1, scale: 1, y: 0, transition: t2() },
 };
 
 const dividerVariants: Variants = {
-  hidden:  { scaleY: 0, originY: "0%" },
+  hidden: { scaleY: 0, originY: "0%" },
   visible: { scaleY: 1, originY: "0%", transition: { duration: 0.55, ease: "easeOut" as const, delay: 0.15 } },
 };
 
 const heroVariants: Variants = {
-  hidden:  { opacity: 0, scale: 0.97, y: 28 },
-  visible: { opacity: 1, scale: 1,    y: 0,  transition: t1({ delay: 0.12 }) },
+  hidden: { opacity: 0, scale: 0.97, y: 28 },
+  visible: { opacity: 1, scale: 1, y: 0, transition: t1({ delay: 0.12 }) },
 };
 
 const imageCard = (delay: number): Variants => ({
-  hidden:  { opacity: 0, y: 32, scale: 0.96 },
-  visible: { opacity: 1, y: 0,  scale: 1,   transition: t1({ delay }) },
+  hidden: { opacity: 0, y: 32, scale: 0.96 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: t1({ delay }) },
 });
 
 const stripVariants: Variants = {
-  hidden:  { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0,  transition: t1({ delay: 0.35 }) },
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: t1({ delay: 0.35 }) },
 };
 
 /* ── Overlay gradients ───────────────────────────────────────────────── */
 const overlayGradient = "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.15) 55%, transparent 100%)";
-const heroOverlay     = "linear-gradient(to top, rgba(0,0,0,0.84) 0%, rgba(0,0,0,0.22) 45%, transparent 100%)";
+const heroOverlay = "linear-gradient(to top, rgba(0,0,0,0.84) 0%, rgba(0,0,0,0.22) 45%, transparent 100%)";
 
 /*
  * Accurate sizes per slot per breakpoint.
@@ -89,29 +89,29 @@ const heroOverlay     = "linear-gradient(to top, rgba(0,0,0,0.84) 0%, rgba(0,0,0
  * The "1px" fallback tells Next.js the image isn't used in other ranges.
  */
 const SIZES = {
-  mobileHero:  "(max-width: 767px) calc(100vw - 2rem), 1px",
+  mobileHero: "(max-width: 767px) calc(100vw - 2rem), 1px",
   mobileSmall: "(max-width: 767px) 33vw, 1px",
-  tabletHero:  "(min-width: 768px) and (max-width: 1023px) calc(100vw - 2rem), 1px",
+  tabletHero: "(min-width: 768px) and (max-width: 1023px) calc(100vw - 2rem), 1px",
   tabletSmall: "(min-width: 768px) and (max-width: 1023px) 33vw, 1px",
   desktopHero: "(min-width: 1024px) 55vw, 1px",
   desktopTopR: "(min-width: 1024px) 45vw, 1px",
-  desktopBot:  "(min-width: 1024px) 22vw, 1px",
+  desktopBot: "(min-width: 1024px) 22vw, 1px",
 } as const;
 
 /* ── Component ───────────────────────────────────────────────────────── */
 export function MenuCategories() {
   const [activeId, setActiveId] = useState(categories[0].id);
 
-  const cat       = categories.find((c) => c.id === activeId) ?? categories[0];
-  const catIndex  = categories.findIndex((c) => c.id === activeId);
+  const cat = categories.find((c) => c.id === activeId) ?? categories[0];
+  const catIndex = categories.findIndex((c) => c.id === activeId);
   const sectionBg = catIndex % 2 === 0 ? "var(--color-bg)" : "var(--color-bg-soft)";
 
   const sectionRef = useRef<HTMLDivElement>(null);
-  const inView     = useInView(sectionRef, { once: true, margin: "-60px 0px" });
+  const inView = useInView(sectionRef, { once: true, margin: "-60px 0px" });
 
-  const hero     = cat.items[0];
+  const hero = cat.items[0];
   const topRight = cat.items[1];
-  const botLeft  = cat.items[2];
+  const botLeft = cat.items[2];
   const botRight = cat.items[3];
 
   return (
@@ -171,7 +171,7 @@ export function MenuCategories() {
                     <motion.h2
                       className="font-display font-black leading-none"
                       style={{
-                        color:    "var(--color-heading)",
+                        color: "var(--color-heading)",
                         fontSize: "clamp(2.4rem, 7vw, 5.5rem)",
                       }}
                       variants={titleVariants}
@@ -208,7 +208,7 @@ export function MenuCategories() {
                     <motion.p
                       className="leading-relaxed"
                       style={{
-                        color:    "var(--color-text-secondary)",
+                        color: "var(--color-text-secondary)",
                         fontSize: "clamp(0.9rem, 1.6vw, 1.05rem)",
                         maxWidth: "min(100%, 520px)",
                       }}
@@ -233,15 +233,15 @@ export function MenuCategories() {
                             className="flex items-center gap-1.5 px-3 py-2 rounded-xl border text-sm font-medium cursor-default"
                             style={{
                               borderColor: "var(--color-border)",
-                              background:  "var(--color-bg-card)",
-                              color:       "var(--color-text-secondary)",
+                              background: "var(--color-bg-card)",
+                              color: "var(--color-text-secondary)",
                             }}
                             variants={chipItem}
                             whileHover={{
                               borderColor: "color-mix(in srgb, var(--color-primary) 50%, transparent)",
-                              color:       "var(--color-heading)",
-                              y:           -2,
-                              transition:  { duration: 0.18 },
+                              color: "var(--color-heading)",
+                              y: -2,
+                              transition: { duration: 0.18 },
                             }}
                             whileTap={{ scale: 0.96 }}
                           >
@@ -290,8 +290,8 @@ export function MenuCategories() {
                     <p className="uppercase tracking-widest font-bold mb-1" style={{ fontSize: "9px", color: "var(--color-primary)" }}>
                       Signature Dish
                     </p>
-                    <h3 className="font-display font-black leading-tight text-white text-base mb-1" 
-                    style={{color: "#ffffff"}}>{hero?.name}</h3>
+                    <h3 className="font-display font-black leading-tight text-white text-base mb-1"
+                      style={{ color: "#ffffff" }}>{hero?.name}</h3>
                     {hero?.desc && (
                       <p className="leading-relaxed line-clamp-2" style={{ fontSize: "11px", color: "rgba(255,255,255,0.62)" }}>
                         {hero.desc}
@@ -383,7 +383,7 @@ export function MenuCategories() {
                       whileTap={{ scale: 0.88 }}
                     >
                       <svg width="14" height="14" viewBox="0 0 15 15" fill="none">
-                        <path d="M2.5 12.5L12.5 2.5M12.5 2.5H5.5M12.5 2.5V9.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M2.5 12.5L12.5 2.5M12.5 2.5H5.5M12.5 2.5V9.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </motion.button>
                   </div>
@@ -484,7 +484,7 @@ export function MenuCategories() {
                       whileTap={{ scale: 0.88 }}
                     >
                       <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-                        <path d="M2.5 12.5L12.5 2.5M12.5 2.5H5.5M12.5 2.5V9.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M2.5 12.5L12.5 2.5M12.5 2.5H5.5M12.5 2.5V9.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </motion.button>
                   </div>
@@ -567,7 +567,7 @@ export function MenuCategories() {
               <motion.div
                 className="mt-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 lg:p-7 rounded-xl border"
                 style={{
-                  background:  "var(--color-bg-card)",
+                  background: "var(--color-bg-card)",
                   borderColor: "var(--color-border)",
                 }}
                 variants={stripVariants}
@@ -579,14 +579,14 @@ export function MenuCategories() {
                   available with real-time stock visibility.
                 </p>
 
-                <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
-                  <Link href="/download" className="flex-1 sm:flex-none">
-                    <Button variant="ghost" size="sm" fullWidth>
+                <div className="flex items-center gap-2 w-full mt-4">
+                  <Link href="/download" className="flex-1">
+                    <Button variant="ghost" size="sm" fullWidth className="justify-center">
                       View Full Menu →
                     </Button>
                   </Link>
-                  <Link href="/download" className="flex-1 sm:flex-none">
-                    <Button variant="primary" size="sm" fullWidth>
+                  <Link href="/download" className="flex-1">
+                    <Button variant="primary" size="sm" fullWidth className="justify-center">
                       Order Now
                     </Button>
                   </Link>
