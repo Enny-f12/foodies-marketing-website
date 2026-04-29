@@ -8,11 +8,13 @@ interface CardProps {
   children: React.ReactNode;
   className?: string;
   hover?: boolean;
+  id?: string;
 }
 
-export function Card({ children, className = "", hover = false }: CardProps) {
+export function Card({ children, className = "", hover = false, id }: CardProps) {
   return (
     <div
+      id={id}
       style={{
         background: "var(--color-bg-card)",
         border: "1px solid var(--color-border)",

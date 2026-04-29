@@ -211,10 +211,10 @@ export default function ContactPage() {
             </div>
             <div className="grid grid-cols-2 gap-2 mt-4">
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Link href="/download" className="flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest bg-primary text-white hover:brightness-110 transition-all">Book a Table</Link>
+                <Link href="/download" className="flex items-center gap-3 px-2 md:px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest bg-primary text-white hover:brightness-110 transition-all">Book a Table</Link>
               </motion.div>
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Link href="/download" className="flex items-center gap-3 px-4 py-4 rounded-xl font-bold text-xs uppercase tracking-widest border border-border text-(--color-heading) hover:border-primary transition-all">Order Takeaway</Link>
+                <Link href="/download" className="flex items-center gap-3 px-2 md:px-4 py-4 rounded-xl font-bold text-xs uppercase tracking-widest border border-border text-(--color-heading) hover:border-primary transition-all">Order Takeaway</Link>
               </motion.div>
             </div>
           </LocationCard>
@@ -253,10 +253,10 @@ export default function ContactPage() {
             </div>
             <div className="grid grid-cols-2 gap-2 mt-4">
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Link href="/download" className="flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest bg-primary text-white hover:brightness-110 transition-all">Book a Table</Link>
+                <Link href="/download" className="flex items-center gap-3 px-2 md:px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest bg-primary text-white hover:brightness-110 transition-all">Book a Table</Link>
               </motion.div>
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Link href="/download" className="flex items-center gap-3 px-4 py-4 rounded-xl font-bold text-xs uppercase tracking-widest border border-border text-(--color-heading) hover:border-primary transition-all">Order Takeaway</Link>
+                <Link href="/download" className="flex items-center gap-3 px-2 md:px-4 py-4 rounded-xl font-bold text-xs uppercase tracking-widest border border-border text-(--color-heading) hover:border-primary transition-all">Order Takeaway</Link>
               </motion.div>
             </div>
           </LocationCard>
@@ -295,10 +295,10 @@ export default function ContactPage() {
             </div>
             <div className="grid grid-cols-2 gap-2 mt-4">
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Link href="/download" className="flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest bg-primary text-white hover:brightness-110 transition-all">Book a Table</Link>
+                <Link href="/download" className="flex items-center gap-3 px-2 md:px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest bg-primary text-white hover:brightness-110 transition-all">Book a Table</Link>
               </motion.div>
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Link href="/download" className="flex items-center gap-3 px-4 py-4 rounded-xl font-bold text-xs uppercase tracking-widest border border-border text-(--color-heading) hover:border-primary transition-all">Order Takeaway</Link>
+                <Link href="/download" className="flex items-center gap-3 px-2 md:px-4 py-4 rounded-xl font-bold text-xs uppercase tracking-widest border border-border text-(--color-heading) hover:border-primary transition-all">Order Takeaway</Link>
               </motion.div>
             </div>
           </LocationCard>
@@ -317,7 +317,8 @@ export default function ContactPage() {
             initial="hidden"
             animate={bottomInView ? "visible" : "hidden"}
           >
-            <Card className="p-6 sm:p-8">
+            {/* ✅ id added here for scroll target */}
+            <Card className="p-6 sm:p-8" id="contact-form">
               <motion.h2
                 className="text-h3 mb-6 font-display"
                 initial={{ opacity: 0, y: 12 }}
@@ -435,11 +436,20 @@ export default function ContactPage() {
                     ))}
                   </motion.ul>
 
+                  {/* ✅ Smooth scroll to #contact-form */}
                   <motion.div
                     whileHover={{ scale: 1.02, y: -2, transition: { duration: 0.2, ease: spring2 } }}
                     whileTap={{ scale: 0.97 }}
                   >
-                    <Button variant="outline" fullWidth>Inquire About Your Event</Button>
+                    <Button
+                      variant="outline"
+                      fullWidth
+                      onClick={() =>
+                        document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" })
+                      }
+                    >
+                      Inquire About Your Event
+                    </Button>
                   </motion.div>
                 </Card>
               </motion.div>
@@ -462,21 +472,21 @@ export default function ContactPage() {
               </p>
               <motion.a
                 href="mailto:orderfoodies1@foodieshotandspicy.com"
-                className="text-primary font-bold text-sm break-all"
+                className="text-primary font-bold text-xs md:text-sm break-all"
                 whileHover={{ x: 3, transition: { duration: 0.2 } }}
               >
                 orderfoodies1@foodieshotandspicy.com
               </motion.a> <br />
               <motion.a
                 href="mailto:orderfoodies2@foodieshotandspicy.com"
-                className="text-primary font-bold text-sm break-all"
+                className="text-primary font-bold text-xs md:text-sm break-all"
                 whileHover={{ x: 3, transition: { duration: 0.2 } }}
               >
                 orderfoodies2@foodieshotandspicy.com
               </motion.a> <br />
               <motion.a
                 href="mailto:orderfoodies3@foodieshotandspicy.com"
-                className="text-primary font-bold text-sm break-all"
+                className="text-primary font-bold text-xs md:text-sm break-all"
                 whileHover={{ x: 3, transition: { duration: 0.2 } }}
               >
                 orderfoodies3@foodieshotandspicy.com
