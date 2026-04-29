@@ -52,7 +52,7 @@ export const FAQ_CATEGORIES = [
       },
       {
         question: `Can I book the private dining section?`,
-        answer: `Yes! Both Lekki branches and Abuja feature private dining for up to 20 guests. In the app, add "Please book private dining section" in the Special Requests field and we'll follow up within 2 hours. You can also call or email orderfoodies1@foodieshotandspicy.com, orderfoodies2@foodieshotandspicy.com, or orderfoodies3@foodieshotandspicy.com with your date, guest count, occasion, and any special requirements. Minimum 24 hours notice required; no additional charge for the space.`,
+        answer: `Yes! Both Lekki branches and Abuja feature private dining for up to 20 guests. In the app, add "Please book private dining section" in the Special Requests field and we'll follow up within 2 hours. You can also call Lekki(foodies 1 branch) on 0916 600 0666 or Lekki(foodies 2 branch) 0916 600 0777 or Abuja on 0916 600 0888 (foodies 3 branch) or email orderfoodies1@foodieshotandspicy.com, orderfoodies2@foodieshotandspicy.com, or orderfoodies3@foodieshotandspicy.com with your date, guest count, occasion, and any special requirements. Minimum 24 hours notice required; no additional charge for the space.`,
       },
       {
         question: `What's your cancellation policy?`,

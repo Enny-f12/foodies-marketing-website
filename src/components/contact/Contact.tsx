@@ -209,12 +209,12 @@ export default function ContactPage() {
                 ))}
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-2 mt-4">
+            <div className="flex flex-col sm:grid sm:grid-cols-2 gap-2 mt-4">
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Link href="/download" className="flex items-center gap-3 px-2 md:px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest bg-primary text-white hover:brightness-110 transition-all">Book a Table</Link>
+                <Link href="/download" className="flex items-center justify-center gap-3 px-4 py-4 rounded-xl font-bold text-xs uppercase tracking-widest bg-primary text-white hover:brightness-110 transition-all w-full">Book a Table</Link>
               </motion.div>
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Link href="/download" className="flex items-center gap-3 px-2 md:px-4 py-4 rounded-xl font-bold text-xs uppercase tracking-widest border border-border text-(--color-heading) hover:border-primary transition-all">Order Takeaway</Link>
+                <Link href="/download" className="flex items-center justify-center gap-3 px-4 py-4 rounded-xl font-bold text-xs uppercase tracking-widest border border-border text-(--color-heading) hover:border-primary transition-all w-full">Order Takeaway</Link>
               </motion.div>
             </div>
           </LocationCard>
@@ -251,12 +251,12 @@ export default function ContactPage() {
                 ))}
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-2 mt-4">
+            <div className="flex flex-col sm:grid sm:grid-cols-2 gap-2 mt-4">
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Link href="/download" className="flex items-center gap-3 px-2 md:px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest bg-primary text-white hover:brightness-110 transition-all">Book a Table</Link>
+                <Link href="/download" className="flex items-center justify-center gap-3 px-4 py-4 rounded-xl font-bold text-xs uppercase tracking-widest bg-primary text-white hover:brightness-110 transition-all w-full">Book a Table</Link>
               </motion.div>
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Link href="/download" className="flex items-center gap-3 px-2 md:px-4 py-4 rounded-xl font-bold text-xs uppercase tracking-widest border border-border text-(--color-heading) hover:border-primary transition-all">Order Takeaway</Link>
+                <Link href="/download" className="flex items-center justify-center gap-3 px-4 py-4 rounded-xl font-bold text-xs uppercase tracking-widest border border-border text-(--color-heading) hover:border-primary transition-all w-full">Order Takeaway</Link>
               </motion.div>
             </div>
           </LocationCard>
@@ -293,18 +293,21 @@ export default function ContactPage() {
                 ))}
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-2 mt-4">
-              <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Link href="/download" className="flex items-center gap-3 px-2 md:px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest bg-primary text-white hover:brightness-110 transition-all">Book a Table</Link>
+            <div className="flex flex-col sm:grid sm:grid-cols-2 gap-2 mt-4">
+              <motion.div className="w-full" whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
+                <Link href="/download" className="flex items-center justify-center px-4 py-4 rounded-xl font-bold text-xs uppercase tracking-widest bg-primary text-white hover:brightness-110 transition-all w-full">
+                  Book a Table
+                </Link>
               </motion.div>
-              <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Link href="/download" className="flex items-center gap-3 px-2 md:px-4 py-4 rounded-xl font-bold text-xs uppercase tracking-widest border border-border text-(--color-heading) hover:border-primary transition-all">Order Takeaway</Link>
+              <motion.div className="w-full" whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
+                <Link href="/download" className="flex items-center justify-center px-4 py-4 rounded-xl font-bold text-xs uppercase tracking-widest border border-border text-(--color-heading) hover:border-primary transition-all w-full">
+                  Order Takeaway
+                </Link>
               </motion.div>
             </div>
           </LocationCard>
 
         </motion.div>
-
         {/* ── Bottom grid ── */}
         <div
           ref={bottomRef}
