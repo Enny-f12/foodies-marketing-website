@@ -50,7 +50,7 @@ const features: Feature[] = [
     num:   "03",
     title: "Smart Loyalty",
     desc:  "Earn points on every order. Redeem for discounts, unlock VIP tiers, and get exclusive access to new menu items and events.",
-    badge: null,
+    badge: "Coming Soon",
     bullets: ["Points on every order", "VIP tier unlocks", "Exclusive menu early access"],
   },
   {

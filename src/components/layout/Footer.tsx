@@ -13,8 +13,8 @@ const quickLinks = [
   { label: "Menu", href: "/menu" },
   { label: "Contact", href: "/contact" },
   { label: "Download App", href: "/download" },
-  { label: "Careers", href: "/careers" },
 ];
+
 
 const socials = [
   { label: "Instagram", href: "https://www.instagram.com/foodies_hotandspicy", icon: FaInstagram, color: "#E1306C" },
@@ -94,9 +94,9 @@ export function Footer() {
             </h4>
             <div className="flex flex-col gap-5">
               {[
-                { city: "Lekki, Lagos", addr: "23 Admiralty Way  opposite wole ariyo street Lekki phase 1" },
-                { city: "Lekki, Lagos", addr: "32a Admiralty Way opposite Ebaeno supermarket Lekki Phase 1" },
-                { city: "Maitama, Abuja", addr: "AP Filling Station, Ardova Mall, opposite Transcorp Hilton, Maitama, Abuja 900026, Federal Capital Territory" },
+                { city: "Lekki, Lagos - Foodies 1", addr: "23 Admiralty Way  opposite wole ariyo street Lekki phase 1" },
+                { city: "Lekki, Lagos - Foodies 2", addr: "32a Admiralty Way opposite Ebaeno supermarket Lekki Phase 1" },
+                { city: "Maitama, Abuja - Foodies 3", addr: "AP Filling Station, Ardova Mall, opposite Transcorp Hilton, Maitama, Abuja 900026, Federal Capital Territory" },
               ].map((loc, i) => (
                 <div key={i}>
                   <p className="text-xs font-bold mb-1"

@@ -3,13 +3,12 @@
 import { useState, useRef } from "react";
 import { Plus, Minus } from "lucide-react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { FAQ_CATEGORIES } from "../../../constants/faq"; // Adjust path as needed
+import { FAQ_CATEGORIES } from "../../../constants/faq"; 
 
 export function FAQSection() {
   const [activeId, setActiveId] = useState("orders");
   const sectionRef = useRef<HTMLDivElement>(null);
   const inView = useInView(sectionRef, { once: true, margin: "-60px" });
-
   const activeCategory = FAQ_CATEGORIES.find((c) => c.id === activeId)!;
 
   return (

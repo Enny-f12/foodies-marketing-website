@@ -10,7 +10,7 @@ import {
   type Variants,
   type Transition,
 } from "framer-motion";
-import { Calendar, Database, Gift, MapPin } from "lucide-react";
+import { Calendar, Database, MapPin } from "lucide-react";
 import { AppStoreButtons } from "../ui/AppStoreButtons";
 
 
@@ -284,26 +284,11 @@ export function HeroSection() {
             <Image
               src="/assets/foodies/Home.jpeg"
               alt="Foodies restaurant exterior"
-              fill className="object-cover object-center" priority sizes="100vw"
+              fill className="object-cover object-center mt-10" priority sizes="100vw"
             />
           </motion.div>
 
-          {/* ── OVERLAY STACK ──────────────────────────────────────────
-              Full-coverage dark overlay that unifies the multi-color
-              facade (gold, stained glass, LED grid) into one rich,
-              cohesive backdrop across the entire hero.
-
-              Layer 1 — Base blackout: flat dark over everything.
-              Layer 2 — Warm brand wash: full-width deep red/brown tint
-                        so the image reads through the brand palette,
-                        not as raw multicolor noise.
-              Layer 3 — Diagonal depth: slightly lighter bottom-right
-                        corner gives a cinematic lift and stops it
-                        looking like a solid fill.
-              Layer 4 — Top vignette: caps the LED grid band.
-              Layer 5 — Bottom anchor: grounds the section edge.
-          ──────────────────────────────────────────────────────────── */}
-
+         
           {/* Layer 1 — Full base blackout */}
           <div
             className="absolute inset-0"
@@ -476,7 +461,7 @@ export function HeroSection() {
                   { label: "Real-time reservations", icon: Calendar },
                   { label: "Live inventory", icon: Database },
                   { label: "Live tracking", icon: MapPin },
-                  { label: "Loyalty rewards", icon: Gift },
+                  //{ label: "Loyalty rewards", icon: Gift },
                 ].map(({ label, icon: Icon }) => (
                   <motion.span
                     key={label}
@@ -513,21 +498,7 @@ export function HeroSection() {
                 <AppStoreButtons align="left" />
               </motion.div>
 
-              {/* QR line */}
-              <motion.div className="flex items-center gap-2.5 mb-8" variants={fadeUp}>
-                <div
-                  className="w-7 h-7 shrink-0 flex items-center justify-center text-xs"
-                  style={{ border: "1.5px dashed rgba(255,255,255,0.12)", color: "var(--color-on-ink-muted)" }}
-                >
-                  ⊞
-                </div>
-                <p className="text-[11px]" style={{ color: "var(--color-on-ink-muted)" }}>
-                  Scan to download ·{" "}
-                  <strong style={{ color: "var(--color-secondary)" }}>₦2,000 off</strong>{" "}
-                  first order.{" "}
-                  <span style={{ color: "var(--color-on-ink-muted)" }}>New users only.</span>
-                </p>
-              </motion.div>
+              
 
               {/* Stats */}
               <motion.div

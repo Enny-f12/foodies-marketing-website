@@ -5,7 +5,7 @@ import {
   Smartphone,
   Zap,
   Globe2,
-  Gift,
+  
   Briefcase,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -73,21 +73,22 @@ const items: Item[] = [
     tag:       "255+ Dishes",
     accentVar: "--color-secondary",
   },
-  {
-    Icon:      Gift,
-    num:       "05",
-    title:     "Loyalty Rewards",
-    desc:      "Earn points on every order. Redeem for discounts, unlock VIP tiers, and get exclusive early access to new menu drops.",
-    tag:       "VIP Tiers",
-    accentVar: "--color-primary",
-  },
+  //{
+  //  Icon:      Gift,
+   // num:       "05",
+   // title:     "Loyalty Rewards",
+   // desc:      "Earn points on every order. Redeem for discounts, unlock VIP tiers, and get exclusive early access to new menu drops.",
+  //  tag:       "VIP Tiers",
+   // accentVar: "--color-primary",
+ // }, 
+ 
   {
     Icon:      Briefcase,
-    num:       "06",
+  num:       "05",
     title:     "Corporate Services",
     desc:      "Bulk orders, event catering, and credit lines for businesses. Dedicated account managers for every corporate client.",
     tag:       "B2B",
-    accentVar: "--color-secondary",
+    accentVar: "--color-primary",
   },
 ];
 

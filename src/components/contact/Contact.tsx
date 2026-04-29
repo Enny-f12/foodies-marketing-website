@@ -9,6 +9,7 @@ import {
   type Variants,
   type Transition,
 } from "framer-motion";
+import Link from "next/dist/client/link";
 
 /* ── Easing ────────────────────────────────────────────────────────── */
 type Bezier = [number, number, number, number];
@@ -210,10 +211,10 @@ export default function ContactPage() {
             </div>
             <div className="grid grid-cols-2 gap-2 mt-4">
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Button size="md" className="w-full">Book a Table</Button>
+                <Link href="/download" className="flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest bg-primary text-white hover:brightness-110 transition-all">Book a Table</Link>
               </motion.div>
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Button variant="outline" size="md" className="w-full">Order Takeaway</Button>
+                <Link href="/download" className="flex items-center gap-3 px-4 py-4 rounded-xl font-bold text-xs uppercase tracking-widest border border-border text-(--color-heading) hover:border-primary transition-all">Order Takeaway</Link>
               </motion.div>
             </div>
           </LocationCard>
@@ -252,10 +253,10 @@ export default function ContactPage() {
             </div>
             <div className="grid grid-cols-2 gap-2 mt-4">
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Button size="md" className="w-full">Book a Table</Button>
+                <Link href="/download" className="flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest bg-primary text-white hover:brightness-110 transition-all">Book a Table</Link>
               </motion.div>
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Button variant="outline" size="md" className="w-full">Order Takeaway</Button>
+                <Link href="/download" className="flex items-center gap-3 px-4 py-4 rounded-xl font-bold text-xs uppercase tracking-widest border border-border text-(--color-heading) hover:border-primary transition-all">Order Takeaway</Link>
               </motion.div>
             </div>
           </LocationCard>
@@ -294,10 +295,10 @@ export default function ContactPage() {
             </div>
             <div className="grid grid-cols-2 gap-2 mt-4">
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Button size="md" className="w-full">Book a Table</Button>
+                <Link href="/download" className="flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-widest bg-primary text-white hover:brightness-110 transition-all">Book a Table</Link>
               </motion.div>
               <motion.div whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
-                <Button variant="outline" size="md" className="w-full">Order Takeaway</Button>
+                <Link href="/download" className="flex items-center gap-3 px-4 py-4 rounded-xl font-bold text-xs uppercase tracking-widest border border-border text-(--color-heading) hover:border-primary transition-all">Order Takeaway</Link>
               </motion.div>
             </div>
           </LocationCard>
