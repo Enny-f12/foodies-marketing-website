@@ -52,11 +52,11 @@ export const FAQ_CATEGORIES = [
       },
       {
         question: `Can I book the private dining section?`,
-        answer: `Yes! Both Lekki branches and Abuja feature private dining for up to 20 guests. In the app, add "Please book private dining section" in the Special Requests field and we'll follow up within 2 hours. You can also call or email events@foodies.com.ng with your date, guest count, occasion, and any special requirements. Minimum 24 hours notice required; no additional charge for the space.`,
+        answer: `Yes! Both Lekki branches and Abuja feature private dining for up to 20 guests. In the app, add "Please book private dining section" in the Special Requests field and we'll follow up within 2 hours. You can also call or email orderfoodies1@foodieshotandspicy.com, orderfoodies2@foodieshotandspicy.com, or orderfoodies3@foodieshotandspicy.com with your date, guest count, occasion, and any special requirements. Minimum 24 hours notice required; no additional charge for the space.`,
       },
       {
         question: `What's your cancellation policy?`,
-        answer: `Standard (1-7 guests): Cancel more than 2 hours before for free; cancellations under 2 hours receive a first-time warning and repeated late cancellations may affect future booking privileges. Large groups (8+) or Private Dining: Cancel 48+ hours ahead for full deposit refund; 24-48 hours gets 50% back; under 24 hours forfeits the deposit. Cancel in-app, by phone, or at orderfoodies1@foodies.com, orderfoodies2@foodies.com, or orderfoodies3@foodies.com.`,
+        answer: `Standard (1-7 guests): Cancel more than 2 hours before for free; cancellations under 2 hours receive a first-time warning and repeated late cancellations may affect future booking privileges. Large groups (8+) or Private Dining: Cancel 48+ hours ahead for full deposit refund; 24-48 hours gets 50% back; under 24 hours forfeits the deposit. Cancel in-app, by phone, or at orderfoodies1@foodieshotandspicy.com, orderfoodies2@foodieshotandspicy.com, or orderfoodies3@foodieshotandspicy.com.`,
       },
       {
         question: `How far in advance can I book?`,

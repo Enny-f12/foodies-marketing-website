@@ -284,7 +284,7 @@ export function HeroSection() {
             <Image
               src="/assets/foodies/Home.jpeg"
               alt="Foodies restaurant exterior"
-              fill className="object-cover object-center mt-10" priority sizes="100vw"
+              fill className="object-cover object-center mt-0 md:mt-10" priority sizes="100vw"
             />
           </motion.div>
 
