@@ -13,15 +13,15 @@ export const FAQ_CATEGORIES = [
       },
       {
         question: `What's the difference between pickup and delivery?`,
-        answer: `Pickup is free — you collect your food at a scheduled slot and receive a QR code for contactless collection. Delivery incurs a fee that varies by distance, provides live driver tracking (Phase 4), and may require a minimum order depending on your location.`,
+        answer: `Pickup is free — you collect your food at a scheduled slot and receive a QR code for contactless collection. Delivery incurs a fee that varies by distance, provides live driver tracking, and may require a minimum order depending on your location.`,
       },
       {
         question: `How can I track my order?`,
-        answer: `Open the app and go to My Orders. Pickup orders show real-time status (Received to Preparing to Ready for Pickup) with a QR code. Delivery orders through our partners (Chowdeck, Bolt Food, Glovo) include SMS tracking links. Our own fleet (Phase 4) will offer live map tracking with driver details and ETA.`,
+        answer: `Open the app and go to My Orders. Pickup orders show real-time status (Received to Preparing to Ready for Pickup) with a QR code. Delivery orders through our partners (Chowdeck) include SMS tracking links. Our own fleet will offer live map tracking with driver details and ETA(coming soon).`,
       },
       {
         question: `What delivery partners do you use?`,
-        answer: `We partner with Chowdeck, Bolt Food, and Glovo — all covering Lagos and Abuja. Once you place a delivery order, we prepare your food fresh, hand it to a trusted partner, and you receive tracking info. Our own Foodies fleet with live GPS tracking is coming in Phase 4.`,
+        answer: `We partner with Chowdeck — all covering Lagos and Abuja. Once you place a delivery order, we prepare your food fresh, hand it to a trusted partner, and you receive tracking info.`,
       },
       {
         question: `Do you offer contactless delivery?`,
@@ -33,7 +33,7 @@ export const FAQ_CATEGORIES = [
       },
       {
         question: `What if my order is wrong or missing?`,
-        answer: `Contact us immediately via in-app chat (Help → Report Order Issue), call us, or email ordersfoodies1@foodieshotandspicy.com. We resolve missing items with a refund or redelivery, wrong items with the correct replacement, and full order issues with a full refund plus a discount on your next order. Please report within 24 hours.`,
+        answer: `Contact us immediately via in-app chat (Help → Report Order Issue), call us, or email orderfoodies1@foodieshotandspicy.com, orderfoodies2@foodieshotandspicy.com, orderfoodies3@foodieshotandspicy.com, . We resolve missing items with a refund or redelivery, wrong items with the correct replacement, and full order issues with a full refund plus a discount on your next order. Please report within 24 hours.`,
       },
       {
         question: `What areas do you deliver to?`,
@@ -48,7 +48,7 @@ export const FAQ_CATEGORIES = [
     faqs: [
       {
         question: `How do I make a reservation?`,
-        answer: `Via the app: tap Reservations, select your branch, choose party size (1-20), pick a date (up to 30 days ahead), select a time slot, add any special requests, and confirm. You can also call Lekki on 0916 600 0666/0777 or Abuja on 0916 600 0888. Walk-ins are always welcome but reservations guarantee your table.`,
+        answer: `Via the app: tap Reservations, select your branch, choose party size (1-20), pick a date (up to 30 days ahead), select a time slot, add any special requests, and confirm. You can also call Lekki(foodies 1 branch) on 0916 600 0666 or Lekki(foodies 2 branch) 0916 600 0777 or Abuja on 0916 600 0888 (foodies 3 branch). Walk-ins are always welcome but reservations guarantee your table.`,
       },
       {
         question: `Can I book the private dining section?`,
@@ -56,7 +56,7 @@ export const FAQ_CATEGORIES = [
       },
       {
         question: `What's your cancellation policy?`,
-        answer: `Standard (1-7 guests): Cancel more than 2 hours before for free; cancellations under 2 hours receive a first-time warning and repeated late cancellations may affect future booking privileges. Large groups (8+) or Private Dining: Cancel 48+ hours ahead for full deposit refund; 24-48 hours gets 50% back; under 24 hours forfeits the deposit. Cancel in-app, by phone, or at reservations@foodies.com.ng.`,
+        answer: `Standard (1-7 guests): Cancel more than 2 hours before for free; cancellations under 2 hours receive a first-time warning and repeated late cancellations may affect future booking privileges. Large groups (8+) or Private Dining: Cancel 48+ hours ahead for full deposit refund; 24-48 hours gets 50% back; under 24 hours forfeits the deposit. Cancel in-app, by phone, or at orderfoodies1@foodies.com, orderfoodies2@foodies.com, or orderfoodies3@foodies.com.`,
       },
       {
         question: `How far in advance can I book?`,
@@ -64,7 +64,7 @@ export const FAQ_CATEGORIES = [
       },
       {
         question: `What if I'm running late?`,
-        answer: `Under 15 minutes: your table is held automatically. 15-30 minutes: please call us so we can hold your table. Over 30 minutes: your table may be released to waitlisted guests — call immediately and we'll try to accommodate you or help reschedule. Contact Foodies 1 on 0916 600 0666, Foodies 2 on 0916 600 0777, or Abuja on 0916 600 0888.`,
+        answer: `Under 15 minutes: your table is held automatically. 15-30 minutes: please call us so we can hold your table. Over 30 minutes: your table may be released to waitlisted guests — call immediately and we'll try to accommodate you or help reschedule. Contact Lekki (Foodies 1) on 0916 600 0666, Lekki (Foodies 2) on 0916 600 0777, or Abuja (Foodies 3) on 0916 600 0888.`,
       },
       {
         question: `Do you accommodate large parties?`,
@@ -141,7 +141,7 @@ export const FAQ_CATEGORIES = [
         answer: `Tap "Forgot Password?" on the login screen. Choose Email (receive a reset link valid for 30 minutes) or Phone/SMS (receive a 6-digit code). Create a new password with at least 8 characters, 1 uppercase letter, 1 number, and 1 special character. You can also reset via the website at www.foodieshotandspicy.com. Enable "Remember Me" to stay logged in for 30 days on personal devices.`,
       },
       {
-        question: `How do loyalty points work?`,
+        question: `How do loyalty points work? (coming soon)`,
         answer: `Earn 10 points per 100 naira spent. Bonuses: 500 points on first order, 250 on your birthday, 1,000 per successful referral, 50 per review. Redeem for: 500 naira off (500 pts), free juice (800 pts), free starter (1,200 pts), 2,000 naira off (1,800 pts), free meal (2,500 pts), VIP Silver status (5,000 pts). Points expire after 12 months of inactivity. Track your balance under Profile → Loyalty Card.`,
       },
       {
@@ -154,7 +154,7 @@ export const FAQ_CATEGORIES = [
       },
       {
         question: `The app isn't working — who do I contact?`,
-        answer: `First try: force close and restart (fixes 40% of issues), check for an app update (25%), restart your phone (10%), check your internet connection (5%). If the issue persists, contact us via: in-app chat (Profile → Help & Support → Chat with Us, 5-10 min response), email support@foodies.com.ng, phone +234 [Support] Mon-Sat 9am-8pm, or DM us on Instagram/Facebook/X @foodiesng.`,
+        answer: `First try: force close and restart (fixes 40% of issues), check for an app update (25%), restart your phone (10%), check your internet connection (5%). If the issue persists, contact us via: in-app chat (Profile → Help & Support → Chat with Us, 5-10 min response), email orderfoodies1@foodieshotandspicy.com, orderfoodies2@foodieshotandspicy.com, or orderfoodies3@foodieshotandspicy.com, phone: lekki (foodies 1) 0910 600 0666, lekki (foodies 2) 0910 600 0777, or Abuja (foodies 3) 0910 600 0888.`,
       },
     ],
   },
@@ -208,7 +208,7 @@ export const FAQ_CATEGORIES = [
       },
       {
         question: `How do I order a Food Trail?`,
-        answer: `In the app: Menu → Intercontinental → Food Trails. Choose Small (15 portions) or Big (30 portions), select your rice variety (Jollof, Fried, Coconut, Basmati Jollof, Vegetable, Chinese, Biryani, Coconut Fried, or Seafood Rice), choose quantity, add to cart, and checkout. By phone: call 0916 600 0666/0777 (Lekki) or 0916 600 0888 (Abuja). Recommended lead times: 1-2 trails = 24 hrs; 3-5 trails = 48 hrs; 6+ trails = 72 hrs.`,
+        answer: `In the app: Menu → Intercontinental → Food Trails. Choose Small (15 portions) or Big (30 portions), select your rice variety (Jollof, Fried, Coconut, Basmati Jollof, Vegetable, Chinese, Biryani, Coconut Fried, or Seafood Rice), choose quantity, add to cart, and checkout. By phone: call Lekki(foodies 1) 0916 600 0666, Lekki(foodies 2) 0916 6000777 or  Abuja 0916 600 0888. Recommended lead times: 1-2 trails = 24 hrs; 3-5 trails = 48 hrs; 6+ trails = 72 hrs.`,
       },
       {
         question: `What's your minimum order for catering?`,
@@ -230,7 +230,7 @@ export const FAQ_CATEGORIES = [
   },
   {
     id: "loyalty",
-    label: "Loyalty & Rewards",
+    label: "Loyalty & Rewards (coming soon)",
     Icon: Star,
     faqs: [
       {

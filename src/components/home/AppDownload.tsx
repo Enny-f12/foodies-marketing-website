@@ -125,16 +125,7 @@ export default function AppDownload() {
           style={{ color: "var(--color-on-ink-muted)" }}
           variants={fadeUp}
         >
-          Download the Foodies app today and get{" "}
-          <motion.strong
-            style={{ color: "var(--color-secondary)" }}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.45, ease: spring2, delay: 0.4 }}
-          >
-            ₦2,000 off
-          </motion.strong>{" "}
-          your first order.
+          Download the Foodies app today
         </motion.p>
 
         {/* App buttons */}
@@ -182,7 +173,7 @@ export default function AppDownload() {
           style={{ color: "var(--color-on-ink-muted)" }}
           variants={fadeIn}
         >
-          *Terms and conditions apply. New users only.
+          Terms and conditions apply. New users only.
         </motion.p>
 
       </motion.div>

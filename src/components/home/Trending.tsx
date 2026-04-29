@@ -89,36 +89,28 @@ const ctaVariants: Variants = {
   visible: { opacity: 1, x: 0, transition: t2({ delay: 0.3 }) },
 };
 
-/* Entry animations — hero gets a dramatic reveal, others stagger in */
 function getCardVariants(isHero: boolean, index: number): Variants {
   if (isHero) {
     return {
       hidden: { opacity: 0, scale: 0.92, y: 40 },
-      visible: {
-        opacity: 1, scale: 1, y: 0,
-        transition: t1({ delay: 0.1 }),
-      },
+      visible: { opacity: 1, scale: 1, y: 0, transition: t1({ delay: 0.1 }) },
     };
   }
-  /* Non-hero: alternate slide from left/right based on column */
   const col = (index - 1) % 2;
   return {
     hidden: { opacity: 0, x: col === 0 ? -30 : 30, y: 20 },
-    visible: {
-      opacity: 1, x: 0, y: 0,
-      transition: t1({ delay: 0.1 + (index - 1) * 0.08 }),
-    },
+    visible: { opacity: 1, x: 0, y: 0, transition: t1({ delay: 0.1 + (index - 1) * 0.08 }) },
   };
 }
 
-/* ── Hero card — magnetic 3D tilt ──────────────────────────────────── */
+/* ── Hero card ──────────────────────────────────────────────────────── */
 function HeroCard({ dish }: { dish: typeof dishes[0] }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref     = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px 0px" });
+  const inView  = useInView(ref, { once: true, margin: "-60px 0px" });
 
-  const rawX = useMotionValue(0);
-  const rawY = useMotionValue(0);
+  const rawX    = useMotionValue(0);
+  const rawY    = useMotionValue(0);
   const springX = useSpring(rawX, { stiffness: 100, damping: 20 });
   const springY = useSpring(rawY, { stiffness: 100, damping: 20 });
   const rotateY = useTransform(springX, [-0.5, 0.5], [-8, 8]);
@@ -128,14 +120,13 @@ function HeroCard({ dish }: { dish: typeof dishes[0] }) {
     const rect = cardRef.current?.getBoundingClientRect();
     if (!rect) return;
     rawX.set((e.clientX - rect.left) / rect.width - 0.5);
-    rawY.set((e.clientY - rect.top) / rect.height - 0.5);
+    rawY.set((e.clientY - rect.top)  / rect.height - 0.5);
   };
   const handleMouseLeave = () => { rawX.set(0); rawY.set(0); };
 
-  const variants = getCardVariants(true, 0);
-
   return (
-    <div ref={ref} className="sm:row-span-2" style={{ perspective: 1000 }}>
+    /* h-full fills the grid row height — no hardcoded row-span class needed */
+    <div ref={ref} className="h-full" style={{ perspective: 1000 }}>
       <motion.div
         ref={cardRef}
         className="relative overflow-hidden cursor-pointer rounded-xl h-full"
@@ -144,43 +135,24 @@ function HeroCard({ dish }: { dish: typeof dishes[0] }) {
           transformStyle: "preserve-3d",
           minHeight: "clamp(360px, 55vw, 560px)",
         }}
-        variants={variants}
+        variants={getCardVariants(true, 0)}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         whileHover={{ scale: 1.015, transition: { duration: 0.3 } }}
       >
-        {/* Image with parallax shift */}
-        <motion.div
-          className="absolute inset-0 overflow-hidden"
-          style={{ scale: 1.08 }}
-        >
+        <motion.div className="absolute inset-0 overflow-hidden" style={{ scale: 1.08 }}>
           <motion.div
             className="w-full h-full relative"
             style={{ y: useTransform(springY, [-0.5, 0.5], [-12, 12]) }}
           >
-            <Image
-              src={dish.image}
-              alt={dish.name}
-              fill
-              className="object-cover"
-              sizes="(max-width:640px) 100vw, 33vw"
-              priority
-            />
+            <Image src={dish.image} alt={dish.name} fill className="object-cover" sizes="(max-width:640px) 100vw, 33vw" priority />
           </motion.div>
         </motion.div>
 
-        {/* Gradient */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.28) 50%, rgba(0,0,0,0.05) 100%)",
-          }}
-        />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.28) 50%, rgba(0,0,0,0.05) 100%)" }} />
 
-        {/* Animated pulse ring */}
         <motion.div
           className="absolute inset-0 pointer-events-none rounded-xl"
           style={{ border: "2px solid var(--color-primary)" }}
@@ -188,33 +160,21 @@ function HeroCard({ dish }: { dish: typeof dishes[0] }) {
           transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        {/* Top badge */}
         <motion.div
           className="absolute top-3 left-3 right-3 flex items-start justify-between z-10"
           initial={{ opacity: 0, y: -10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <span
-            className="text-[9px] font-black uppercase tracking-[0.22em] px-2.5 py-1"
-            style={{ background: "var(--color-primary)", color: "white" }}
-          >
+          <span className="text-[9px] font-black uppercase tracking-[0.22em] px-2.5 py-1" style={{ background: "var(--color-primary)", color: "white" }}>
             {dish.tag}
           </span>
         </motion.div>
 
-        {/* Bottom info */}
         <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
-          <motion.div
-            className="flex items-center gap-1.5 mb-2"
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.6 }}
-          >
+          <motion.div className="flex items-center gap-1.5 mb-2" initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.5, delay: 0.6 }}>
             <Star size={10} fill="var(--color-secondary)" style={{ color: "var(--color-secondary)" }} />
-            <span className="text-[10px] font-bold" style={{ color: "var(--color-secondary)" }}>
-              {dish.rating}
-            </span>
+            <span className="text-[10px] font-bold" style={{ color: "var(--color-secondary)" }}>{dish.rating}</span>
             <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.45)" }}>avg rating</span>
           </motion.div>
 
@@ -239,20 +199,9 @@ function HeroCard({ dish }: { dish: typeof dishes[0] }) {
             </motion.span>
           </div>
 
-          {/* CTA — always visible on hero, slides up */}
-          <motion.div
-            className="mt-3 flex items-center gap-2"
-            initial={{ opacity: 0, y: 8 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.75 }}
-          >
-            <span className="text-[10px] font-black uppercase tracking-[0.2em]" style={{ color: "var(--color-secondary)" }}>
-              Order in app
-            </span>
-            <motion.span
-              animate={{ x: [0, 4, 0] }}
-              transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-            >
+          <motion.div className="mt-3 flex items-center gap-2" initial={{ opacity: 0, y: 8 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.75 }}>
+            <span className="text-[10px] font-black uppercase tracking-[0.2em]" style={{ color: "var(--color-secondary)" }}>Order in app</span>
+            <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}>
               <ArrowRight size={11} style={{ color: "var(--color-secondary)" }} />
             </motion.span>
           </motion.div>
@@ -264,49 +213,32 @@ function HeroCard({ dish }: { dish: typeof dishes[0] }) {
 
 /* ── Regular card ───────────────────────────────────────────────────── */
 function DishCard({ dish, index }: { dish: typeof dishes[0]; index: number }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px 0px" });
-  const variants = getCardVariants(false, index);
 
   return (
     <motion.div
       ref={ref}
-      className="group relative overflow-hidden cursor-pointer rounded-xl"
+      className="group relative overflow-hidden cursor-pointer rounded-xl h-full"
       style={{ minHeight: "clamp(180px, 22vw, 260px)" }}
-      variants={variants}
+      variants={getCardVariants(false, index)}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       whileHover={{ y: -4, transition: { duration: 0.3, ease: spring2 } }}
     >
-      {/* Image zoom on hover */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="w-full h-full relative"
-          whileHover={{ scale: 1.08 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-        >
-          <Image
-            src={dish.image}
-            alt={dish.name}
-            fill
-            className=" object-cover"
-            sizes="(max-width:640px) 50vw, 22vw"
-          />
+        <motion.div className="w-full h-full relative" whileHover={{ scale: 1.08 }} transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}>
+          <Image src={dish.image} alt={dish.name} fill className="object-cover" sizes="(max-width:640px) 50vw, 22vw" />
         </motion.div>
       </div>
 
-      {/* Gradient — deepens on hover */}
       <motion.div
         className="absolute inset-0"
         initial={{ opacity: 0.8 }}
         whileHover={{ opacity: 1 }}
-        style={{
-          background:
-            "linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.10) 60%, rgba(0,0,0,0) 100%)",
-        }}
+        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.10) 60%, rgba(0,0,0,0) 100%)" }}
       />
 
-      {/* Left accent bar — slides in on hover */}
       <motion.div
         className="absolute left-0 top-0 bottom-0 w-0.75 z-20"
         style={{ background: "var(--color-primary)", originY: 0 }}
@@ -315,13 +247,12 @@ function DishCard({ dish, index }: { dish: typeof dishes[0]; index: number }) {
         transition={{ duration: 0.35, ease: spring2 }}
       />
 
-      {/* Top badges */}
       <div className="absolute top-3 left-3 right-3 flex items-start justify-between z-10">
         <motion.span
           className="text-[9px] font-black uppercase tracking-[0.22em] px-2.5 py-1"
           style={{
-            background: index === 4 ? "var(--color-secondary)" : "rgba(0,0,0,0.55)",
-            color:      index === 4 ? "var(--color-surface-ink)" : "white",
+            background:     index === 4 ? "var(--color-secondary)" : "rgba(0,0,0,0.55)",
+            color:          index === 4 ? "var(--color-surface-ink)" : "white",
             backdropFilter: "blur(4px)",
           }}
           initial={{ opacity: 0, x: -10 }}
@@ -334,21 +265,12 @@ function DishCard({ dish, index }: { dish: typeof dishes[0]; index: number }) {
         {dish.spicy && (
           <motion.span
             className="flex items-center gap-1 px-2 py-1 text-[9px] font-bold uppercase tracking-wider"
-            style={{
-              background: "rgba(0,0,0,0.55)",
-              backdropFilter: "blur(4px)",
-              color: "var(--color-warning)",
-            }}
+            style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(4px)", color: "var(--color-warning)" }}
             initial={{ opacity: 0, scale: 0.7 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.4, ease: spring2, delay: 0.3 + index * 0.05 }}
           >
-            {/* Spicy flame — wiggles on card hover */}
-            <motion.span
-              animate={{ rotate: [0, -8, 8, -4, 0] }}
-              transition={{ duration: 0.6, repeat: Infinity, repeatDelay: 2 }}
-              style={{ display: "inline-flex" }}
-            >
+            <motion.span animate={{ rotate: [0, -8, 8, -4, 0] }} transition={{ duration: 0.6, repeat: Infinity, repeatDelay: 2 }} style={{ display: "inline-flex" }}>
               <Flame size={10} fill="currentColor" />
             </motion.span>
             Spicy
@@ -356,45 +278,24 @@ function DishCard({ dish, index }: { dish: typeof dishes[0]; index: number }) {
         )}
       </div>
 
-      {/* Bottom info */}
       <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
         <div className="flex items-center gap-1.5 mb-2">
           <Star size={10} fill="var(--color-secondary)" style={{ color: "var(--color-secondary)" }} />
-          <span className="text-[10px] font-bold" style={{ color: "var(--color-secondary)" }}>
-            {dish.rating}
-          </span>
+          <span className="text-[10px] font-bold" style={{ color: "var(--color-secondary)" }}>{dish.rating}</span>
           <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.45)" }}>avg rating</span>
         </div>
 
         <div className="flex items-end justify-between gap-2">
-          <h4
-            className="font-display font-black leading-tight"
-            style={{ color: "white", fontSize: "clamp(0.85rem,1.5vw,1rem)" }}
-          >
+          <h4 className="font-display font-black leading-tight" style={{ color: "white", fontSize: "clamp(0.85rem,1.5vw,1rem)" }}>
             {dish.name}
           </h4>
-          <motion.span
-            className="font-display font-black shrink-0"
-            style={{ color: "var(--color-secondary)", fontSize: "0.95rem" }}
-            whileHover={{ y: -2, transition: { duration: 0.2, ease: spring2 } }}
-          >
+          <motion.span className="font-display font-black shrink-0" style={{ color: "var(--color-secondary)", fontSize: "0.95rem" }} whileHover={{ y: -2, transition: { duration: 0.2, ease: spring2 } }}>
             {dish.price}
           </motion.span>
         </div>
 
-        {/* CTA slides up on hover */}
-        <motion.div
-          className="flex items-center gap-2 mt-3"
-          initial={{ opacity: 0, y: 8 }}
-          whileHover={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.25 }}
-        >
-          <span
-            className="text-[10px] font-black uppercase tracking-[0.2em]"
-            style={{ color: "var(--color-secondary)" }}
-          >
-            Order in app
-          </span>
+        <motion.div className="flex items-center gap-2 mt-3" initial={{ opacity: 0, y: 8 }} whileHover={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}>
+          <span className="text-[10px] font-black uppercase tracking-[0.2em]" style={{ color: "var(--color-secondary)" }}>Order in app</span>
           <ArrowRight size={11} style={{ color: "var(--color-secondary)" }} />
         </motion.div>
       </div>
@@ -402,63 +303,56 @@ function DishCard({ dish, index }: { dish: typeof dishes[0]; index: number }) {
   );
 }
 
+/* ── Explicit grid placement per index ──────────────────────────────── */
+//
+//  Desktop (sm+) layout:
+//  ┌─────────────────┬────────────────────────────┐
+//  │ Hero (row-span) │ Card 2 (col-span-2)        │
+//  │                 ├──────────────┬─────────────┤
+//  │                 │ Card 3       │ Card 4      │
+//  ├─────────────────┴──────────────┼─────────────┤
+//  │ Card 5 (col-span-2)           │ Card 6      │
+//  └───────────────────────────────┴─────────────┘
+//
+const gridClass = [
+  "sm:[grid-column:1]   sm:[grid-row:1/3]",  // 0 Hero
+  "sm:[grid-column:2/4] sm:[grid-row:1]",    // 1 Card2
+  "sm:[grid-column:2]   sm:[grid-row:2]",    // 2 Card3
+  "sm:[grid-column:3]   sm:[grid-row:2]",    // 3 Card4
+  "sm:[grid-column:1/3] sm:[grid-row:3]",    // 4 Card5
+  "sm:[grid-column:3]   sm:[grid-row:3]",    // 5 Card6
+];
+
 /* ── Main component ─────────────────────────────────────────────────── */
 export function TrendingSection() {
-  const headerRef = useRef<HTMLDivElement>(null);
+  const headerRef   = useRef<HTMLDivElement>(null);
   const headerInView = useInView(headerRef, { once: true, margin: "-60px 0px" });
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const bottomRef   = useRef<HTMLDivElement>(null);
   const bottomInView = useInView(bottomRef, { once: true, margin: "-40px 0px" });
 
   return (
     <section style={{ background: "var(--color-bg-soft)" }}>
-      <div
-        className="max-w-7xl mx-auto"
-        style={{ padding: "clamp(4rem,8vw,6rem) clamp(1.25rem,5vw,3rem)" }}
-      >
+      <div className="max-w-7xl mx-auto" style={{ padding: "clamp(4rem,8vw,6rem) clamp(1.25rem,5vw,3rem)" }}>
 
         {/* Header */}
-        <div
-          ref={headerRef}
-          className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-10"
-        >
-          <motion.div
-            variants={headerVariants}
-            initial="hidden"
-            animate={headerInView ? "visible" : "hidden"}
-          >
+        <div ref={headerRef} className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-10">
+          <motion.div variants={headerVariants} initial="hidden" animate={headerInView ? "visible" : "hidden"}>
             <div className="flex items-center gap-3 mb-3">
-              <motion.div
-                className="h-px shrink-0"
-                style={{ background: "var(--color-primary)" }}
-                variants={lineVariants}
-                initial="hidden"
-                animate={headerInView ? "visible" : "hidden"}
-              />
+              <motion.div className="h-px shrink-0" style={{ background: "var(--color-primary)" }} variants={lineVariants} initial="hidden" animate={headerInView ? "visible" : "hidden"} />
               <span className="section-label">Featured Dishes</span>
             </div>
-            <h2
-              className="font-display font-black leading-tight"
-              style={{ color: "var(--color-heading)", fontSize: "clamp(1.8rem,3.5vw,2.6rem)" }}
-            >
-              Trending This Week
-              <br />
+            <h2 className="font-display font-black leading-tight" style={{ color: "var(--color-heading)", fontSize: "clamp(1.8rem,3.5vw,2.6rem)" }}>
+              Trending This Week<br />
               <span className="text-gradient">at Foodies</span>
             </h2>
           </motion.div>
 
-          <motion.div
-            variants={ctaVariants}
-            initial="hidden"
-            animate={headerInView ? "visible" : "hidden"}
-          >
+          <motion.div variants={ctaVariants} initial="hidden" animate={headerInView ? "visible" : "hidden"}>
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Link
                 href="/menu"
                 className="group inline-flex items-center gap-2 px-5 py-3 font-bold text-xs uppercase tracking-widest transition-colors duration-200 shrink-0"
-                style={{
-                  border: "1px solid var(--color-border)",
-                  color:  "var(--color-heading)",
-                }}
+                style={{ border: "1px solid var(--color-border)", color: "var(--color-heading)" }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.background  = "var(--color-primary)";
                   (e.currentTarget as HTMLElement).style.borderColor = "var(--color-primary)";
@@ -471,11 +365,7 @@ export function TrendingSection() {
                 }}
               >
                 View Full Menu
-                <motion.span
-                  className="inline-flex"
-                  whileHover={{ x: 3 }}
-                  transition={{ duration: 0.2 }}
-                >
+                <motion.span className="inline-flex" whileHover={{ x: 3 }} transition={{ duration: 0.2 }}>
                   <ArrowRight size={14} />
                 </motion.span>
               </Link>
@@ -483,15 +373,16 @@ export function TrendingSection() {
           </motion.div>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-          {dishes.map((dish, i) =>
-            i === 0 ? (
-              <HeroCard key={dish.name} dish={dish} />
-            ) : (
-              <DishCard key={dish.name} dish={dish} index={i} />
-            )
-          )}
+        {/* ── Grid ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+          {dishes.map((dish, i) => (
+            <div key={dish.name} className={gridClass[i]}>
+              {i === 0
+                ? <HeroCard dish={dish} />
+                : <DishCard dish={dish} index={i} />
+              }
+            </div>
+          ))}
         </div>
 
         {/* Bottom strip */}
@@ -508,11 +399,7 @@ export function TrendingSection() {
             {" "}dishes available with live stock visibility in the app.
           </p>
           <motion.div whileHover={{ x: 3 }} transition={{ duration: 0.2 }}>
-            <Link
-              href="/download"
-              className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest transition-opacity hover:opacity-70"
-              style={{ color: "var(--color-primary)" }}
-            >
+            <Link href="/download" className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest transition-opacity hover:opacity-70" style={{ color: "var(--color-primary)" }}>
               Download App to Order
               <ArrowRight size={13} />
             </Link>
